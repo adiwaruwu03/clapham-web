@@ -15,7 +15,7 @@ export interface EventData {
 export const eventsData: EventData[] = [
   {
     slug: "clapham-conference-2025",
-    image: "/images/event-conference-2025.JPG",
+    image: "/images/event-conference-2025.jpg",
     name: "Clapham Conference",
     type: "Conference",
     impact: "500+ peserta dari 15 industri berbeda",
@@ -144,7 +144,7 @@ export const eventsData: EventData[] = [
   },
   {
     slug: "creative-workshop-series",
-    image: "/images/work-6.JPG",
+    image: "/images/work-6.jpg",
     name: "Creative Workshop Series",
     type: "Creative",
     impact: "12 workshop, 400+ peserta sepanjang tahun",
