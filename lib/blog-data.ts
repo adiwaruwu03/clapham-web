@@ -15,7 +15,7 @@ export interface BlogArticle {
 export const blogData: BlogArticle[] = [
   {
     slug: "persiapan-72-jam-sebelum-konferensi",
-    image: "/images/bloger-5.jpg",
+    image: "/images/bloger-5.JPG",
     category: "Behind the Scenes",
     title: "Persiapan 72 Jam Sebelum Konferensi: Yang Tidak Terlihat",
     excerpt:
@@ -46,7 +46,7 @@ export const blogData: BlogArticle[] = [
   },
   {
     slug: "5-kesalahan-fatal-event-korporat",
-    image: "/images/galeri-conf.jpg",
+    image: "/images/galeri-conf.JPG",
     category: "Event Strategy",
     title: "5 Kesalahan Fatal dalam Merencanakan Event Korporat",
     excerpt:
@@ -78,7 +78,7 @@ export const blogData: BlogArticle[] = [
   },
   {
     slug: "event-terbaik-dimulai-dari-mendengarkan",
-    image: "/images/bloger-2.jpg",
+    image: "/images/bloger-2.JPG",
     category: "Field Lessons",
     title: "Mengapa Event Terbaik Dimulai dari Mendengarkan",
     excerpt:
