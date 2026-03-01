@@ -29,7 +29,7 @@ export function HeroSection() {
 
   return (
     <section id="home" className="relative min-h-screen overflow-hidden">
-      {/* Carousel */}
+      {/* Carousel Images */}
       <div className="absolute inset-0">
         {slides.map((slide, i) => (
           <div
@@ -45,29 +45,30 @@ export function HeroSection() {
               className="object-cover"
               priority={i === 0}
             />
-            <div className="absolute inset-0 bg-foreground/60" />
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/40" />
           </div>
         ))}
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-start justify-center px-6 lg:px-8">
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-start justify-center px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
-          <h1 className="font-serif text-4xl font-bold leading-tight tracking-tight text-primary-foreground md:text-5xl lg:text-6xl text-balance">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-white">
             Kami Mewujudkan Ide, dan Membantu Anda Mencapai Tujuan
           </h1>
-          <p className="mt-6 text-lg leading-relaxed text-primary-foreground/80 md:text-xl text-pretty">
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-white/80">
             Manajemen event strategis untuk brand, organisasi, dan komunitas yang ingin menciptakan dampak nyata.
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Button asChild size="lg" className="rounded-full bg-card text-card-foreground hover:bg-card/90 px-8">
+          <div className="mt-6 sm:mt-10 flex flex-wrap gap-4">
+            <Button asChild size="lg" className="rounded-full bg-white text-black hover:bg-gray-200 px-6 sm:px-8">
               <a href="#contact">Rencanakan Event Anda</a>
             </Button>
             <Button
               asChild
               variant="outline"
               size="lg"
-              className="rounded-full border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground px-8"
+              className="rounded-full border-white/60 text-white hover:bg-white/10 px-6 sm:px-8"
             >
               <a href="#events">Lihat Karya Kami</a>
             </Button>
@@ -75,38 +76,36 @@ export function HeroSection() {
         </div>
 
         {/* Slide indicators */}
-        <div className="absolute bottom-12 left-6 flex items-center gap-6 lg:left-8">
+        <div className="absolute bottom-6 left-4 flex items-center gap-4 sm:bottom-8 sm:left-6 lg:bottom-12 lg:left-8">
           <div className="flex gap-2">
             {slides.map((slide, i) => (
               <button
                 key={slide.src}
                 onClick={() => setCurrent(i)}
                 className={`h-1.5 rounded-full transition-all duration-500 ${
-                  i === current
-                    ? "w-8 bg-primary-foreground"
-                    : "w-4 bg-primary-foreground/40"
+                  i === current ? "w-8 bg-white" : "w-4 bg-white/50"
                 }`}
                 aria-label={`Go to slide ${i + 1}: ${slide.label}`}
               />
             ))}
           </div>
-          <span className="text-xs font-medium uppercase tracking-widest text-primary-foreground/60">
+          <span className="hidden sm:block text-xs font-medium uppercase tracking-widest text-white/70 ml-4">
             {slides[current].label}
           </span>
         </div>
 
         {/* Navigation arrows */}
-        <div className="absolute right-6 bottom-12 flex gap-2 lg:right-8">
+        <div className="absolute right-4 bottom-6 flex gap-2 sm:right-6 sm:bottom-8 lg:right-8 lg:bottom-12">
           <button
             onClick={prev}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-primary-foreground/30 text-primary-foreground/70 transition-colors hover:bg-primary-foreground/10 hover:text-primary-foreground"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/50 text-white/70 transition-colors hover:bg-white/10 hover:text-white"
             aria-label="Previous slide"
           >
             <ChevronLeft className="h-5 w-5" />
           </button>
           <button
             onClick={next}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-primary-foreground/30 text-primary-foreground/70 transition-colors hover:bg-primary-foreground/10 hover:text-primary-foreground"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/50 text-white/70 transition-colors hover:bg-white/10 hover:text-white"
             aria-label="Next slide"
           >
             <ChevronRight className="h-5 w-5" />

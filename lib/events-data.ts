@@ -42,7 +42,7 @@ export const eventsData: EventData[] = [
   },
   {
     slug: "above-and-beyond-seminar",
-    image: "/images/above/above (5).jpg",
+    image: "/images/above-5.jpg",
     name: "Above and Beyond Seminar",
     type: "Brand",
     impact: "Kolaborasi dengan 8 brand nasional",
@@ -68,7 +68,7 @@ export const eventsData: EventData[] = [
   },
   {
     slug: "community-creative-gathering",
-    image:  "/images/above/above (6).jpg",
+    image:  "/images/above-6.jpg",
     name: "Community Creative Gathering",
     type: "Community",
     impact: "200+ anggota komunitas kreatif aktif",
@@ -94,7 +94,7 @@ export const eventsData: EventData[] = [
   },
   {
     slug: "medan-innovation-summit",
-    image: "/images/above/above (7).jpg",
+    image: "/images/above-7.jpg",
     name: "Medan Innovation Summit",
     type: "Conference",
     impact: "30 pembicara, 3 hari penuh inspirasi",
@@ -120,7 +120,7 @@ export const eventsData: EventData[] = [
   },
   {
     slug: "brand-experience-festival",
-    image: "/images/above/above (8).jpg",
+    image: "/images/above-8.jpg",
     name: "Brand Experience Festival",
     type: "Brand",
     impact: "Engagement rate 85% dari target audiens",
@@ -146,7 +146,7 @@ export const eventsData: EventData[] = [
   },
   {
     slug: "creative-workshop-series",
-    image: "/images/above/work 6.JPG",
+    image: "/images/work-6.JPG",
     name: "Creative Workshop Series",
     type: "Creative",
     impact: "12 workshop, 400+ peserta sepanjang tahun",
