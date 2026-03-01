@@ -12,19 +12,19 @@ export const metadata: Metadata = {
   icons:{
     icon: [
       {
-        url: '/Clapham logo.jpg',
+        url: '/clp-logo.jpg',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/Clapham logo.jpg',
+        url: '/clp-logo.jpg',
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/Clapham logo.jpg',
+        url: '/clp-logo.jpg',
         type: 'image/svg+xml',
       },
     ],
-    apple: '/Clapham logo.jpg',
+    apple: '/clp-logo.jpg',
   },
 }
 
