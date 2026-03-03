@@ -27,28 +27,28 @@ const services = [
 const steps = [
   {
     number: "01",
-    title: "Dengarkan",
-    description: "Mendengarkan kebutuhan dan tujuan acara",
+    title: "Konsultasi Kebutuhan",
+    description: "Mengidentifikasi kebutuhan, tujuan, serta skala kegiatan yang akan diselenggarakan.",
   },
   {
     number: "02",
-    title: "Konsep",
-    description: "Menyusun konsep dan alur acara",
+    title: "Perencanaan Konsep",
+    description: "Menyusun konsep kegiatan, alur pelaksanaan, serta penyesuaian fasilitas yang diperlukan.",
   },
   {
     number: "03",
-    title: "Persiapan",
-    description: "Mengatur teknis, timeline, dan anggaran",
+    title: "Koordinasi & Persiapan",
+    description: "Menyiapkan aspek teknis, pengaturan jadwal, serta dukungan fasilitas secara menyeluruh.",
   },
   {
     number: "04",
-    title: "Eksekusi",
-    description: "Menjalankan acara di hari pelaksanaan",
+    title: "Pelaksanaan Kegiatan",
+    description: "Mendukung dan memastikan kegiatan berjalan dengan tertib, nyaman, dan sesuai rencana.",
   },
   {
     number: "05",
-    title: "Evaluasi",
-    description: "Laporan dan evaluasi pasca acara",
+    title: "Tindak Lanjut & Evaluasi",
+    description: "Memberikan dokumentasi serta melakukan evaluasi untuk peningkatan kualitas layanan.",
   },
 ]
 

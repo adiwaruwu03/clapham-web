@@ -12,6 +12,7 @@ const socials = [
 const kontak =[
   { label: "Email: hello@clapham.id", href: "hello@clapham.id"},
   { label: "Google Maps", href: "https://share.google/g08ZHD1iQsYRntBuh"},
+  { label: "WhatsApp", href: "https://wa.me/6285353729190?text=Halo%20Clapham,%0A%0A%20Saya%20ingin%20berkolaborasi%20dengan%20Clapham.%20Bisakah%20kita%20diskusi%20lebih%20lanjut?"}
 ]
 
 export function SiteFooter() {

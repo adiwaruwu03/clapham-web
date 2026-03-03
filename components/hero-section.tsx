@@ -68,7 +68,7 @@ export function HeroSection() {
               asChild
               variant="outline"
               size="lg"
-              className="rounded-full border-white/60 text-white hover:bg-white/10 px-6 sm:px-8"
+              className="rounded-full bg-white text-black hover:bg-gray-200 px-6 sm:px-8"
             >
               <a href="#events">Lihat Karya Kami</a>
             </Button>

@@ -23,7 +23,7 @@ export function EventsSection() {
           Recent Events
         </p>
         <h2 className="mt-3 font-serif text-3xl font-bold text-foreground md:text-4xl">
-          Event Terbaru
+          Event Kami
         </h2>
 
         {/* Filters */}

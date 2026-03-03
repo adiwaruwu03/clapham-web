@@ -36,10 +36,10 @@ export function ContactSection() {
 
     const text = `Halo Clapham,%0A%0A
 Nama: ${name}%0A
-Organisasi: ${org}%0A
+Perusahaan: ${org}%0A
 Email: ${email}%0A
 Perkiraan Tanggal: ${date}%0A%0A
-Pesan:%0A${message}`
+Detail Kebutuhan:%0A${message}`
 
     const whatsappURL = `https://wa.me/6285353729190?text=${text}`
 
@@ -60,8 +60,7 @@ Pesan:%0A${message}`
               {"Let's Collaborate"}
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground max-w-md">
-              Ceritakan ide event Anda, kami akan membantu membentuknya menjadi pengalaman yang bermakna.
-            </p>
+             Sampaikan konsep dan tujuan acara Anda. Tim kami akan membantu mengembangkan strategi, desain, dan eksekusi untuk menciptakan pengalaman yang relevan dan memberikan dampak nyata. </p>
           </div>
 
           <form
@@ -74,7 +73,7 @@ Pesan:%0A${message}`
                 <Input id="name" name="name" required />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="org">Organisasi</Label>
+                <Label htmlFor="org">Nama Perusahaan</Label>
                 <Input id="org" name="org" />
               </div>
             </div>
@@ -95,7 +94,7 @@ Pesan:%0A${message}`
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="message">Pesan</Label>
+              <Label htmlFor="message">Detail Kebutuhan</Label>
               <Textarea
                 id="message"
                 name="message"

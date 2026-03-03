@@ -19,7 +19,7 @@ export function FeaturedMoments() {
           Featured Moments
         </p>
         <h2 className="mt-3 font-serif text-3xl font-bold text-foreground md:text-4xl text-balance">
-          Event Unggulan Kami
+          Event Terbaru Kami
         </h2>
 
         <div className="mt-16 grid gap-8 md:grid-cols-3">

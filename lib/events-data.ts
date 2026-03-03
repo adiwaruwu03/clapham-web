@@ -10,9 +10,41 @@ export interface EventData {
   content: string[]
   highlights: string[]
   gallery: string[]
+  storySections?: {
+    image: string
+    title: string
+    description: string
+  }[]
 }
 
 export const eventsData: EventData[] = [
+  {
+    slug: "above-and-beyond-seminar",
+    image: "/images/beyoundbg.png",
+    name: "Above and Beyond Seminar",
+    type: "Brand",
+    impact: "Kolaborasi dengan 8 brand nasional",
+    date: "22 Januari 2025",
+    location: "Clapham Collective, Medan",
+    description:
+      "Seminar intensif yang membahas strategi inovatif untuk pertumbuhan bisnis dan personal.",
+    content: [
+      "Above and Beyond Seminar adalah program seminar intensif yang dirancang khusus untuk para profesional dan pelaku bisnis yang ingin melampaui batasan konvensional. Acara ini berhasil menghadirkan kolaborasi dengan 8 brand nasional terkemuka yang masing-masing memberikan perspektif unik tentang strategi pertumbuhan.",
+      "Seminar ini menghadirkan sesi-sesi mendalam tentang personal branding, digital marketing strategy, dan leadership development. Setiap sesi dirancang untuk memberikan takeaway yang langsung dapat diimplementasikan oleh peserta dalam karir dan bisnis mereka.",
+      "Dengan format yang menggabungkan presentasi, panel diskusi, dan sesi tanya jawab interaktif, peserta mendapatkan pengalaman belajar yang komprehensif. Para pembicara dari berbagai brand nasional berbagi studi kasus nyata dan strategi yang telah terbukti berhasil di pasar Indonesia.",
+    ],
+    highlights: [
+      "8 brand nasional sebagai collaborator",
+      "Workshop personal branding intensif",
+      "Panel diskusi dengan CEO dan founder",
+      "Sertifikat profesional untuk peserta",
+      "Akses ke materi eksklusif pasca-acara",
+    ],
+    
+    gallery: [
+       
+    ],
+  },
   {
     slug: "clapham-conference-2025",
     image: "/images/event-conference-2025.JPG",
@@ -35,33 +67,49 @@ export const eventsData: EventData[] = [
       "Exhibition area dengan 30+ booth partner",
       "Live streaming untuk peserta virtual",
     ],
-    gallery: [
-    ],
+    storySections: [
+  {
+    image: "/images/1.avif",
+    title: "Startup Medan 2016",
+    description:
+      "Startup dibangun dengan tujuan utama untuk menyelesaikan masalah nyata di masyarakat melalui solusi yang inovatif, efisien, dan scalable, biasanya dengan memanfaatkan teknologi atau model bisnis baru. Kehadiran startup di sebuah kota memberikan banyak manfaat, seperti menciptakan lapangan kerja baru, mendorong pertumbuhan ekonomi lokal, meningkatkan daya saing dan citra kota sebagai pusat inovasi, serta membangun ekosistem kreatif yang menghubungkan talenta, investor, dan pelaku usaha. Dengan demikian, startup tidak hanya menjadi mesin pertumbuhan bisnis, tetapi juga menjadi katalis perkembangan sosial dan ekonomi suatu kota secara berkelanjutan.",
   },
   {
-    slug: "above-and-beyond-seminar",
-    image: "/images/above-5.jpg",
-    name: "Above and Beyond Seminar",
-    type: "Brand",
-    impact: "Kolaborasi dengan 8 brand nasional",
-    date: "22 Januari 2025",
-    location: "Clapham Collective, Medan",
+    image: "/images/2.avif",
+    title: "Startup medan 2018",
     description:
-      "Seminar intensif yang membahas strategi inovatif untuk pertumbuhan bisnis dan personal.",
-    content: [
-      "Above and Beyond Seminar adalah program seminar intensif yang dirancang khusus untuk para profesional dan pelaku bisnis yang ingin melampaui batasan konvensional. Acara ini berhasil menghadirkan kolaborasi dengan 8 brand nasional terkemuka yang masing-masing memberikan perspektif unik tentang strategi pertumbuhan.",
-      "Seminar ini menghadirkan sesi-sesi mendalam tentang personal branding, digital marketing strategy, dan leadership development. Setiap sesi dirancang untuk memberikan takeaway yang langsung dapat diimplementasikan oleh peserta dalam karir dan bisnis mereka.",
-      "Dengan format yang menggabungkan presentasi, panel diskusi, dan sesi tanya jawab interaktif, peserta mendapatkan pengalaman belajar yang komprehensif. Para pembicara dari berbagai brand nasional berbagi studi kasus nyata dan strategi yang telah terbukti berhasil di pasar Indonesia.",
-    ],
-    highlights: [
-      "8 brand nasional sebagai collaborator",
-      "Workshop personal branding intensif",
-      "Panel diskusi dengan CEO dan founder",
-      "Sertifikat profesional untuk peserta",
-      "Akses ke materi eksklusif pasca-acara",
-    ],
+      "Event startup kali ini bertujuan menghadirkan inspirasi dan transfer pengetahuan dari perusahaan yang telah berkembang pesat seperti Bukalapak dan Gojek kepada para pelaku usaha, mahasiswa, dan komunitas kreatif di Kota Medan, sehingga tercipta ruang kolaborasi, pembelajaran, dan peluang nyata bagi lahirnya startup-startup baru yang inovatif dan berdaya saing. Dengan menghadirkan kisah perjalanan, strategi, serta tantangan yang pernah mereka hadapi, event ini diharapkan mampu memotivasi generasi muda, memperkuat ekosistem digital, menarik minat investor, serta mendorong pertumbuhan ekonomi lokal demi terwujudnya Kota Medan yang lebih maju, adaptif, dan berkelanjutan." },
+  {
+    image: "/images/3.avif",
+    title: "Startupfest 2019",
+    description:
+      "StartupFest lanjutan ini menjadi bukti nyata dari dampak event sebelumnya, di mana mulai bermunculan startup-startup baru hasil dari inspirasi, kolaborasi, dan jejaring yang telah terbangun. Jika sebelumnya fokus pada pembelajaran dan motivasi dari pelaku industri yang sudah berkembang, kini panggung diberikan kepada founder dan talenta lokal yang berani memulai serta menunjukkan progres usahanya. Event ini menegaskan bahwa Medan tidak lagi hanya menjadi penonton inovasi, tetapi mulai tumbuh sebagai pelaku aktif dalam membangun ekosistem startup yang berkelanjutan dan berdampak bagi kemajuan kota."},
+  {
+    image: "/images/4.avif",
+    title: "Clapham Conference 2022",
+    description:
+      "Clapham Conference kali ini berfokus pada penguatan manajemen bisnis dan keuangan sebagai fondasi utama pertumbuhan usaha yang berkelanjutan. Setelah sebelumnya mendorong lahirnya berbagai ide dan startup baru, kini acara ini mengarahkan perhatian pada bagaimana membangun sistem operasional yang profesional, strategi bisnis yang terukur, serta pengelolaan keuangan yang sehat agar usaha tidak hanya bertumbuh cepat, tetapi juga stabil dan tahan terhadap tantangan. Melalui pembahasan manajemen, cash flow, perencanaan keuangan, dan tata kelola bisnis, Clapham Conference diharapkan mampu membentuk pelaku usaha di Medan yang lebih siap, strategis, dan berdampak bagi perkembangan ekonomi kota.",
+  },
+  {
+    image: "/images/5.avif",
+    title: "Clapham Conference 2023",
+    description:
+      "Clapham Conference hadir dengan mengusung semangat Grow – Connect – Inspire, sebagai ruang bertemunya para pelaku usaha, profesional, dan calon founder untuk bertumbuh bersama dalam pemahaman manajemen bisnis dan keuangan yang lebih matang. Melalui sesi diskusi strategis, networking, dan berbagi pengalaman nyata, konferensi ini mendorong peserta untuk mengembangkan bisnis secara berkelanjutan (Grow), membangun jejaring kolaboratif yang kuat (Connect), serta saling menginspirasi dalam menciptakan dampak positif bagi ekosistem usaha di Kota Medan (Inspire).",
+  },
+  {
+    image: "/images/6.avif",
+    title: "Clapham Conference 2024",
+    description:
+      "Clapham Conference mengangkat isu bisnis yang adaptif terhadap perkembangan zaman dengan fokus pada pemanfaatan Artificial Intelligence (AI), strategi bisnis modern, dan digital marketing berbasis data. Mengusung semangat Connect & Correction, konferensi ini menjadi ruang bagi para pelaku usaha untuk membangun koneksi yang relevan sekaligus melakukan evaluasi serta penyempurnaan strategi agar tetap kompetitif di era digital. Dengan pendekatan teknologi dan analisis yang lebih cerdas, acara ini diharapkan mampu mendorong bisnis di Medan tumbuh lebih efisien, terukur, dan berkelanjutan.",
+  },
+  {
+    image: "/images/7.jpg",
+    title: "Clapham Conference 2025",
+    description:
+      "Clapham Conference kali ini mengangkat isu yang lebih fresh dan dinamis dengan fokus pada industri F&B yang sedang berkembang pesat, dipadukan dengan strategi bisnis dan teknologi modern. Mengusung semangat Taste & Unite, konferensi ini menjadi ruang pertemuan antara pelaku kuliner, entrepreneur, dan inovator teknologi untuk mengeksplorasi tren, efisiensi operasional, digitalisasi, hingga branding yang kuat di industri makanan dan minuman. Melalui kolaborasi dan pertukaran ide, acara ini diharapkan mampu memperkuat ekosistem bisnis F&B di Medan agar lebih kreatif, kompetitif, dan terhubung secara teknologi.",
+  },
+],
     gallery: [
-       
     ],
   },
   {

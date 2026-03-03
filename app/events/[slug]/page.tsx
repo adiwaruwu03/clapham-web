@@ -187,7 +187,41 @@ export default async function EventDetailPage({
           </aside>
         </div>
       </article>
+      {/* Story Section */}
+{event.storySections && (
+  <section className="border-t border-border bg-muted/30 py-24">
+    <div className="mx-auto max-w-5xl space-y-20 px-6 lg:px-8">
+      {event.storySections.map((item, index) => (
+        <div
+          key={index}
+          className="flex flex-col gap-8 md:flex-row md:items-start"
+        >
+          
+          {/* Portrait Image */}
+          <div className="relative aspect-[4/6] w-56 shrink-0 overflow-hidden rounded-2xl">
+            <Image
+              src={item.image}
+              alt={item.title}
+              fill
+              className="object-cover"
+            />
+          </div>
 
+          {/* Text */}
+          <div className="flex-1">
+            <h3 className="font-serif text-2xl font-bold text-foreground">
+              {item.title}
+            </h3>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground text-justify">
+              {item.description}
+            </p>
+          </div>
+
+        </div>
+      ))}
+    </div>
+  </section>
+)}
       
     </main>
   )

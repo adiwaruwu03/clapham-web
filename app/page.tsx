@@ -1,8 +1,8 @@
 import { Navigation } from "@/components/navigation"
 import { HeroSection } from "@/components/hero-section"
+import { CompanyProfile } from "@/components/company-profile"
 import { StrengthsSection } from "@/components/strengths-section"
 import { FeaturedMoments } from "@/components/featured-moments"
-import { CompanyProfile } from "@/components/company-profile"
 import { ServicesSection } from "@/components/services-section"
 import { EventsSection } from "@/components/events-section"
 import { AboutSection } from "@/components/about-section"
@@ -15,9 +15,9 @@ export default function HomePage() {
     <main>
       <Navigation />
       <HeroSection />
+      <CompanyProfile />
       <StrengthsSection />
       <FeaturedMoments />
-      <CompanyProfile />
       <ServicesSection />
       <EventsSection />
       <AboutSection />

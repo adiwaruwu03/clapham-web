@@ -20,7 +20,7 @@ export const blogData: BlogArticle[] = [
     title: "Persiapan 72 Jam Sebelum Konferensi: Yang Tidak Terlihat",
     excerpt:
       "Bagaimana tim kami memastikan setiap detail sempurna menjelang hari-H sebuah konferensi berskala besar.",
-    date: "15 Jan 2025",
+    date: "21 nov 2025",
     author: "Tim Clapham Collective",
     readTime: "7 menit baca",
     content: [
@@ -51,7 +51,7 @@ export const blogData: BlogArticle[] = [
     title: "5 Kesalahan Fatal dalam Merencanakan Event Korporat",
     excerpt:
       "Pelajaran dari lapangan tentang hal-hal yang sering diabaikan namun berdampak besar pada keberhasilan event.",
-    date: "8 Jan 2025",
+    date: "22 nov 2025",
     author: "Tim Clapham Collective",
     readTime: "8 menit baca",
     content: [
@@ -83,7 +83,7 @@ export const blogData: BlogArticle[] = [
     title: "Mengapa Event Terbaik Dimulai dari Mendengarkan",
     excerpt:
       "Filosofi kami dalam merancang event yang benar-benar bermakna bagi klien dan audiens.",
-    date: "2 Jan 2025",
+    date: "21 nov 2025",
     author: "Tim Clapham Collective",
     readTime: "6 menit baca",
     content: [
