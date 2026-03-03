@@ -17,7 +17,7 @@ export function CompanyProfile() {
               Lebih dari Sekadar Event: Kami Membangun Pengalaman
             </h2>
 
-            <p className="mt-6 text-base leading-relaxed ">
+            <p className="mt-6 text-base leading-relaxed text-background/70">
               Sejak 2016, Clapham Collective telah menjadi ekosistem yang 
               menghubungkan ide, komunitas, dan dampak. Kami percaya setiap 
               event adalah kesempatan untuk menciptakan perubahan nyata.
@@ -26,17 +26,16 @@ export function CompanyProfile() {
 
           {/* RIGHT SIDE - YOUTUBE VIDEO */}
           <div className="relative aspect-video overflow-hidden rounded-2xl shadow-2xl bg-black">
-            
+  
             <iframe
-              className="absolute top-0 left-0 w-full h-full"
-              src="https://www.youtube.com/embed/ijuXtTkH1kg?autoplay=1&mute=1&controls=0&loop=1&playlist=ijuXtTkH1kg&modestbranding=1&rel=0"
+              className="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-x-1/2 -translate-y-1/2"
+              src="https://www.youtube.com/embed/SLSkMD3GjQs?autoplay=1&mute=1&controls=0&loop=1&playlist=SLSkMD3GjQs&modestbranding=1&rel=0&vq=hd1080"
               title="Company Profile Video"
               frameBorder="0"
               allow="autoplay; fullscreen"
               allowFullScreen
             ></iframe>
 
-            {/* Overlay cinematic */}
             <div className="absolute inset-0 bg-black/20 pointer-events-none"></div>
           </div>
 

@@ -22,7 +22,7 @@ export const eventsData: EventData[] = [
     slug: "above-and-beyond-seminar",
     image: "/images/beyoundbg.png",
     name: "Above and Beyond Seminar",
-    type: "Brand",
+    type: "Brand Activation",
     impact: "Kolaborasi dengan 8 brand nasional",
     date: "22 Januari 2025",
     location: "Clapham Collective, Medan",
@@ -49,7 +49,7 @@ export const eventsData: EventData[] = [
     slug: "clapham-conference-2025",
     image: "/images/event-conference-2025.JPG",
     name: "Clapham Conference",
-    type: "Conference",
+    type: "Seminar & Conference",
     impact: "500+ peserta dari 15 industri berbeda",
     date: "15 Maret 2025",
     location: "Clapham Collective, Medan",
@@ -116,7 +116,7 @@ export const eventsData: EventData[] = [
     slug: "community-creative-gathering",
     image:  "/images/above-6.jpg",
     name: "Community Creative Gathering",
-    type: "Community",
+    type: "Community Event",
     impact: "200+ anggota komunitas kreatif aktif",
     date: "8 Februari 2025",
     location: "Clapham Collective, Medan",
@@ -142,7 +142,7 @@ export const eventsData: EventData[] = [
     slug: "medan-innovation-summit",
     image: "/images/above-7.jpg",
     name: "Medan Innovation Summit",
-    type: "Conference",
+    type: "Workshop",
     impact: "30 pembicara, 3 hari penuh inspirasi",
     date: "5-7 November 2024",
     location: "Clapham Collective, Medan",
@@ -168,7 +168,7 @@ export const eventsData: EventData[] = [
     slug: "brand-experience-festival",
     image: "/images/above-8.jpg",
     name: "Brand Experience Festival",
-    type: "Brand",
+    type: "Brand Activation",
     impact: "Engagement rate 85% dari target audiens",
     date: "20 Oktober 2024",
     location: "Clapham Collective, Medan",
@@ -194,7 +194,7 @@ export const eventsData: EventData[] = [
     slug: "creative-workshop-series",
     image: "/images/work-6.JPG",
     name: "Creative Workshop Series",
-    type: "Creative",
+    type: "Community Event",
     impact: "12 workshop, 400+ peserta sepanjang tahun",
     date: "Januari - Desember 2024",
     location: "Clapham Collective, Medan",
@@ -216,6 +216,27 @@ export const eventsData: EventData[] = [
       
     ],
   },
+  {
+    slug: "brand-activation-study-case",
+    image: "/images/brandacti/brandacti1.jpg",
+    name: "brand activation study case",
+    type: "Brand Activation",
+    impact: "Kolaborasi dengan 8 brand nasional",
+    date: "22 Januari 2025",
+    location: "Clapham Collective, Medan",
+    description:
+      "",
+    content: [
+       ],
+    highlights: [
+      
+    ],
+    
+    gallery: [
+       
+    ],
+  },
+  
 ]
 
 export function getEventBySlug(slug: string): EventData | undefined {

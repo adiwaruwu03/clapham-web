@@ -6,7 +6,7 @@ import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { eventsData } from "@/lib/events-data"
 
-const filters = ["Semua", "Conference", "Brand", "Community", "Creative"]
+const filters = ["Semua", "Seminar & Conference", "Brand Activation", "Gathering", "Workshop", "Community Event"]
 
 export function EventsSection() {
   const [active, setActive] = useState("Semua")

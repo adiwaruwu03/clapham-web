@@ -7,8 +7,10 @@ import { ServicesSection } from "@/components/services-section"
 import { EventsSection } from "@/components/events-section"
 import { AboutSection } from "@/components/about-section"
 import { BlogSection } from "@/components/blog-section"
+import {  } from "@/components/contact-section"
 import { ContactSection } from "@/components/contact-section"
 import { SiteFooter } from "@/components/site-footer"
+import PartnerClapham from "@/components/partner-clapham"
 
 export default function HomePage() {
   return (
@@ -22,6 +24,7 @@ export default function HomePage() {
       <EventsSection />
       <AboutSection />
       <BlogSection />
+      <PartnerClapham />
       <ContactSection />
       <SiteFooter />
     </main>

@@ -16,21 +16,38 @@ const navLinks = [
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState("")
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50)
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50)
+
+      const sections = navLinks.map((link) =>
+        document.querySelector(link.href)
+      )
+
+      sections.forEach((section, index) => {
+        if (section) {
+          const rect = section.getBoundingClientRect()
+          if (rect.top <= 120 && rect.bottom >= 120) {
+            setActiveSection(navLinks[index].href)
+          }
+        }
+      })
+    }
+
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   return (
     <header
-  className={`fixed top-0 left-0 right-0 z-50 ${
-    scrolled
-      ? "bg-background border-b border-border shadow-sm"
-      : "bg-background"
-  }`}
->
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm"
+          : "bg-transparent"
+      }`}
+    >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         <a href="#home" className="flex items-center gap-2">
           <span className="font-serif text-xl font-bold tracking-tight text-foreground">
@@ -38,49 +55,62 @@ export function Navigation() {
           </span>
         </a>
 
-        {/* Desktop navigation */}
+        {/* Desktop */}
         <div className="hidden items-center gap-8 lg:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className={`relative text-sm font-medium transition-all duration-300 ${
+                activeSection === link.href
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
             >
               {link.label}
+
+              {/* Animated underline */}
+              <span
+                className={`absolute left-0 -bottom-1 h-[2px] w-full bg-foreground transition-transform duration-300 origin-left ${
+                  activeSection === link.href
+                    ? "scale-x-100"
+                    : "scale-x-0"
+                }`}
+              />
             </a>
           ))}
+
           <Button asChild size="sm" className="rounded-full px-6">
-            <a href="#contact">{"Let's Collaborate"}</a>
+            <a href="#contact">Let's Collaborate</a>
           </Button>
         </div>
 
-        {/* Mobile menu toggle */}
+        {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="text-foreground lg:hidden"
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
         >
-          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </nav>
 
-      {/* Mobile navigation */}
+      {/* Mobile */}
       {mobileOpen && (
         <div className="border-b border-border bg-background/98 backdrop-blur-md lg:hidden">
-          <div className="flex flex-col gap-1 px-6 py-4">
+          <div className="flex flex-col gap-2 px-6 py-4">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="rounded-lg px-4 py-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+                className="rounded-lg px-4 py-3 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-foreground transition"
               >
                 {link.label}
               </a>
             ))}
             <Button asChild size="sm" className="mt-2 rounded-full">
               <a href="#contact" onClick={() => setMobileOpen(false)}>
-                {"Let's Collaborate"}
+                Let's Collaborate
               </a>
             </Button>
           </div>
