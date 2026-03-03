@@ -17,7 +17,7 @@ export function CompanyProfile() {
               Lebih dari Sekadar Event: Kami Membangun Pengalaman
             </h2>
 
-            <p className="mt-6 text-base leading-relaxed text-background/70">
+            <p className="mt-6 text-base leading-relaxed ">
               Sejak 2016, Clapham Collective telah menjadi ekosistem yang 
               menghubungkan ide, komunitas, dan dampak. Kami percaya setiap 
               event adalah kesempatan untuk menciptakan perubahan nyata.

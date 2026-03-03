@@ -110,7 +110,7 @@ export default async function EventDetailPage({
               {event.description}
             </p>
 
-            <div className="mt-10 space-y-6">
+            <div className="mt-10 mt-4 text-base leading-relaxed text-muted-foreground text-justify">
               {event.content.map((paragraph, i) => (
                 <p
                   key={i}
