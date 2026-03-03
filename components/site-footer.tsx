@@ -26,65 +26,65 @@ export function SiteFooter() {
   return (
     <footer className="bg-foreground py-16 text-background">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid gap-12 md:grid-cols-4">
+       <div className="grid gap-12 md:grid-cols-3 justify-items-center text-center">
 
-          {/* Brand */}
-          <div className="md:col-span-1">
-            <span className="font-serif text-xl font-bold">
-              Clapham Collective
-            </span>
-            <p className="mt-4 text-sm leading-relaxed text-background/60">
-              Manajemen event strategis untuk brand, organisasi, dan komunitas.
-            </p>
-          </div>
+  {/* Brand */}
+  <div>
+    <span className="font-serif text-xl font-bold">
+      Clapham Collective
+    </span>
+    <p className="mt-4 text-sm leading-relaxed text-background/60 max-w-xs mx-auto">
+      Manajemen event strategis untuk brand, organisasi, dan komunitas.
+    </p>
+  </div>
 
-          {/* Social */}
-          <div>
-            <p className="text-xs font-medium uppercase tracking-widest text-background/40">
-              Social Media
-            </p>
-            <div className="mt-4 flex gap-5">
-              {socials.map((item, index) => {
-                const Icon = item.icon
-                return (
-                  <a
-                    key={index}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-background/60 hover:text-background transition"
-                  >
-                    <Icon size={22} />
-                  </a>
-                )
-              })}
-            </div>
-          </div>
+  {/* Social */}
+  <div>
+    <p className="text-xs font-medium uppercase tracking-widest text-background/40">
+      Social Media
+    </p>
+    <div className="mt-4 flex justify-center gap-6">
+      {socials.map((item, index) => {
+        const Icon = item.icon
+        return (
+          <a
+            key={index}
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-background/60 hover:text-background transition"
+          >
+            <Icon size={30} />
+          </a>
+        )
+      })}
+    </div>
+  </div>
 
-          {/* Contact */}
-          <div>
-            <p className="text-xs font-medium uppercase tracking-widest text-background/40">
-              Kontak
-            </p>
-            <div className="mt-4 flex gap-5">
-              {kontak.map((item, index) => {
-                const Icon = item.icon
-                return (
-                  <a
-                    key={index}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-background/60 hover:text-background transition"
-                  >
-                    <Icon size={22} />
-                  </a>
-                )
-              })}
-            </div>
-          </div>
+  {/* Contact */}
+  <div>
+    <p className="text-xs font-medium uppercase tracking-widest text-background/40">
+      Kontak
+    </p>
+    <div className="mt-4 flex justify-center gap-6">
+      {kontak.map((item, index) => {
+        const Icon = item.icon
+        return (
+          <a
+            key={index}
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-background/60 hover:text-background transition"
+          >
+            <Icon size={30} />
+          </a>
+        )
+      })}
+    </div>
+  </div>
 
-        </div>
+</div>
 
         <div className="mt-16 border-t border-background/10 pt-8">
           <p className="text-center text-xs text-background/40">
