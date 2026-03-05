@@ -214,7 +214,7 @@ export const eventsData: EventData[] = [
   // --- Community events utama ---
 {
   slug: "comunity-creative-gathering",
-  image: "/comunity/community1.jpg",
+  image: "/comunity/Community1.jpg",
   name: "comunity creative",
   type: "Community Event",
   impact: "12 workshop, 400+ peserta sepanjang tahun",
@@ -231,7 +231,7 @@ export const eventsData: EventData[] = [
 // --- Community events tambahan ---
 ...Array.from({ length: 15 }).map((_, i) => ({
   slug: `community-event-${i + 1}`,
-  image: `/comunity/community${i + 1}.jpg`,
+  image: `/comunity/Community${i + 1}.jpg`,
   name: "comunity creative",
   type: "Community Event",
   impact: "12 workshop, 400+ peserta sepanjang tahun",
