@@ -251,28 +251,26 @@ export const eventsData: EventData[] = [
   image: "/workshopp/Workshop-1.jpg",
   name: "Workshop Community",
   type: "Workshop",
-  impact: "obrom kreatif untuk idea dan kolaborasi baru",
+  impact: "Ruang kreatif untuk ide dan kolaborasi baru",
   date: "Januari - Desember 2024",
   location: "Clapham Collective, Medan",
-  description:
-    "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
+  description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
   content: [],
   highlights: [],
   gallery: [],
   hasDetail: false,
 },
 
-// --- Community events tambahan ---
-...Array.from({ length: 27 }).map((_, i) => ({
-  slug: `workshop-community-${i + 1}`,
-  image: `/workshopp/Workshop-${i + 1}.jpg`,
+// --- Community events tambahan (mulai dari Workshop-2.jpg) ---
+...Array.from({ length: 20 }).map((_, i) => ({
+  slug: `workshop-community-${i + 2}`,
+  image: `/workshopp/Workshop-${i + 2}.jpg`,
   name: "Workshop Community",
   type: "Workshop",
-  impact: "obrom kreatif untuk idea dan kolaborasi baru",
+  impact: "Ruang kreatif untuk ide dan kolaborasi baru",
   date: "",
   location: "Clapham Collective, Medan",
-  description:
-    "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
+  description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
   content: [],
   highlights: [],
   gallery: [],
