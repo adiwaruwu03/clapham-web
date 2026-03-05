@@ -1,3 +1,4 @@
+// lib/events-data.ts
 export interface EventData {
   slug: string
   image: string
@@ -15,6 +16,7 @@ export interface EventData {
     title: string
     description: string
   }[]
+  hasDetail?: boolean
 }
 
 export const eventsData: EventData[] = [
@@ -40,10 +42,8 @@ export const eventsData: EventData[] = [
       "Sertifikat profesional untuk peserta",
       "Akses ke materi eksklusif pasca-acara",
     ],
-    
-    gallery: [
-       
-    ],
+    gallery: [],
+    hasDetail: true,
   },
   {
     slug: "clapham-conference-2025",
@@ -68,49 +68,51 @@ export const eventsData: EventData[] = [
       "Live streaming untuk peserta virtual",
     ],
     storySections: [
-  {
-    image: "/images/1.avif",
-    title: "Startup Medan 2016",
-    description:
-      "Startup dibangun dengan tujuan utama untuk menyelesaikan masalah nyata di masyarakat melalui solusi yang inovatif, efisien, dan scalable, biasanya dengan memanfaatkan teknologi atau model bisnis baru. Kehadiran startup di sebuah kota memberikan banyak manfaat, seperti menciptakan lapangan kerja baru, mendorong pertumbuhan ekonomi lokal, meningkatkan daya saing dan citra kota sebagai pusat inovasi, serta membangun ekosistem kreatif yang menghubungkan talenta, investor, dan pelaku usaha. Dengan demikian, startup tidak hanya menjadi mesin pertumbuhan bisnis, tetapi juga menjadi katalis perkembangan sosial dan ekonomi suatu kota secara berkelanjutan.",
-  },
-  {
-    image: "/images/2.avif",
-    title: "Startup medan 2018",
-    description:
-      "Event startup kali ini bertujuan menghadirkan inspirasi dan transfer pengetahuan dari perusahaan yang telah berkembang pesat seperti Bukalapak dan Gojek kepada para pelaku usaha, mahasiswa, dan komunitas kreatif di Kota Medan, sehingga tercipta ruang kolaborasi, pembelajaran, dan peluang nyata bagi lahirnya startup-startup baru yang inovatif dan berdaya saing. Dengan menghadirkan kisah perjalanan, strategi, serta tantangan yang pernah mereka hadapi, event ini diharapkan mampu memotivasi generasi muda, memperkuat ekosistem digital, menarik minat investor, serta mendorong pertumbuhan ekonomi lokal demi terwujudnya Kota Medan yang lebih maju, adaptif, dan berkelanjutan." },
-  {
-    image: "/images/3.avif",
-    title: "Startupfest 2019",
-    description:
-      "StartupFest lanjutan ini menjadi bukti nyata dari dampak event sebelumnya, di mana mulai bermunculan startup-startup baru hasil dari inspirasi, kolaborasi, dan jejaring yang telah terbangun. Jika sebelumnya fokus pada pembelajaran dan motivasi dari pelaku industri yang sudah berkembang, kini panggung diberikan kepada founder dan talenta lokal yang berani memulai serta menunjukkan progres usahanya. Event ini menegaskan bahwa Medan tidak lagi hanya menjadi penonton inovasi, tetapi mulai tumbuh sebagai pelaku aktif dalam membangun ekosistem startup yang berkelanjutan dan berdampak bagi kemajuan kota."},
-  {
-    image: "/images/4.avif",
-    title: "Clapham Conference 2022",
-    description:
-      "Clapham Conference kali ini berfokus pada penguatan manajemen bisnis dan keuangan sebagai fondasi utama pertumbuhan usaha yang berkelanjutan. Setelah sebelumnya mendorong lahirnya berbagai ide dan startup baru, kini acara ini mengarahkan perhatian pada bagaimana membangun sistem operasional yang profesional, strategi bisnis yang terukur, serta pengelolaan keuangan yang sehat agar usaha tidak hanya bertumbuh cepat, tetapi juga stabil dan tahan terhadap tantangan. Melalui pembahasan manajemen, cash flow, perencanaan keuangan, dan tata kelola bisnis, Clapham Conference diharapkan mampu membentuk pelaku usaha di Medan yang lebih siap, strategis, dan berdampak bagi perkembangan ekonomi kota.",
-  },
-  {
-    image: "/images/5.avif",
-    title: "Clapham Conference 2023",
-    description:
-      "Clapham Conference hadir dengan mengusung semangat Grow – Connect – Inspire, sebagai ruang bertemunya para pelaku usaha, profesional, dan calon founder untuk bertumbuh bersama dalam pemahaman manajemen bisnis dan keuangan yang lebih matang. Melalui sesi diskusi strategis, networking, dan berbagi pengalaman nyata, konferensi ini mendorong peserta untuk mengembangkan bisnis secara berkelanjutan (Grow), membangun jejaring kolaboratif yang kuat (Connect), serta saling menginspirasi dalam menciptakan dampak positif bagi ekosistem usaha di Kota Medan (Inspire).",
-  },
-  {
-    image: "/images/6.avif",
-    title: "Clapham Conference 2024",
-    description:
-      "Clapham Conference mengangkat isu bisnis yang adaptif terhadap perkembangan zaman dengan fokus pada pemanfaatan Artificial Intelligence (AI), strategi bisnis modern, dan digital marketing berbasis data. Mengusung semangat Connect & Correction, konferensi ini menjadi ruang bagi para pelaku usaha untuk membangun koneksi yang relevan sekaligus melakukan evaluasi serta penyempurnaan strategi agar tetap kompetitif di era digital. Dengan pendekatan teknologi dan analisis yang lebih cerdas, acara ini diharapkan mampu mendorong bisnis di Medan tumbuh lebih efisien, terukur, dan berkelanjutan.",
-  },
-  {
-    image: "/images/7.jpg",
-    title: "Clapham Conference 2025",
-    description:
-      "Clapham Conference kali ini mengangkat isu yang lebih fresh dan dinamis dengan fokus pada industri F&B yang sedang berkembang pesat, dipadukan dengan strategi bisnis dan teknologi modern. Mengusung semangat Taste & Unite, konferensi ini menjadi ruang pertemuan antara pelaku kuliner, entrepreneur, dan inovator teknologi untuk mengeksplorasi tren, efisiensi operasional, digitalisasi, hingga branding yang kuat di industri makanan dan minuman. Melalui kolaborasi dan pertukaran ide, acara ini diharapkan mampu memperkuat ekosistem bisnis F&B di Medan agar lebih kreatif, kompetitif, dan terhubung secara teknologi.",
-  },
-],
-    gallery: [
+      {
+        image: "/images/1.avif",
+        title: "Startup Medan 2016",
+        description:
+          "Startup dibangun dengan tujuan utama untuk menyelesaikan masalah nyata di masyarakat melalui solusi yang inovatif, efisien, dan scalable, biasanya dengan memanfaatkan teknologi atau model bisnis baru. Kehadiran startup di sebuah kota memberikan banyak manfaat, seperti menciptakan lapangan kerja baru, mendorong pertumbuhan ekonomi lokal, meningkatkan daya saing dan citra kota sebagai pusat inovasi, serta membangun ekosistem kreatif yang menghubungkan talenta, investor, dan pelaku usaha. Dengan demikian, startup tidak hanya menjadi mesin pertumbuhan bisnis, tetapi juga menjadi katalis perkembangan sosial dan ekonomi suatu kota secara berkelanjutan.",
+      },
+      {
+        image: "/images/2.avif",
+        title: "Startup medan 2018",
+        description:
+          "Event startup kali ini bertujuan menghadirkan inspirasi dan transfer pengetahuan dari perusahaan yang telah berkembang pesat seperti Bukalapak dan Gojek kepada para pelaku usaha, mahasiswa, dan komunitas kreatif di Kota Medan, sehingga tercipta ruang kolaborasi, pembelajaran, dan peluang nyata bagi lahirnya startup-startup baru yang inovatif dan berdaya saing. Dengan menghadirkan kisah perjalanan, strategi, serta tantangan yang pernah mereka hadapi, event ini diharapkan mampu memotivasi generasi muda, memperkuat ekosistem digital, menarik minat investor, serta mendorong pertumbuhan ekonomi lokal demi terwujudnya Kota Medan yang lebih maju, adaptif, dan berkelanjutan.",
+      },
+      {
+        image: "/images/3.avif",
+        title: "Startupfest 2019",
+        description:
+          "StartupFest lanjutan ini menjadi bukti nyata dari dampak event sebelumnya, di mana mulai bermunculan startup-startup baru hasil dari inspirasi, kolaborasi, dan jejaring yang telah terbangun. Jika sebelumnya fokus pada pembelajaran dan motivasi dari pelaku industri yang sudah berkembang, kini panggung diberikan kepada founder dan talenta lokal yang berani memulai serta menunjukkan progres usahanya. Event ini menegaskan bahwa Medan tidak lagi hanya menjadi penonton inovasi, tetapi mulai tumbuh sebagai pelaku aktif dalam membangun ekosistem startup yang berkelanjutan dan berdampak bagi kemajuan kota.",
+      },
+      {
+        image: "/images/4.avif",
+        title: "Clapham Conference 2022",
+        description:
+          "Clapham Conference kali ini berfokus pada penguatan manajemen bisnis dan keuangan sebagai fondasi utama pertumbuhan usaha yang berkelanjutan. Setelah sebelumnya mendorong lahirnya berbagai ide dan startup baru, kini acara ini mengarahkan perhatian pada bagaimana membangun sistem operasional yang profesional, strategi bisnis yang terukur, serta pengelolaan keuangan yang sehat agar usaha tidak hanya bertumbuh cepat, tetapi juga stabil dan tahan terhadap tantangan. Melalui pembahasan manajemen, cash flow, perencanaan keuangan, dan tata kelola bisnis, Clapham Conference diharapkan mampu membentuk pelaku usaha di Medan yang lebih siap, strategis, dan berdampak bagi perkembangan ekonomi kota.",
+      },
+      {
+        image: "/images/5.avif",
+        title: "Clapham Conference 2023",
+        description:
+          "Clapham Conference hadir dengan mengusung semangat Grow – Connect – Inspire, sebagai ruang bertemunya para pelaku usaha, profesional, dan calon founder untuk bertumbuh bersama dalam pemahaman manajemen bisnis dan keuangan yang lebih matang. Melalui sesi diskusi strategis, networking, dan berbagi pengalaman nyata, konferensi ini mendorong peserta untuk mengembangkan bisnis secara berkelanjutan (Grow), membangun jejaring kolaboratif yang kuat (Connect), serta saling menginspirasi dalam menciptakan dampak positif bagi ekosistem usaha di Kota Medan (Inspire).",
+      },
+      {
+        image: "/images/6.avif",
+        title: "Clapham Conference 2024",
+        description:
+          "Clapham Conference mengangkat isu bisnis yang adaptif terhadap perkembangan zaman dengan fokus pada pemanfaatan Artificial Intelligence (AI), strategi bisnis modern, dan digital marketing berbasis data. Mengusung semangat Connect & Correction, konferensi ini menjadi ruang bagi para pelaku usaha untuk membangun koneksi yang relevan sekaligus melakukan evaluasi serta penyempurnaan strategi agar tetap kompetitif di era digital. Dengan pendekatan teknologi dan analisis yang lebih cerdas, acara ini diharapkan mampu mendorong bisnis di Medan tumbuh lebih efisien, terukur, dan berkelanjutan.",
+      },
+      {
+        image: "/images/7.jpg",
+        title: "Clapham Conference 2025",
+        description:
+          "Clapham Conference kali ini mengangkat isu yang lebih fresh dan dinamis dengan fokus pada industri F&B yang sedang berkembang pesat, dipadukan dengan strategi bisnis dan teknologi modern. Mengusung semangat Taste & Unite, konferensi ini menjadi ruang pertemuan antara pelaku kuliner, entrepreneur, dan inovator teknologi untuk mengeksplorasi tren, efisiensi operasional, digitalisasi, hingga branding yang kuat di industri makanan dan minuman. Melalui kolaborasi dan pertukaran ide, acara ini diharapkan mampu memperkuat ekosistem bisnis F&B di Medan agar lebih kreatif, kompetitif, dan terhubung secara teknologi.",
+      },
     ],
+    gallery: [],
+    hasDetail: true,
   },
   {
     slug: "community-creative-gathering",
@@ -134,36 +136,11 @@ export const eventsData: EventData[] = [
       "Collaborative project incubation",
       "Free access untuk semua kreator",
     ],
-    gallery: [
-      
-    ],
+    gallery: [],
+    hasDetail: true,
   },
-  {
-    slug: "medan-innovation-summit",
-    image: "/images/above-7.jpg",
-    name: "Medan Innovation Summit",
-    type: "Workshop",
-    impact: "30 pembicara, 3 hari penuh inspirasi",
-    date: "5-7 November 2024",
-    location: "Clapham Collective, Medan",
-    description:
-      "Summit inovasi terbesar di Sumatera Utara yang menghadirkan 30 pembicara selama 3 hari penuh inspirasi dan koneksi.",
-    content: [
-      "Medan Innovation Summit adalah flagship event tahunan yang memposisikan Medan sebagai hub inovasi di Sumatera Utara. Selama tiga hari berturut-turut, summit ini menghadirkan 30 pembicara dari berbagai sektor termasuk teknologi, kesehatan, pendidikan, dan creative economy.",
-      "Summit ini dirancang dengan pendekatan multi-track yang memungkinkan peserta untuk menyusun pengalaman belajar mereka sendiri. Dengan 6 track paralel yang berjalan simultan, peserta dapat memilih sesi yang paling relevan dengan kebutuhan dan minat mereka.",
-      "Salah satu highlight dari summit ini adalah Innovation Showcase, di mana startup dan inovator lokal mendapat kesempatan untuk mempresentasikan produk dan ide mereka di depan panel investor dan mentor berpengalaman. Tiga startup terpilih mendapatkan pendanaan awal dan mentoring intensif selama 6 bulan.",
-    ],
-    highlights: [
-      "30 pembicara dari berbagai sektor",
-      "6 track paralel selama 3 hari",
-      "Innovation Showcase untuk startup lokal",
-      "Pendanaan awal untuk 3 startup terpilih",
-      "1000+ peserta dari seluruh Sumatera",
-    ],
-    gallery: [
-      
-    ],
-  },
+
+  // --- Brand Activation Lanjutan ---
   {
     slug: "brand-experience-festival",
     image: "/images/above-8.jpg",
@@ -186,10 +163,11 @@ export const eventsData: EventData[] = [
       "Live performance dan entertainment",
       "Social media reach 2 juta+ impression",
     ],
-    gallery: [
-      
-    ],
+    gallery: [],
+    hasDetail: true,
   },
+
+  // --- Creative Workshop Series (Brand Activation & Community Event) ---
   {
     slug: "creative-workshop-series",
     image: "/images/work-6.JPG",
@@ -212,32 +190,241 @@ export const eventsData: EventData[] = [
       "Portfolio piece untuk setiap peserta",
       "Alumni network 400+ kreator",
     ],
-    gallery: [
-      
-    ],
+    gallery: [],
+    hasDetail: true,
   },
-  {
-    slug: "brand-activation-study-case",
-    image: "/images/brandacti/brandacti1.jpg",
-    name: "brand activation study case",
+
+  // --- brand activation tambahan 10 event ---
+  ...Array.from({ length: 20 }).map((_, i) => ({
+    slug: `creative-workshop-series-${i + 1}`,
+    image: `/images/brandacti/brandacti${i + 1}.jpg`,
+    name: "Brand Activation",
     type: "Brand Activation",
-    impact: "Kolaborasi dengan 8 brand nasional",
-    date: "22 Januari 2025",
+    impact: "12 workshop, 400+ peserta sepanjang tahun",
+    date: "Januari - Desember 2024",
     location: "Clapham Collective, Medan",
     description:
-      "",
-    content: [
-       ],
-    highlights: [
-      
-    ],
-    
-    gallery: [
-       
-    ],
-  },
-  
+      "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
+    content: [],
+    highlights: [],
+    gallery: [],
+    hasDetail: false,
+  })),
+
+  // --- Community events utama ---
+{
+  slug: "comunity-creative-gathering",
+  image: "/comunity/community1.jpg",
+  name: "comunity creative",
+  type: "Community Event",
+  impact: "12 workshop, 400+ peserta sepanjang tahun",
+  date: "Januari - Desember 2024",
+  location: "Clapham Collective, Medan",
+  description:
+    "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
+  content: [],
+  highlights: [],
+  gallery: [],
+  hasDetail: false,
+},
+
+// --- Community events tambahan ---
+...Array.from({ length: 15 }).map((_, i) => ({
+  slug: `community-event-${i + 1}`,
+  image: `/comunity/community${i + 1}.jpg`,
+  name: "comunity creative",
+  type: "Community Event",
+  impact: "12 workshop, 400+ peserta sepanjang tahun",
+  date: "Januari - Desember 2024",
+  location: "Clapham Collective, Medan",
+  description:
+    "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
+  content: [],
+  highlights: [],
+  gallery: [],
+  hasDetail: false,
+})),
+
+ // --- Community events utama ---
+{
+  slug: "workshop-community-gathering",
+  image: "/workshopp/Workshop-1.jpg",
+  name: "Workshop Community",
+  type: "Workshop",
+  impact: "obrom kreatif untuk idea dan kolaborasi baru",
+  date: "Januari - Desember 2024",
+  location: "Clapham Collective, Medan",
+  description:
+    "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
+  content: [],
+  highlights: [],
+  gallery: [],
+  hasDetail: false,
+},
+
+// --- Community events tambahan ---
+...Array.from({ length: 27 }).map((_, i) => ({
+  slug: `workshop-community-${i + 1}`,
+  image: `/workshopp/Workshop-${i + 1}.jpg`,
+  name: "Workshop Community",
+  type: "Workshop",
+  impact: "obrom kreatif untuk idea dan kolaborasi baru",
+  date: "",
+  location: "Clapham Collective, Medan",
+  description:
+    "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
+  content: [],
+  highlights: [],
+  gallery: [],
+  hasDetail: false,
+})),
+
+// --- Gathering Series utama ---
+{
+  slug: "gathering-series-clapham-1",
+  image: "/getring/Gathering1.jpg",
+  name: "Gathering Series clapham",
+  type: "Gathering",
+  impact: "12 workshop, 400+ peserta sepanjang tahun",
+  date: "Januari - Desember 2024",
+  location: "Clapham Collective, Medan",
+  description:
+    "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
+  content: [],
+  highlights: [],
+  gallery: [],
+  hasDetail: false,
+},
+{
+  slug: "gathering-series-clapham-2",
+  image: "/getring/Gathering2.png",
+  name: "Gathering Series clapham",
+  type: "Gathering",
+  impact: "12 workshop, 400+ peserta sepanjang tahun",
+  date: "Januari - Desember 2024",
+  location: "Clapham Collective, Medan",
+  description:
+    "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
+  content: [],
+  highlights: [],
+  gallery: [],
+  hasDetail: false,
+},
+{
+  slug: "gathering-series-clapham-3",
+  image: "/getring/Gathering3.jpg",
+  name: "Gathering Series clapham",
+  type: "Gathering",
+  impact: "12 workshop, 400+ peserta sepanjang tahun",
+  date: "Januari - Desember 2024",
+  location: "Clapham Collective, Medan",
+  description:
+    "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
+  content: [],
+  highlights: [],
+  gallery: [],
+  hasDetail: false,
+},
+{
+  slug: "gathering-series-clapham-4",
+  image: "/getring/Gathering4.jpg",
+  name: "Gathering Series clapham",
+  type: "Gathering",
+  impact: "12 workshop, 400+ peserta sepanjang tahun",
+  date: "Januari - Desember 2024",
+  location: "Clapham Collective, Medan",
+  description:
+    "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
+  content: [],
+  highlights: [],
+  gallery: [],
+  hasDetail: false,
+},
+{
+  slug: "gathering-series-clapham-5",
+  image: "/getring/Gathering5.jpg",
+  name: "Gathering Series clapham",
+  type: "Gathering",
+  impact: "12 workshop, 400+ peserta sepanjang tahun",
+  date: "Januari - Desember 2024",
+  location: "Clapham Collective, Medan",
+  description:
+    "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
+  content: [],
+  highlights: [],
+  gallery: [],
+  hasDetail: false,
+},
+{
+  slug: "gathering-series-clapham-6",
+  image: "/getring/Gathering6.jpg",
+  name: "Gathering Series clapham",
+  type: "Gathering",
+  impact: "12 workshop, 400+ peserta sepanjang tahun",
+  date: "Januari - Desember 2024",
+  location: "Clapham Collective, Medan",
+  description:
+    "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
+  content: [],
+  highlights: [],
+  gallery: [],
+  hasDetail: false,
+},
+{
+  slug: "gathering-series-clapham-7",
+  image: "/getring/Gathering7.jpg",
+  name: "Gathering Series clapham",
+  type: "Gathering",
+  impact: "12 workshop, 400+ peserta sepanjang tahun",
+  date: "Januari - Desember 2024",
+  location: "Clapham Collective, Medan",
+  description:
+    "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
+  content: [],
+  highlights: [],
+  gallery: [],
+  hasDetail: false,
+},
+{
+  slug: "gathering-series-clapham-8",
+  image: "/getring/Gathering8.JPG",
+  name: "Gathering Series clapham",
+  type: "Gathering",
+  impact: "12 workshop, 400+ peserta sepanjang tahun",
+  date: "Januari - Desember 2024",
+  location: "Clapham Collective, Medan",
+  description:
+    "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
+  content: [],
+  highlights: [],
+  gallery: [],
+  hasDetail: false,
+},
+{
+  slug: "gathering-series-clapham-9",
+  image: "/getring/Gathering9.JPG",
+  name: "Gathering Series clapham",
+  type: "Gathering",
+  impact: "12 workshop, 400+ peserta sepanjang tahun",
+  date: "Januari - Desember 2024",
+  location: "Clapham Collective, Medan",
+  description:
+    "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
+  content: [],
+  highlights: [],
+  gallery: [],
+  hasDetail: false,
+},
+
+
 ]
+
+export function filterEventsByType(type: string): EventData[] {
+  if (!type || type.toLowerCase() === "all") return eventsData
+  return eventsData.filter(
+    (event) => event.type.trim().toLowerCase() === type.trim().toLowerCase()
+  )
+}
 
 export function getEventBySlug(slug: string): EventData | undefined {
   return eventsData.find((event) => event.slug === slug)

@@ -3,7 +3,7 @@
 export default function PartnerClapham() {
   return (
     <section id="partner" className="py-24 bg-background">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-4xl px-4 lg:px-5">
         
         {/* Heading */}
         <div className="mb-12 text-center">
