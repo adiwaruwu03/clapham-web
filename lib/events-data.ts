@@ -1218,7 +1218,7 @@ export const eventsData: EventData[] = [
   {
     slug: "sml-one-ongoing-courses", // FIXED: Changed from workshop-community-11
     image: "/workshopp/SML-One-Ongoing-courses.jpg",
-    name: "SML One Ongoing Courses",
+    name: "SMLONE On going Courses",
     type: "Workshop",
     impact: "",
     date: "",
