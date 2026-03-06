@@ -9,8 +9,8 @@ const slides = [
   { src: "/images/hero-acti.jpg", label: "Seminar & Conference" },
   { src: "/images/hero-sem.jpg", label: "Brand Activation" },
   { src: "/images/hero-com.jpg", label: "Community Event" },
-  { src: "/getring/Gathering2.png", label: "Gathering" },
-  { src: "/workshopp/Workshop-13.jpg", label: "Community Event" },
+  { src: "/getring/Hari-Pendidikan-Nasional-Clapham.png", label: "Gathering" },
+  { src: "/workshopp/Sanrok-Mike.jpg", label: "Community Event" },
 ]
 
 export function HeroSection() {

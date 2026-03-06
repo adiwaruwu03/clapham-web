@@ -31,8 +31,8 @@ export const eventsData: EventData[] = [
     image: "/images/beyoundbg.png",
     name: "Above and Beyond Seminar",
     type: "Brand Activation",
-    impact: "Kolaborasi dengan 8 brand nasional",
-    date: "22 Januari 2025",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Seminar intensif yang membahas strategi inovatif untuk pertumbuhan bisnis dan personal.",
     content: [
@@ -56,8 +56,8 @@ export const eventsData: EventData[] = [
     image: "/images/above-8.jpg",
     name: "Brand Experience Festival",
     type: "Brand Activation",
-    impact: "Engagement rate 85% dari target audiens",
-    date: "20 Oktober 2024",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Festival pengalaman brand yang menciptakan interaksi mendalam antara brand dan audiens mereka.",
     content: [
@@ -321,8 +321,8 @@ export const eventsData: EventData[] = [
   },
   {
     slug: "brand-activation-10",
-    image: "/images/brandacti/JCI-Accounting.jpg",
-    name: "JCI Accounting",
+    image: "/images/brandacti/GoStartupIndonesia.jpg", // FIXED: Changed image path
+    name: "Go Startup Indonesia", // FIXED: Changed name to differentiate
     type: "Brand Activation",
     impact: "",
     date: "Januari - Desember 2024",
@@ -467,12 +467,12 @@ export const eventsData: EventData[] = [
   
   // --- Community Event Utama ---
   {
-    slug: "comunity-creative-gathering",
-    image: "/comunity/Community1.jpg",
-    name: "Community Creative",
+    slug: "bring-it-on", // FIXED: Changed from community-creative-1
+    image: "/comunity/BRIng-It-On.jpg",
+    name: "Bring It On",
     type: "Community Event",
-    impact: "12 workshop, 400+ peserta sepanjang tahun",
-    date: "Januari - Desember 2024",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
     content: [],
@@ -483,12 +483,12 @@ export const eventsData: EventData[] = [
 
   // --- Community Events Tambahan (15 events) ---
   {
-    slug: "community-event-1",
-    image: "/comunity/Community1.jpg",
-    name: "Community Creative",
+    slug: "cinematography-class-monogatari", // FIXED: Changed from community-event-12
+    image: "/comunity/Cinematography-Class-Monogatari.jpg",
+    name: "cinematography class monogatari",
     type: "Community Event",
-    impact: "12 workshop, 400+ peserta sepanjang tahun",
-    date: "Januari - Desember 2024",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
     content: [],
@@ -497,12 +497,12 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "community-event-2",
-    image: "/comunity/Community2.jpg",
-    name: "Community Creative",
+    slug: "community-day-djarot-visit", // FIXED: Changed from community-event-3
+    image: "/comunity/Community-Day-Djarot-Visit.jpg",
+    name: "Community Day Djarot",
     type: "Community Event",
-    impact: "12 workshop, 400+ peserta sepanjang tahun",
-    date: "Januari - Desember 2024",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
     content: [],
@@ -511,12 +511,12 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "community-event-3",
-    image: "/comunity/Community3.jpg",
-    name: "Community Creative",
+    slug: "ethan-zohn-turning-setback-into-comeback", // FIXED: Changed from community-event-4
+    image: "/comunity/Ethan-Zohn -Turning-Setback-Into-Comeback.jpg",
+    name: "Ethan Zohn - Turning Setback Into Comeback",
     type: "Community Event",
-    impact: "12 workshop, 400+ peserta sepanjang tahun",
-    date: "Januari - Desember 2024",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
     content: [],
@@ -525,12 +525,12 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "community-event-4",
-    image: "/comunity/Community4.jpg",
-    name: "Community Creative",
+    slug: "executive-media-x-clapham", // FIXED: Changed from community-event-5
+    image: "/comunity/Executive-Media-x-Clapham.jpg",
+    name: "Executive Media x Clapham",
     type: "Community Event",
-    impact: "12 workshop, 400+ peserta sepanjang tahun",
-    date: "Januari - Desember 2024",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
     content: [],
@@ -539,12 +539,12 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "community-event-5",
-    image: "/comunity/Community5.jpg",
-    name: "Community Creative",
+    slug: "fb-devc-merdeka-meetup", // FIXED: Changed from community-event-6
+    image: "/comunity/FB-DevC-Merdeka-Meetup.jpg",
+    name: "FB DevC Merdeka Meetup",
     type: "Community Event",
-    impact: "12 workshop, 400+ peserta sepanjang tahun",
-    date: "Januari - Desember 2024",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
     content: [],
@@ -553,12 +553,12 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "community-event-6",
-    image: "/comunity/Community6.jpg",
-    name: "Community Creative",
+    slug: "geraldez", // FIXED: Changed from community-event-7
+    image: "/comunity/Geraldez.jpg",
+    name: "Geraldez",
     type: "Community Event",
-    impact: "12 workshop, 400+ peserta sepanjang tahun",
-    date: "Januari - Desember 2024",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
     content: [],
@@ -567,12 +567,12 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "community-event-7",
-    image: "/comunity/Community7.jpg",
-    name: "Community Creative",
+    slug: "go-startup-indonesia", // FIXED: Changed from community-event-8
+    image: "/comunity/GoStartupIndonesia.jpg",
+    name: "Go Startup Indonesia",
     type: "Community Event",
-    impact: "12 workshop, 400+ peserta sepanjang tahun",
-    date: "Januari - Desember 2024",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
     content: [],
@@ -581,12 +581,12 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "community-event-8",
-    image: "/comunity/Community8.jpg",
-    name: "Community Creative",
+    slug: "jci-medan", // FIXED: Changed from community-event-9
+    image: "/comunity/JCI-Medan2.jpg",
+    name: "JCI Medan",
     type: "Community Event",
-    impact: "12 workshop, 400+ peserta sepanjang tahun",
-    date: "Januari - Desember 2024",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
     content: [],
@@ -595,12 +595,12 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "community-event-9",
-    image: "/comunity/Community9.jpg",
-    name: "Community Creative",
+    slug: "love-bonito-x-womandiri", // FIXED: Changed from community-event-10
+    image: "/comunity/Love-Bonito-x-Womandiri.jpg",
+    name: "Love Bonito x Womandiri",
     type: "Community Event",
-    impact: "12 workshop, 400+ peserta sepanjang tahun",
-    date: "Januari - Desember 2024",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
     content: [],
@@ -609,12 +609,12 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "community-event-10",
-    image: "/comunity/Community10.jpg",
-    name: "Community Creative",
+    slug: "mikroskill-visit", // FIXED: Changed from community-event-11
+    image: "/comunity/Mikroskill-Visit.jpg",
+    name: "Mikroskill",
     type: "Community Event",
-    impact: "12 workshop, 400+ peserta sepanjang tahun",
-    date: "Januari - Desember 2024",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
     content: [],
@@ -623,12 +623,12 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "community-event-11",
-    image: "/comunity/Community11.jpg",
-    name: "Community Creative",
+    slug: "movie-discussion-spotlight", // FIXED: Changed from community-event-12 (second instance)
+    image: "/comunity/Movie-Discussion-Spotlight.jpg",
+    name: "Movie Discussion Spotlight",
     type: "Community Event",
-    impact: "12 workshop, 400+ peserta sepanjang tahun",
-    date: "Januari - Desember 2024",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
     content: [],
@@ -637,12 +637,12 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "community-event-12",
-    image: "/comunity/Community12.jpg",
-    name: "Community Creative",
+    slug: "mozilla-firefox", // FIXED: Changed from community-event-13
+    image: "/comunity/Mozilla-Firefox-2.jpg",
+    name: "Mozilla Firefox",
     type: "Community Event",
-    impact: "12 workshop, 400+ peserta sepanjang tahun",
-    date: "Januari - Desember 2024",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
     content: [],
@@ -651,12 +651,12 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "community-event-13",
-    image: "/comunity/Community13.jpg",
-    name: "Community Creative",
+    slug: "pechakucha", // FIXED: Changed from community-event-14
+    image: "/comunity/Pechakucha-vol-6-2.jpg",
+    name: "Pechakucha",
     type: "Community Event",
-    impact: "12 workshop, 400+ peserta sepanjang tahun",
-    date: "Januari - Desember 2024",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
     content: [],
@@ -665,12 +665,12 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "community-event-14",
-    image: "/comunity/Community14.jpg",
-    name: "Community Creative",
+    slug: "powerbox", // FIXED: Changed from community-event-15
+    image: "/comunity/Powerbox.jpg",
+    name: "Powerbox",
     type: "Community Event",
-    impact: "12 workshop, 400+ peserta sepanjang tahun",
-    date: "Januari - Desember 2024",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
     content: [],
@@ -679,12 +679,12 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "community-event-15",
-    image: "/comunity/Community15.jpg",
-    name: "Community Creative",
+    slug: "ramadan-csr", // FIXED: Changed from community-event-16
+    image: "/comunity/Ramadan-CSR.jpg",
+    name: "Ramadan CSR",
     type: "Community Event",
-    impact: "12 workshop, 400+ peserta sepanjang tahun",
-    date: "Januari - Desember 2024",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
     content: [],
@@ -692,18 +692,61 @@ export const eventsData: EventData[] = [
     gallery: [],
     hasDetail: false,
   },
+  {
+    slug: "rumah-karya-indonesia-visit", // FIXED: Changed from community-event-17
+    image: "/comunity/Rumah-Karya-Indonesia-visit.jpg",
+    name: "Rumah Karya Indonesia ",
+    type: "Community Event",
+    impact: "",
+    date: "",
+    location: "Clapham Collective, Medan",
+    description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
+    content: [],
+    highlights: [],
+    gallery: [],
+    hasDetail: false,
+  },
+  {
+    slug: "sg-minister-visit", // FIXED: Changed from community-event-18
+    image: "/comunity/SG-Minister-Visit.jpg",
+    name: "SG Minister ",
+    type: "Community Event",
+    impact: "",
+    date: "",
+    location: "Clapham Collective, Medan",
+    description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
+    content: [],
+    highlights: [],
+    gallery: [],
+    hasDetail: false,
+  },
+  {
+    slug: "singapore-minister-of-trade-visit", // FIXED: Changed from community-event-19
+    image: "/comunity/Singapore-Minister-of-Trade-Visit.jpg",
+    name: "Singapore Minister of Trade ",
+    type: "Community Event",
+    impact: "",
+    date: "",
+    location: "Clapham Collective, Medan",
+    description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
+    content: [],
+    highlights: [],
+    gallery: [],
+    hasDetail: false,
+  },
+  
   // ============================================
   // WORKSHOP COMMUNITY SERIES (21 Events - Manual)
   // ============================================
   
   // --- Workshop Community Utama ---
   {
-    slug: "workshop-community-gathering",
-    image: "/workshopp/Workshop-1.jpg",
-    name: "Workshop Community",
+    slug: "akara-ivif", // FIXED: Changed from workshop-community-gathering
+    image: "/workshopp/Akara-IVIF.jpg",
+    name: "Akara IVIF",
     type: "Workshop",
-    impact: "Ruang kreatif untuk ide dan kolaborasi baru",
-    date: "Januari - Desember 2024",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
     content: [],
@@ -714,11 +757,11 @@ export const eventsData: EventData[] = [
 
   // --- Workshop Community Tambahan (20 events) ---
   {
-    slug: "workshop-community-2",
-    image: "/workshopp/Workshop-2.jpg",
-    name: "Workshop Community",
+    slug: "angin-medan", // FIXED: Changed from workshop-community-2
+    image: "/workshopp/ANGIN-Medan.jpg",
+    name: "ANGIN MEDAN",
     type: "Workshop",
-    impact: "Ruang kreatif untuk ide dan kolaborasi baru",
+    impact: "",
     date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
@@ -728,11 +771,11 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "workshop-community-3",
-    image: "/workshopp/Workshop-3.jpg",
-    name: "Workshop Community",
+    slug: "fbn-rotary", // FIXED: Changed from workshop-community-3
+    image: "/workshopp/FBN-Rotary.jpg",
+    name: "FNB Rotary",
     type: "Workshop",
-    impact: "Ruang kreatif untuk ide dan kolaborasi baru",
+    impact: "",
     date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
@@ -742,11 +785,11 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "workshop-community-4",
-    image: "/workshopp/Workshop-4.jpg",
-    name: "Workshop Community",
+    slug: "financial-workshop", // FIXED: Changed from workshop-community-4
+    image: "/workshopp/Financial-Workshop.jpg",
+    name: "Financial Workshop",
     type: "Workshop",
-    impact: "Ruang kreatif untuk ide dan kolaborasi baru",
+    impact: "",
     date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
@@ -756,11 +799,11 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "workshop-community-5",
-    image: "/workshopp/Workshop-5.jpg",
-    name: "Workshop Community",
+    slug: "international-breakfast-club", // FIXED: Changed from workshop-community-5
+    image: "/workshopp/International-Breakfast-Club.jpg",
+    name: "International Breakfast Club",
     type: "Workshop",
-    impact: "Ruang kreatif untuk ide dan kolaborasi baru",
+    impact: "",
     date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
@@ -770,11 +813,11 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "workshop-community-6",
-    image: "/workshopp/Workshop-6.jpg",
-    name: "Workshop Community",
+    slug: "investing", // FIXED: Changed from workshop-community-6
+    image: "/workshopp/Investing.jpg",
+    name: "Investing",
     type: "Workshop",
-    impact: "Ruang kreatif untuk ide dan kolaborasi baru",
+    impact: "",
     date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
@@ -784,11 +827,11 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "workshop-community-7",
-    image: "/workshopp/Workshop-7.jpg",
-    name: "Workshop Community",
+    slug: "jkt-denali-flog", // FIXED: Changed from workshop-community-7
+    image: "/workshopp/JKT-Denali-Flog.jpg",
+    name: "JKT Denali Flog",
     type: "Workshop",
-    impact: "Ruang kreatif untuk ide dan kolaborasi baru",
+    impact: "",
     date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
@@ -798,11 +841,11 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "workshop-community-8",
-    image: "/workshopp/Workshop-8.jpg",
-    name: "Workshop Community",
+    slug: "pakar-digital-workshop", // FIXED: Changed from workshop-community-8
+    image: "/workshopp/Pakar-Digital-Workshop.jpg",
+    name: "Pakar Digital Workshop",
     type: "Workshop",
-    impact: "Ruang kreatif untuk ide dan kolaborasi baru",
+    impact: "",
     date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
@@ -812,11 +855,11 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "workshop-community-9",
-    image: "/workshopp/Workshop-9.jpg",
-    name: "Workshop Community",
+    slug: "pakar-social-media-workshop", // FIXED: Changed from workshop-community-9
+    image: "/workshopp/Pakar-Social-Media-Workshop.jpg",
+    name: "Pakar Social Media-Workshop",
     type: "Workshop",
-    impact: "Ruang kreatif untuk ide dan kolaborasi baru",
+    impact: "",
     date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
@@ -826,11 +869,11 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "workshop-community-10",
-    image: "/workshopp/Workshop-10.jpg",
-    name: "Workshop Community",
+    slug: "sanrok-mike", // FIXED: Changed from workshop-community-10
+    image: "/workshopp/Sanrok-Mike.jpg",
+    name: "Sanrok-Mike",
     type: "Workshop",
-    impact: "Ruang kreatif untuk ide dan kolaborasi baru",
+    impact: "",
     date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
@@ -840,11 +883,11 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "workshop-community-11",
-    image: "/workshopp/Workshop-11.jpg",
-    name: "Workshop Community",
+    slug: "sml-one-ongoing-courses", // FIXED: Changed from workshop-community-11
+    image: "/workshopp/SML-One-Ongoing-courses.jpg",
+    name: "SML One Ongoing Courses",
     type: "Workshop",
-    impact: "Ruang kreatif untuk ide dan kolaborasi baru",
+    impact: "",
     date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
@@ -854,11 +897,11 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "workshop-community-12",
-    image: "/workshopp/Workshop-12.jpg",
-    name: "Workshop Community",
+    slug: "smlone-orator-signature-pro-workshop", // FIXED: Changed from workshop-community-12
+    image: "/workshopp/SMLONE-Orator-Signature-Pro-Workshop.jpg",
+    name: "SMLONE Orator Signature Pro Workshop",
     type: "Workshop",
-    impact: "Ruang kreatif untuk ide dan kolaborasi baru",
+    impact: "",
     date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
@@ -868,11 +911,11 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "workshop-community-13",
-    image: "/workshopp/Workshop-13.jpg",
-    name: "Workshop Community",
+    slug: "startup-clinic-growth", // FIXED: Changed from workshop-community-13
+    image: "/workshopp/Startup-Clinic-Growth.jpg",
+    name: "Startup Clinic Growth",
     type: "Workshop",
-    impact: "Ruang kreatif untuk ide dan kolaborasi baru",
+    impact: "",
     date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
@@ -882,11 +925,11 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "workshop-community-14",
-    image: "/workshopp/Workshop-14.jpg",
-    name: "Workshop Community",
+    slug: "startup-grind", // FIXED: Changed from workshop-community-14
+    image: "/workshopp/Startup-Grind.jpg",
+    name: "Startup Grind",
     type: "Workshop",
-    impact: "Ruang kreatif untuk ide dan kolaborasi baru",
+    impact: "",
     date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
@@ -896,11 +939,11 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "workshop-community-15",
-    image: "/workshopp/Workshop-15.jpg",
-    name: "Workshop Community",
+    slug: "teachers-workshop", // FIXED: Changed from workshop-community-15
+    image: "/workshopp/Teachers-Workshop.jpg",
+    name: "Teachers Workshop",
     type: "Workshop",
-    impact: "Ruang kreatif untuk ide dan kolaborasi baru",
+    impact: "",
     date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
@@ -910,11 +953,11 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "workshop-community-16",
-    image: "/workshopp/Workshop-16.jpg",
-    name: "Workshop Community",
+    slug: "worksho-fbn", // FIXED: Changed from workshop-community-16
+    image: "/workshopp/Worksho-FBN.jpg",
+    name: "Worksho FBN",
     type: "Workshop",
-    impact: "Ruang kreatif untuk ide dan kolaborasi baru",
+    impact: "",
     date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
@@ -923,87 +966,17 @@ export const eventsData: EventData[] = [
     gallery: [],
     hasDetail: false,
   },
-  {
-    slug: "workshop-community-17",
-    image: "/workshopp/Workshop-17.jpg",
-    name: "Workshop Community",
-    type: "Workshop",
-    impact: "Ruang kreatif untuk ide dan kolaborasi baru",
-    date: "",
-    location: "Clapham Collective, Medan",
-    description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
-    content: [],
-    highlights: [],
-    gallery: [],
-    hasDetail: false,
-  },
-  {
-    slug: "workshop-community-18",
-    image: "/workshopp/Workshop-18.jpg",
-    name: "Workshop Community",
-    type: "Workshop",
-    impact: "Ruang kreatif untuk ide dan kolaborasi baru",
-    date: "",
-    location: "Clapham Collective, Medan",
-    description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
-    content: [],
-    highlights: [],
-    gallery: [],
-    hasDetail: false,
-  },
-  {
-    slug: "workshop-community-19",
-    image: "/workshopp/Workshop-19.jpg",
-    name: "Workshop Community",
-    type: "Workshop",
-    impact: "Ruang kreatif untuk ide dan kolaborasi baru",
-    date: "",
-    location: "Clapham Collective, Medan",
-    description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
-    content: [],
-    highlights: [],
-    gallery: [],
-    hasDetail: false,
-  },
-  {
-    slug: "workshop-community-20",
-    image: "/workshopp/Workshop-20.jpg",
-    name: "Workshop Community",
-    type: "Workshop",
-    impact: "Ruang kreatif untuk ide dan kolaborasi baru",
-    date: "",
-    location: "Clapham Collective, Medan",
-    description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
-    content: [],
-    highlights: [],
-    gallery: [],
-    hasDetail: false,
-  },
-  {
-    slug: "workshop-community-21",
-    image: "/workshopp/Workshop-21.jpg",
-    name: "Workshop Community",
-    type: "Workshop",
-    impact: "Ruang kreatif untuk ide dan kolaborasi baru",
-    date: "",
-    location: "Clapham Collective, Medan",
-    description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
-    content: [],
-    highlights: [],
-    gallery: [],
-    hasDetail: false,
-  },
-
+  
   // ============================================
   // GATHERING SERIES (9 Events - Manual)
   // ============================================
   {
-    slug: "gathering-series-clapham-1",
-    image: "/getring/Gathering1.jpg",
-    name: "Gathering Series Clapham",
+    slug: "gathering-series-1", // FIXED: Changed to unique slug
+    image: "/getring/Annual-Dinner.JPG",
+    name: "Annual Dinner Clapham",
     type: "Gathering",
-    impact: "12 workshop, 400+ peserta sepanjang tahun",
-    date: "Januari - Desember 2024",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
     content: [],
@@ -1012,12 +985,12 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "gathering-series-clapham-2",
-    image: "/getring/Gathering2.png",
-    name: "Gathering Series Clapham",
+    slug: "gathering-series-2", // FIXED: Changed to unique slug
+    image: "/getring/Annual-Dinner2.JPG",
+    name: "Annual Dinner Clapham 2",
     type: "Gathering",
-    impact: "12 workshop, 400+ peserta sepanjang tahun",
-    date: "Januari - Desember 2024",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
     content: [],
@@ -1026,12 +999,12 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "gathering-series-clapham-3",
-    image: "/getring/Gathering3.jpg",
-    name: "Gathering Series Clapham",
+    slug: "gathering-series-3", // FIXED: Changed to unique slug
+    image: "/getring/Clapham Anniv.jpg",
+    name: "Clapham Anniversary",
     type: "Gathering",
-    impact: "12 workshop, 400+ peserta sepanjang tahun",
-    date: "Januari - Desember 2024",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
     content: [],
@@ -1040,12 +1013,12 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "gathering-series-clapham-4",
-    image: "/getring/Gathering4.jpg",
-    name: "Gathering Series Clapham",
+    slug: "gathering-series-4", // FIXED: Changed to unique slug
+    image: "/getring/Clapham-Conversation.jpg",
+    name: "Clapham Conversation: Bisa Buat Apa Ya Untuk Medan",
     type: "Gathering",
-    impact: "12 workshop, 400+ peserta sepanjang tahun",
-    date: "Januari - Desember 2024",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
     content: [],
@@ -1054,12 +1027,12 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "gathering-series-clapham-5",
-    image: "/getring/Gathering5.jpg",
-    name: "Gathering Series Clapham",
+    slug: "gathering-series-5", // FIXED: Changed to unique slug
+    image: "/getring/Hari-Pendidikan-Nasional-Clapham.png",
+    name: "Hari Pendidikan Nasional Clapham",
     type: "Gathering",
-    impact: "12 workshop, 400+ peserta sepanjang tahun",
-    date: "Januari - Desember 2024",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
     content: [],
@@ -1068,12 +1041,12 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "gathering-series-clapham-6",
-    image: "/getring/Gathering6.jpg",
-    name: "Gathering Series Clapham",
+    slug: "gathering-series-6", // FIXED: Changed to unique slug
+    image: "/getring/Member-Gathering-Clapham.jpg",
+    name: "Member Gathering Clapham",
     type: "Gathering",
-    impact: "12 workshop, 400+ peserta sepanjang tahun",
-    date: "Januari - Desember 2024",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
     content: [],
@@ -1082,12 +1055,12 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "gathering-series-clapham-7",
-    image: "/getring/Gathering7.jpg",
-    name: "Gathering Series Clapham",
+    slug: "gathering-series-7", // FIXED: Changed to unique slug
+    image: "/getring/Member-Gathering-Clapham.jpg",
+    name: "Member Gathering Clapham 2",
     type: "Gathering",
-    impact: "12 workshop, 400+ peserta sepanjang tahun",
-    date: "Januari - Desember 2024",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
     content: [],
@@ -1096,12 +1069,12 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "gathering-series-clapham-8",
-    image: "/getring/Gathering8.JPG",
-    name: "Gathering Series Clapham",
+    slug: "gathering-series-8", // FIXED: Changed to unique slug
+    image: "/getring/Members-Gathering.JPG",
+    name: "Members Gathering Clapham 3",
     type: "Gathering",
-    impact: "12 workshop, 400+ peserta sepanjang tahun",
-    date: "Januari - Desember 2024",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
     content: [],
@@ -1110,12 +1083,12 @@ export const eventsData: EventData[] = [
     hasDetail: false,
   },
   {
-    slug: "gathering-series-clapham-9",
-    image: "/getring/Gathering9.JPG",
-    name: "Gathering Series Clapham",
+    slug: "gathering-series-9", // FIXED: Changed to unique slug
+    image: "/getring/Musicaly.JPG",
+    name: "Musicaly",
     type: "Gathering",
-    impact: "12 workshop, 400+ peserta sepanjang tahun",
-    date: "Januari - Desember 2024",
+    impact: "",
+    date: "",
     location: "Clapham Collective, Medan",
     description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
     content: [],
@@ -1142,4 +1115,25 @@ export function getEventBySlug(slug: string): EventData | undefined {
 
 export function getAllEventSlugs(): string[] {
   return eventsData.map((event) => event.slug)
+}
+
+// Optional: Debug functions (you can remove these if not needed)
+export function checkDuplicateSlugs() {
+  const slugs = eventsData.map(e => e.slug)
+  const duplicates = slugs.filter((slug, index) => slugs.indexOf(slug) !== index)
+  if (duplicates.length > 0) {
+    console.warn('Duplicate slugs found:', [...new Set(duplicates)])
+  } else {
+    console.log('No duplicate slugs found')
+  }
+}
+
+export function checkDuplicateImages() {
+  const images = eventsData.map(e => e.image)
+  const duplicates = images.filter((img, index) => images.indexOf(img) !== index)
+  if (duplicates.length > 0) {
+    console.warn('Duplicate images found:', [...new Set(duplicates)])
+  } else {
+    console.log('No duplicate images found')
+  }
 }
