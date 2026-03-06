@@ -109,19 +109,23 @@ export const eventsData: EventData[] = [
     impact: "",
     date: "",
     location: "Clapham Collective, Medan",
-    description: "Konferensi tahunan yang menghadirkan pembicara terkemuka dan ratusan peserta dari berbagai industri.",
-    content: [
-      "Clapham Conference 2025 adalah konferensi tahunan terbesar yang diselenggarakan oleh Clapham Collective, menghadirkan lebih dari 500 peserta dari 15 industri berbeda di seluruh Indonesia. Acara ini menjadi wadah pertemuan para profesional, entrepreneur, dan pemimpin industri untuk berbagi wawasan dan membangun koneksi yang bermakna.",
-      "Tahun ini, konferensi mengambil tema 'Shaping Tomorrow' dengan fokus pada inovasi teknologi, kepemimpinan transformatif, dan strategi bisnis berkelanjutan. Para pembicara terkemuka dari berbagai bidang memberikan presentasi yang menginspirasi dan workshop interaktif yang memberikan nilai praktis bagi setiap peserta.",
-      "Selama dua hari penuh, peserta mendapatkan akses ke lebih dari 20 sesi paralel, 5 keynote speech, dan networking session yang dirancang khusus untuk memfasilitasi kolaborasi lintas industri. Feedback dari peserta menunjukkan tingkat kepuasan 96%, menjadikan ini salah satu konferensi paling sukses yang pernah kami selenggarakan.",
-    ],
-    highlights: [
-      "20+ sesi paralel dengan topik beragam",
-      "5 keynote speaker dari pemimpin industri",
-      "Networking dinner eksklusif",
-      "Exhibition area dengan 30+ booth partner",
-      "Live streaming untuk peserta virtual",
-    ],
+    description: "Konferensi yang mempertemukan pelaku usaha, profesional, dan komunitas untuk berbagi wawasan, membangun kolaborasi, dan mendorong perkembangan inovasi di kota Medan.",
+content: [
+  "Konferensi adalah sebuah forum pertemuan yang mempertemukan para profesional, pelaku usaha, akademisi, dan komunitas untuk berbagi pengetahuan, pengalaman, serta gagasan yang dapat mendorong kemajuan di berbagai bidang. Melalui sesi diskusi, presentasi, dan networking, konferensi menjadi ruang penting untuk bertukar perspektif, memperluas wawasan, dan membangun kolaborasi yang berdampak nyata.",
+
+  "Clapham Conference hadir sebagai wadah kolaborasi yang mempertemukan peserta dari berbagai industri untuk saling belajar dan berkembang bersama. Acara ini menghadirkan pembicara inspiratif serta membuka ruang diskusi yang mendorong lahirnya ide-ide baru dan solusi yang relevan dengan tantangan dunia bisnis dan teknologi saat ini.",
+
+  "Lebih dari sekadar acara berbagi pengetahuan, konferensi ini bertujuan memperkuat ekosistem inovasi di Kota Medan. Dengan mempertemukan pelaku usaha, startup, profesional, dan komunitas kreatif, Clapham Conference mendorong terciptanya kolaborasi yang dapat melahirkan peluang usaha baru, meningkatkan kualitas sumber daya manusia, serta mempercepat pertumbuhan ekonomi lokal.",
+
+  "Melalui berbagai topik seperti teknologi, strategi bisnis, hingga perkembangan industri kreatif, konferensi ini diharapkan mampu menginspirasi generasi muda dan pelaku usaha untuk terus berinovasi. Dengan semangat kolaborasi dan pembelajaran bersama, Clapham Conference berkomitmen menjadi bagian dari upaya membangun kota yang lebih maju, adaptif, dan berkelanjutan."
+],
+highlights: [
+  "Forum berbagi wawasan dan kolaborasi lintas industri",
+  "Pembicara inspiratif dari berbagai bidang",
+  "Diskusi dan networking antar pelaku usaha dan profesional",
+  "Ruang lahirnya ide bisnis dan inovasi baru",
+  "Mendorong pertumbuhan ekosistem bisnis di Kota Medan",
+],
     storySections: [
       {
         image: "/images/1.avif",
