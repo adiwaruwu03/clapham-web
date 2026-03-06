@@ -1390,7 +1390,7 @@ export const eventsData: EventData[] = [
   
   {
     slug: "gathering-series-8", // FIXED: Changed to unique slug
-    image: "/getring/Members-Gathering.JPG",
+    image: "/getring/Members-Gathering.jpg",
     name: "Members Gathering Clapham 3",
     type: "Gathering",
     impact: "",
@@ -1404,7 +1404,7 @@ export const eventsData: EventData[] = [
   },
   {
     slug: "gathering-series-9", // FIXED: Changed to unique slug
-    image: "/getring/Musicaly.JPG",
+    image: "/getring/Musicaly.jpg",
     name: "Musicaly",
     type: "Gathering",
     impact: "",
