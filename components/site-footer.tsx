@@ -24,7 +24,7 @@ const kontak = [
 
 export function SiteFooter() {
   return (
-    <footer className="bg-foreground py-16 text-background">
+    <footer className="bg-[#2F6DB3] py-16 text-background">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
        <div className="grid gap-12 md:grid-cols-3 justify-items-center text-center">
 

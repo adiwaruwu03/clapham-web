@@ -4,9 +4,9 @@ import { ArrowDown, ArrowUpRight } from "lucide-react"
 import { eventsData } from "@/lib/events-data"
 
 const featuredSlugs = [
+  "above-and-beyond-open-house",
+  "above-and-beyond-seminar-100",
   "clapham-conference-2025",
-  "above-and-beyond-seminar",
-  "community-creative-gathering",
 ]
 
 const moments = eventsData.filter((e) => featuredSlugs.includes(e.slug))
@@ -19,7 +19,7 @@ export function FeaturedMoments() {
           Featured Moments
         </p>
         <h2 className="mt-3 font-serif text-3xl font-bold text-foreground md:text-4xl text-balance">
-          Event Terbaru Kami
+          Event 
         </h2>
 
         <div className="mt-16 grid gap-8 md:grid-cols-3">

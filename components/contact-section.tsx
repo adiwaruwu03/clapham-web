@@ -113,7 +113,7 @@ Detail Kebutuhan:%0A${message}`
               <Label>Saya bukan robot</Label>
             </div>
 
-            <Button type="submit" className="w-full rounded-full gap-2" size="lg">
+            <Button type="submit" className="bg-[#2F6DB3] w-full rounded-full gap-2" size="lg">
               <Send className="h-4 w-4" />
               {"Let's Collaborate"}
             </Button>
