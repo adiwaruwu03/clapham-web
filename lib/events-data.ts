@@ -52,7 +52,7 @@ export const eventsData: EventData[] = [
 },
 {
   slug: "above-and-beyond-seminar-100",
-  image: "/images/Seminar-Above-and-Beyond.jpeg",
+  image: "/images/Seminar-Above-and-Beyond.webp",
   name: "Seminar Above and Beyond Seminar",
   type: "Seminar & Conference",
   impact: "",
@@ -103,7 +103,7 @@ export const eventsData: EventData[] = [
   // --- Seminar & Conference ---
   {
     slug: "clapham-conference-2025",
-    image: "/images/event-conference-2025.JPG",
+    image: "/images/event-conference-2025.webp",
     name: "Clapham Conference",
     type: "Seminar & Conference",
     impact: "",
@@ -1309,7 +1309,7 @@ highlights: [
   // ============================================
   {
     slug: "gathering-series-1", // FIXED: Changed to unique slug
-    image: "/getring/Annual-Dinner.JPG",
+    image: "/getring/Annual-Dinner.webp",
     name: "Annual Dinner Clapham",
     type: "Gathering",
     impact: "",
@@ -1323,7 +1323,7 @@ highlights: [
   },
   {
     slug: "gathering-series-2", // FIXED: Changed to unique slug
-    image: "/getring/Annual-Dinner2.JPG",
+    image: "/getring/Annual-Dinner2.webp",
     name: "Annual Dinner Clapham 2",
     type: "Gathering",
     impact: "",
@@ -1391,7 +1391,20 @@ highlights: [
     gallery: [],
     hasDetail: false,
   },
-  
+  {
+    slug: "gathering-series-7", // FIXED: Changed to unique slug
+    image: "/getring/Members-Gathering-Clapham.jpg",
+    name: "Member Gathering Clapham 2",
+    type: "Gathering",
+    impact: "",
+    date: "",
+    location: "Clapham Collective, Medan",
+    description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
+    content: [],
+    highlights: [],
+    gallery: [],
+    hasDetail: false,
+  },
   {
     slug: "gathering-series-8", // FIXED: Changed to unique slug
     image: "/getring/Members-Gathering.jpg",
