@@ -479,7 +479,7 @@ highlights: [
   // --- Community Events (Detailed) ---
   {
     slug: "community-creative-gathering",
-    image: "/images/above-6.jpg",
+    image: "/images/above-6.webp",
     name: "Community Creative Gathering",
     type: "Community Event",
     impact: "",
