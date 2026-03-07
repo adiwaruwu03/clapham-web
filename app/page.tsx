@@ -24,13 +24,13 @@ export default function HomePage() {
     <main>
       <Navigation />
 
-      <div className="reveal">
+      
         <HeroSection />
-      </div>
+      
 
-      <div className="reveal">
+      
         <CompanyProfile />
-      </div>
+      
 
       <div className="reveal">
         <StrengthsSection />
@@ -44,18 +44,17 @@ export default function HomePage() {
         <ServicesSection />
       </div>
 
-      <div className="reveal">
+      
         <EventsSection />
-      </div>
+      
 
-      <div className="reveal">
+      
         <AboutSection />
-      </div>
+      
 
-      <div className="reveal">
+      
         <BlogSection />
-      </div>
-
+      
       <div className="reveal">
         <Testimoni />
       </div>
@@ -64,9 +63,9 @@ export default function HomePage() {
         <PartnerClapham />
       </div>
 
-      <div className="reveal">
+      
         <ContactSection />
-      </div>
+      
 
       <SiteFooter />
     </main>
