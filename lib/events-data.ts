@@ -97,7 +97,7 @@ export const eventsData: EventData[] = [
       "Social media reach 2 juta+ impression",
     ],
     gallery: [],
-    hasDetail: true,
+    hasDetail: false,
   },
 
   // --- Seminar & Conference ---

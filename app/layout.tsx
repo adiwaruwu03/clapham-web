@@ -12,19 +12,19 @@ export const metadata: Metadata = {
   icons:{
     icon: [
       {
-        url: '/clp-logo.jpg',
+        url: '/clp-logo.webp',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/clp-logo.jpg',
+        url: '/clp-logo.webp',
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/clp-logo.jpg',
+        url: '/clp-logo.webp',
         type: 'image/svg+xml',
       },
     ],
-    apple: '/clp-logo.jpg',
+    apple: '/clp-logo.webp',
   },
 }
 

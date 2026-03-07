@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
+import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 
 const navLinks = [
@@ -45,11 +47,18 @@ export function Navigation() {
       
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        <a href="#home" className="flex items-center gap-2">
-          <span className="font-serif text-xl font-bold tracking-tight text-foreground">
-            Clapham Collective
-          </span>
-        </a>
+        
+        {/* LOGO */}
+        <Link href="#home" className="flex items-center">
+          <Image
+            src="/clp-logo-nav.png"
+            alt="Clapham Collective"
+            width={200}
+            height={60}
+            priority
+            className="h-10 w-auto"
+          />
+        </Link>
 
         {/* Desktop */}
         <div className="hidden items-center gap-8 lg:flex">
@@ -90,7 +99,7 @@ export function Navigation() {
         </button>
       </nav>
 
-      {/* Mobile */}
+      {/* Mobile menu */}
       {mobileOpen && (
         <div className="border-b border-border bg-background/98 backdrop-blur-md lg:hidden">
           <div className="flex flex-col gap-2 px-6 py-4">
@@ -104,6 +113,7 @@ export function Navigation() {
                 {link.label}
               </a>
             ))}
+
             <Button asChild size="sm" className="mt-2 rounded-full">
               <a href="#contact" onClick={() => setMobileOpen(false)}>
                 Let's Collaborate
@@ -114,4 +124,4 @@ export function Navigation() {
       )}
     </header>
   )
-}
+} 
