@@ -32,13 +32,11 @@ export default function HomePage() {
         <CompanyProfile />
       
 
-      <div className="reveal">
         <StrengthsSection />
-      </div>
+      
 
-      <div className="reveal">
         <FeaturedMoments />
-      </div>
+     
 
       <div className="reveal">
         <ServicesSection />
