@@ -10,7 +10,7 @@ const slides = [
   { src: "/images/hero-acti.jpg", label: "Seminar & Conference" },
   { src: "/images/hero-sem.jpg", label: "Brand Activation" },
   { src: "/images/hero-com.jpg", label: "Community Event" },
-  { src: "/getring/Annual-Dinner2.JPG", label: "Gathering" },
+  { src: "/getring/Annual-Dinner2.webp", label: "Gathering" },
   { src: "/workshopp/Sanrok-Mike.jpg", label: "Community Event" },
 ]
 
