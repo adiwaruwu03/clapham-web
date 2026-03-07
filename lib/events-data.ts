@@ -75,30 +75,7 @@ export const eventsData: EventData[] = [
   hasDetail: true,
 },
 
-  {
-    slug: "brand-experience-festival",
-    image: "/images/above-8.jpg",
-    name: "Brand Experience Festival",
-    type: "Brand Activation",
-    impact: "",
-    date: "",
-    location: "Clapham Collective, Medan",
-    description: "Festival pengalaman brand yang menciptakan interaksi mendalam antara brand dan audiens mereka.",
-    content: [
-      "Brand Experience Festival adalah event yang menggabungkan experiential marketing dengan entertainment untuk menciptakan pengalaman brand yang tak terlupakan. Dengan engagement rate mencapai 85% dari target audiens, festival ini membuktikan bahwa pendekatan experiential adalah cara paling efektif untuk membangun koneksi brand.",
-      "Festival ini menghadirkan instalasi interaktif dari 12 brand ternama, masing-masing dirancang untuk mengajak pengunjung merasakan nilai dan cerita brand secara langsung. Dari virtual reality experience hingga hands-on workshop, setiap booth menawarkan sesuatu yang unik dan memorable.",
-      "Tim Clapham Collective merancang setiap detail festival ini dengan cermat, mulai dari flow pengunjung, lighting design, hingga soundtrack yang mengiringi setiap zona. Hasilnya adalah sebuah pengalaman holistik yang tidak hanya menghibur tetapi juga meninggalkan kesan mendalam tentang setiap brand yang berpartisipasi.",
-    ],
-    highlights: [
-      "12 brand dengan instalasi interaktif",
-      "85% engagement rate dari target audiens",
-      "Virtual reality brand experience",
-      "Live performance dan entertainment",
-      "Social media reach 2 juta+ impression",
-    ],
-    gallery: [],
-    hasDetail: false,
-  },
+ 
 
   // --- Seminar & Conference ---
   {
@@ -165,6 +142,30 @@ highlights: [
     ],
     gallery: [],
     hasDetail: true,
+  },
+   {
+    slug: "brand-experience-festival",
+    image: "/images/above-8.jpg",
+    name: "Brand Experience Festival",
+    type: "Brand Activation",
+    impact: "",
+    date: "",
+    location: "Clapham Collective, Medan",
+    description: "Festival pengalaman brand yang menciptakan interaksi mendalam antara brand dan audiens mereka.",
+    content: [
+      "Brand Experience Festival adalah event yang menggabungkan experiential marketing dengan entertainment untuk menciptakan pengalaman brand yang tak terlupakan. Dengan engagement rate mencapai 85% dari target audiens, festival ini membuktikan bahwa pendekatan experiential adalah cara paling efektif untuk membangun koneksi brand.",
+      "Festival ini menghadirkan instalasi interaktif dari 12 brand ternama, masing-masing dirancang untuk mengajak pengunjung merasakan nilai dan cerita brand secara langsung. Dari virtual reality experience hingga hands-on workshop, setiap booth menawarkan sesuatu yang unik dan memorable.",
+      "Tim Clapham Collective merancang setiap detail festival ini dengan cermat, mulai dari flow pengunjung, lighting design, hingga soundtrack yang mengiringi setiap zona. Hasilnya adalah sebuah pengalaman holistik yang tidak hanya menghibur tetapi juga meninggalkan kesan mendalam tentang setiap brand yang berpartisipasi.",
+    ],
+    highlights: [
+      "12 brand dengan instalasi interaktif",
+      "85% engagement rate dari target audiens",
+      "Virtual reality brand experience",
+      "Live performance dan entertainment",
+      "Social media reach 2 juta+ impression",
+    ],
+    gallery: [],
+    hasDetail: false,
   },
   {
     slug: "clapham-conference-2025-1",
