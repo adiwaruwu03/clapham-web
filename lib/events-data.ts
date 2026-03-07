@@ -499,7 +499,7 @@ highlights: [
       "Free access untuk semua kreator",
     ],
     gallery: [],
-    hasDetail: true,
+    hasDetail: false,
   },
 
   {
