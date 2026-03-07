@@ -349,20 +349,7 @@ highlights: [
   gallery: [],
   hasDetail: false,
 },
-{
-  slug: "clapham-conference-2025-14",
-  image: "/seminar&confrens/Digital-Marketing2.jpg",
-  name: "Digital Marketing",
-  type: "Seminar & Conference",
-  impact: "",
-  date: "",
-  location: "Clapham Collective, Medan",
-  description: "Seri workshop kreatif bulanan yang mengembangkan keterampilan praktis dan mendorong ekspresi kreatif.",
-  content: [],
-  highlights: [],
-  gallery: [],
-  hasDetail: false,
-},
+
 {
   slug: "clapham-conference-2025-15",
   image: "/seminar&confrens/FB-Dev-Circle.jpg",
