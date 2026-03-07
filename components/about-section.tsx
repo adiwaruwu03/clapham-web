@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 const stats = [
   { value: "2016", label: "Berdiri Sejak" },
   { value: "300+", label: "Event Terselenggara" },
-  { value: "50+", label: "Brand Partner" },
+  { value: "100+", label: "Brand Partner" },
   { value: "10K+", label: "Peserta Event" },
 ]
 
