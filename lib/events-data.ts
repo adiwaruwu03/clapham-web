@@ -28,7 +28,7 @@ export const eventsData: EventData[] = [
   // --- Brand Activation ---
   {
   slug: "above-and-beyond-open-house",
-  image: "/images/beyoundbg.png",
+  image: "/images/Open-House-Above-and-Beyond.webp",
   name: "Above and Beyond Open House",
   type: "Brand Activation",
   impact: "",
