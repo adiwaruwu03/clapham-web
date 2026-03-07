@@ -479,7 +479,7 @@ highlights: [
   // --- Community Events (Detailed) ---
   {
     slug: "community-creative-gathering",
-    image: "/images/above-6.webp",
+    image: "/images/above-6.jpg",
     name: "Community Creative Gathering",
     type: "Community Event",
     impact: "",
@@ -499,12 +499,12 @@ highlights: [
       "Free access untuk semua kreator",
     ],
     gallery: [],
-    hasDetail: false,
+    hasDetail: true,
   },
 
   {
     slug: "creative-workshop-series",
-    image: "/images/work-6.JPG",
+    image: "/images/work-6.webp",
     name: "Creative Workshop Series",
     type: "Community Event",
     impact: "",
@@ -524,7 +524,7 @@ highlights: [
       "Alumni network 400+ kreator",
     ],
     gallery: [],
-    hasDetail: true,
+    hasDetail: false,
   },
 
   // ============================================
