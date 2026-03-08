@@ -1280,7 +1280,7 @@ highlights: [
   {
     slug: "worksho-fbn", // FIXED: Changed from workshop-community-16
     image: "/workshopp/Worksho-FBN.jpg",
-    name: "Worksho FBN",
+    name: "Workshop FBN",
     type: "Workshop",
     impact: "",
     date: "",
