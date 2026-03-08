@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
@@ -20,6 +20,7 @@ export function AboutSection() {
 
   const [currentIndex, setCurrentIndex] = useState(0)
 
+  // Fungsi tombol prev/next
   const prevSlide = () => {
     setCurrentIndex((prev) =>
       prev === 0 ? images.length - 1 : prev - 1
@@ -31,6 +32,17 @@ export function AboutSection() {
       prev === images.length - 1 ? 0 : prev + 1
     )
   }
+
+  // Auto slide tiap 5 detik (5000ms)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) =>
+        prev === images.length - 1 ? 0 : prev + 1
+      )
+    }, 5000) // rekomendasi: 5 detik cukup nyaman
+
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <section id="about" className="bg-card py-24">
@@ -71,30 +83,63 @@ export function AboutSection() {
             </div>
           </div>
 
-          {/* RIGHT IMAGE SLIDER */}
-          <div className="relative w-full max-w-xl mx-auto">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
-              <Image
-                src={images[currentIndex]}
-                alt="Clapham Collective coworking space"
-                fill
-                className="object-cover transition-opacity duration-500"
-              />
-            </div>
+          {/* RIGHT IMAGE 3D SLIDER */}
+          <div className="relative w-full max-w-lg mx-auto h-[360px] [perspective:1200px]">
 
+            {images.map((img, index) => {
+              const offset = (index - currentIndex + images.length) % images.length
+
+              let transform = ""
+              let zIndex = 0
+
+              if (offset === 0) {
+                transform = "translateX(0) scale(1) rotateY(0deg)"
+                zIndex = 30
+              } else if (offset === 1) {
+                transform = "translateX(60px) scale(0.9) rotateY(-15deg)"
+                zIndex = 20
+              } else {
+                transform = "translateX(-60px) scale(0.9) rotateY(15deg)"
+                zIndex = 10
+              }
+
+              return (
+                <div
+                  key={img}
+                  className="absolute inset-0 transition-all duration-700 ease-out"
+                  style={{
+                    transform,
+                    zIndex,
+                  }}
+                >
+                  <div className="relative w-full h-full overflow-hidden rounded-xl shadow-2xl">
+                    <Image
+                      src={img}
+                      alt="Clapham Collective coworking space"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              )
+            })}
+
+            {/* BUTTON LEFT */}
             <button
               onClick={prevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white hover:bg-black/70"
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-40 rounded-full bg-black/50 p-2 text-white hover:bg-black/70"
             >
               <ChevronLeft size={20} />
             </button>
 
+            {/* BUTTON RIGHT */}
             <button
               onClick={nextSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white hover:bg-black/70"
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-40 rounded-full bg-black/50 p-2 text-white hover:bg-black/70"
             >
               <ChevronRight size={20} />
             </button>
+
           </div>
         </div>
 
