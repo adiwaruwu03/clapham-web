@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { Star } from "lucide-react"
 
 const testimonials = [
@@ -26,11 +27,18 @@ const testimonials = [
 ]
 
 export function Testimoni() {
+  const [loaded, setLoaded] = useState(false)
+
+  // trigger animasi setelah mount
+  useEffect(() => {
+    setLoaded(true)
+  }, [])
+
   return (
     <section className="bg-background py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
-        {/* title */}
+        {/* TITLE */}
         <div className="text-center">
           <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
             Testimonials
@@ -41,27 +49,33 @@ export function Testimoni() {
           </h2>
         </div>
 
-        {/* grid */}
+        {/* GRID */}
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {testimonials.map((item, i) => (
             <div
               key={i}
-              className="flex flex-col rounded-xl border border-border bg-card p-5 shadow-sm hover:shadow-md transition text-center h-full"
+              className={`flex flex-col rounded-xl border border-border bg-card p-5 text-center h-full
+                          shadow-sm transition-transform transform hover:scale-105 hover:shadow-xl
+                          ${
+                            loaded
+                              ? `opacity-100 translate-y-0 transition-all duration-700 delay-[${i * 150}ms]`
+                              : "opacity-0 translate-y-5"
+                          }`}
             >
               
-              {/* stars */}
+              {/* STARS */}
               <div className="flex justify-center gap-1 mb-3 text-yellow-500">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} size={14} fill="currentColor" />
                 ))}
               </div>
 
-              {/* text */}
+              {/* TEXT */}
               <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-grow">
                 "{item.text}"
               </p>
 
-              {/* author */}
+              {/* AUTHOR */}
               <div>
                 <p className="text-sm font-semibold text-foreground">
                   {item.name}
