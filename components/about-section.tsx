@@ -20,7 +20,7 @@ export function AboutSection() {
 
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  // Fungsi tombol prev/next
+  // tombol prev/next
   const prevSlide = () => {
     setCurrentIndex((prev) =>
       prev === 0 ? images.length - 1 : prev - 1
@@ -33,14 +33,13 @@ export function AboutSection() {
     )
   }
 
-  // Auto slide tiap 5 detik (5000ms)
+  // auto slide tiap 5 detik
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) =>
         prev === images.length - 1 ? 0 : prev + 1
       )
-    }, 5000) // rekomendasi: 5 detik cukup nyaman
-
+    }, 5000)
     return () => clearInterval(interval)
   }, [])
 
@@ -84,11 +83,10 @@ export function AboutSection() {
           </div>
 
           {/* RIGHT IMAGE 3D SLIDER */}
-          <div className="relative w-full max-w-lg mx-auto h-[360px] [perspective:1200px]">
+          <div className="relative w-full max-w-lg mx-auto aspect-[4/3] sm:aspect-[16/9] [perspective:1200px]">
 
             {images.map((img, index) => {
               const offset = (index - currentIndex + images.length) % images.length
-
               let transform = ""
               let zIndex = 0
 
