@@ -111,7 +111,7 @@ export const blogData: BlogArticle[] = [
     title: "Festival Kewirausahaan Medan Kembali Digelar",
     excerpt:
       "Festival Kewirausahaan Medan kembali digelar untuk mendorong pertumbuhan entrepreneur muda dan ekosistem bisnis di kota Medan.",
-    date: "23 okt 2025",
+    date: "25 Januari 2018",
     author: "Kabar Medan",
     readTime: "3 menit baca",
     externalUrl:
