@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
@@ -6,15 +5,19 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
+interface HeroSectionProps {
+  lang?: "id" | "en"
+}
+
 const slides = [
+  { src: "/getring/Clapham-Conversation.jpg", label: "Gathering" },
   { src: "/images/hero-acti.jpg", label: "Seminar & Conference" },
   { src: "/images/hero-sem.jpg", label: "Brand Activation" },
   { src: "/images/hero-com.jpg", label: "Community Event" },
-  { src: "/getring/Clapham-Conversation.jpg", label: "Gathering" },
-  { src: "/workshopp/Sanrok-Mike.jpg", label: "Community Event" },
+  { src: "/workshopp/Sanrok-Mike.jpg", label: "Workshop" },
 ]
 
-export function HeroSection() {
+export function HeroSection({ lang = "id" }: HeroSectionProps) {
   const [current, setCurrent] = useState(0)
 
   const next = useCallback(() => {
@@ -29,6 +32,17 @@ export function HeroSection() {
     const timer = setInterval(next, 5000)
     return () => clearInterval(timer)
   }, [next])
+
+  const titleLines = lang === "id"
+    ? ["Kami Mewujudkan Ide,", "dan Membantu Anda", "Mencapai Tujuan"]
+    : ["We Bring Ideas to Life,", "Helping You", "Achieve Your Goals"]
+
+  const description = lang === "id"
+    ? "Manajemen event strategis untuk brand, organisasi, dan komunitas yang ingin menciptakan dampak nyata."
+    : "Strategic event management for brands, organizations, and communities aiming to create meaningful impact."
+
+  const btnPlan = lang === "id" ? "Rencanakan Event Anda" : "Plan Your Event"
+  const btnView = lang === "id" ? "Lihat Karya Kami" : "See Our Work"
 
   return (
     <section id="home" className="relative min-h-screen overflow-hidden">
@@ -49,7 +63,9 @@ export function HeroSection() {
               className="object-cover"
               priority={i === 0}
             />
-            <div className="absolute inset-0 bg-black/40" />
+
+            {/* Overlay hitam supaya teks mudah dibaca */}
+            <div className="absolute inset-0 bg-black/50" />
           </div>
         ))}
       </div>
@@ -60,31 +76,26 @@ export function HeroSection() {
 
           {/* Animated Title */}
           <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-white overflow-hidden">
-            <span className="block animate-fadeUp">
-              Kami Mewujudkan Ide,
-            </span>
-            <span className="block animate-fadeUp delay-200">
-              dan Membantu Anda
-            </span>
-            <span className="block animate-fadeUp delay-400">
-              Mencapai Tujuan
-            </span>
+            {titleLines.map((line, idx) => (
+              <span key={idx} className={`block animate-fadeUp delay-${idx * 200}`}>
+                {line}
+              </span>
+            ))}
           </h1>
 
           {/* Animated Description */}
-          <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-white/80 animate-fadeUp delay-700">
-            Manajemen event strategis untuk brand, organisasi, dan komunitas
-            yang ingin menciptakan dampak nyata.
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-white/90 animate-fadeUp delay-700">
+            {description}
           </p>
 
-          {/* Animated Buttons */}
+          {/* Buttons */}
           <div className="mt-6 sm:mt-10 flex flex-wrap gap-4 animate-fadeUp delay-1000">
             <Button
               asChild
               size="lg"
               className="rounded-full bg-white text-black hover:bg-gray-200 px-6 sm:px-8"
             >
-              <a href="#contact">Rencanakan Event Anda</a>
+              <a href="#contact">{btnPlan}</a>
             </Button>
 
             <Button
@@ -93,7 +104,7 @@ export function HeroSection() {
               size="lg"
               className="rounded-full bg-white text-black hover:bg-gray-200 px-6 sm:px-8"
             >
-              <a href="#events">Lihat Karya Kami</a>
+              <a href="#events">{btnView}</a>
             </Button>
           </div>
         </div>
@@ -101,9 +112,9 @@ export function HeroSection() {
         {/* Slide indicators */}
         <div className="absolute bottom-6 left-4 flex items-center gap-4 sm:bottom-8 sm:left-6 lg:bottom-12 lg:left-8">
           <div className="flex gap-2">
-            {slides.map((slide, i) => (
+            {slides.map((_, i) => (
               <button
-                key={slide.src}
+                key={i}
                 onClick={() => setCurrent(i)}
                 className={`h-1.5 rounded-full transition-all duration-1000 ${
                   i === current ? "w-8 bg-white" : "w-4 bg-white/50"

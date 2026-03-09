@@ -3,36 +3,65 @@
 import { useEffect, useState } from "react"
 import { Star } from "lucide-react"
 
-const testimonials = [
-  {
-    name: "Diyah Purworini",
-    company: "Visitor",
-    text: "A comfy and cozy place to work together, to do sharing sessions, seminars, workshops, press releases, etc. Because the location is inside a one-stop place mall complex, it makes it efficient for people who want to shop or have lunch/dinner after activities at Cohive Clapham.",
-  },
-  {
-    name: "Jenny Lee",
-    company: "Collaborator",
-    text: "Thank you team Clapham! So glad to be working together. Uda helpful sekali 😊🙏",
-  },
-  {
-    name: "Edward Sofian",
-    company: "Client",
-    text: "Senang bisa menyelenggarakan meeting kantor kami di Clapham. Selain vibe tempatnya nyaman dan proper, tim mereka seperti Kak Yuni dan Mas Haikal menyiapkan segala kebutuhan selama meeting dengan sangat baik.",
-  },
-  {
-    name: "Econolab",
-    company: "Organization",
-    text: "Event ini menjadi salah satu event terbaik yang pernah kami hadiri selama Econolab hadir di Medan. Kami berharap akan ada conference lainnya yang dipersiapkan dengan sangat baik oleh tim Clapham untuk memunculkan inovasi dan ide baru bagi kota.",
-  },
-]
+interface TestimoniProps {
+  lang: "id" | "en"
+}
 
-export function Testimoni() {
+const testimonialsData = {
+  id: [
+    {
+      name: "Diyah Purworini",
+      company: "Pengunjung",
+      text: "Tempat yang nyaman untuk bekerja bersama, melakukan sharing session, seminar, workshop, press release, dll. Karena lokasinya di dalam one-stop place mall complex, memudahkan orang yang ingin belanja atau makan setelah kegiatan di Cohive Clapham.",
+    },
+    {
+      name: "Jenny Lee",
+      company: "Kolaborator",
+      text: "Terima kasih tim Clapham! Senang bisa bekerja sama. Sangat membantu 😊🙏",
+    },
+    {
+      name: "Edward Sofian",
+      company: "Klien",
+      text: "Senang bisa menyelenggarakan meeting kantor kami di Clapham. Selain vibe tempat nyaman dan proper, tim seperti Kak Yuni dan Mas Haikal menyiapkan semua kebutuhan meeting dengan sangat baik.",
+    },
+    {
+      name: "Econolab",
+      company: "Organisasi",
+      text: "Event ini menjadi salah satu event terbaik yang pernah kami hadiri. Kami berharap akan ada conference lainnya yang dipersiapkan sangat baik oleh tim Clapham untuk memunculkan inovasi dan ide baru bagi kota.",
+    },
+  ],
+  en: [
+    {
+      name: "Diyah Purworini",
+      company: "Visitor",
+      text: "A comfy and cozy place to work together, to do sharing sessions, seminars, workshops, press releases, etc. Because the location is inside a one-stop place mall complex, it makes it efficient for people who want to shop or have lunch/dinner after activities at Cohive Clapham.",
+    },
+    {
+      name: "Jenny Lee",
+      company: "Collaborator",
+      text: "Thank you team Clapham! So glad to be working together. Uda helpful sekali 😊🙏",
+    },
+    {
+      name: "Edward Sofian",
+      company: "Client",
+      text: "Happy to hold our office meeting at Clapham. The place is comfortable, and the team like Kak Yuni & Mas Haikal prepared everything very well.",
+    },
+    {
+      name: "Econolab",
+      company: "Organization",
+      text: "This event became one of the best events we’ve ever attended. We hope there will be more conferences prepared very well by Clapham to spark innovation and new ideas for the city.",
+    },
+  ],
+}
+
+export function Testimoni({ lang }: TestimoniProps) {
   const [loaded, setLoaded] = useState(false)
 
-  // trigger animasi setelah mount
   useEffect(() => {
     setLoaded(true)
   }, [])
+
+  const testimonials = testimonialsData[lang]
 
   return (
     <section className="bg-background py-20">
@@ -41,11 +70,11 @@ export function Testimoni() {
         {/* TITLE */}
         <div className="text-center">
           <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
-            Testimonials
+            {lang === "id" ? "Testimoni" : "Testimonials"}
           </p>
 
           <h2 className="mt-3 font-serif text-3xl font-bold text-foreground md:text-4xl">
-            What People Say About Us
+            {lang === "id" ? "Apa Kata Mereka Tentang Kami" : "What People Say About Us"}
           </h2>
         </div>
 
@@ -56,13 +85,9 @@ export function Testimoni() {
               key={i}
               className={`flex flex-col rounded-xl border border-border bg-card p-5 text-center h-full
                           shadow-sm transition-transform transform hover:scale-105 hover:shadow-xl
-                          ${
-                            loaded
-                              ? `opacity-100 translate-y-0 transition-all duration-700 delay-[${i * 150}ms]`
-                              : "opacity-0 translate-y-5"
-                          }`}
+                          ${loaded ? `opacity-100 translate-y-0 transition-all duration-700 delay-[${i * 150}ms]` : "opacity-0 translate-y-5"}`}
             >
-              
+
               {/* STARS */}
               <div className="flex justify-center gap-1 mb-3 text-yellow-500">
                 {[...Array(5)].map((_, i) => (
@@ -77,18 +102,13 @@ export function Testimoni() {
 
               {/* AUTHOR */}
               <div>
-                <p className="text-sm font-semibold text-foreground">
-                  {item.name}
-                </p>
-                <p className="text-xs text-muted-foreground">
-                  {item.company}
-                </p>
+                <p className="text-sm font-semibold text-foreground">{item.name}</p>
+                <p className="text-xs text-muted-foreground">{item.company}</p>
               </div>
 
             </div>
           ))}
         </div>
-
       </div>
     </section>
   )

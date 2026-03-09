@@ -15,57 +15,42 @@ import { ContactSection } from "@/components/contact-section"
 import { SiteFooter } from "@/components/site-footer"
 import PartnerClapham from "@/components/partner-clapham"
 import { Testimoni } from "@/components/testimoni"
+import { useState } from "react"
 
 export default function HomePage() {
-
   useReveal()
+
+  // ✅ state bahasa
+  const [lang, setLang] = useState<"id" | "en">("id") // default bahasa Indonesia
 
   return (
     <main>
-      <Navigation />
+      {/* Navbar sekarang pegang bahasa */}
+      <Navigation lang={lang} setLang={setLang} />
 
-      
-        <HeroSection />
-      
-
-      
-        <CompanyProfile />
-      
-
-        <StrengthsSection />
-      
-
-        <FeaturedMoments />
-     
+      <HeroSection lang={lang} />
+      <CompanyProfile lang={lang} />
+      <StrengthsSection lang={lang} />
+      <FeaturedMoments lang={lang} />
 
       <div className="reveal">
-        <ServicesSection />
+        <ServicesSection lang={lang} />
       </div>
 
-      
-        <EventsSection />
-      
+      <EventsSection lang={lang} />
+      <AboutSection lang={lang} />
+      <BlogSection lang={lang} />
 
-      
-        <AboutSection />
-      
-
-      
-        <BlogSection />
-      
       <div className="reveal">
-        <Testimoni />
+        <Testimoni lang={lang} />
       </div>
 
       <div className="reveal">
         <PartnerClapham />
       </div>
 
-      
-        <ContactSection />
-      
-
-      <SiteFooter />
+      <ContactSection lang={lang} />
+      <SiteFooter lang={lang} />
     </main>
   )
 }

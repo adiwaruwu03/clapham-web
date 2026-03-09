@@ -1,46 +1,67 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { eventsData } from "@/lib/events-data"
 
-const filters = [
-  "Semua",
-  "Seminar & Conference",
-  "Brand Activation",
-  "Gathering",
-  "Workshop",
-  "Community Event",
-]
+// Teks bilingual
+const texts = {
+  id: {
+    recentEvents: "Event Terbaru",
+    ourEvents: "Event Kami",
+    showAll: "Lihat Semua Event",
+    close: "Tutup Event",
+    filters: ["Semua", "Seminar & Conference", "Brand Activation", "Gathering", "Workshop", "Community Event"]
+  },
+  en: {
+    recentEvents: "Recent Events",
+    ourEvents: "Our Events",
+    showAll: "Show All Events",
+    close: "Close Events",
+    filters: ["All", "Seminar & Conference", "Brand Activation", "Gathering", "Workshop", "Community Event"]
+  }
+}
 
-export function EventsSection() {
-  const [active, setActive] = useState("Semua")
+// TypeScript props
+type EventsSectionProps = {
+  lang?: "id" | "en"
+}
+
+export function EventsSection({ lang = "id" }: EventsSectionProps) {
+  const [active, setActive] = useState<string | null>(null) // initial null biar semua muncul
   const [showAll, setShowAll] = useState(false)
 
-  const filtered =
-    active === "Semua"
-      ? eventsData
-      : eventsData.filter((e) => e.type === active)
+  // pastikan default active sesuai bahasa
+  useEffect(() => {
+    setActive(texts[lang].filters[0])
+  }, [lang])
 
-  // tampilkan hanya 9 jika showAll false
+  // Filter event: jika active = "Semua" atau null, tampilkan semua
+  const filtered =
+    !active || active === texts[lang].filters[0]
+      ? eventsData
+      : eventsData.filter((e) => e.type?.trim() === active.trim())
+
   const displayed = showAll ? filtered : filtered.slice(0, 9)
 
   return (
     <section id="events" className="bg-background py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        {/* Label Recent Events */}
         <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
-          Recent Events
+          {texts[lang].recentEvents}
         </p>
 
+        {/* Judul Section */}
         <h2 className="mt-3 font-serif text-3xl font-bold text-foreground md:text-4xl">
-          Event Kami
+          {texts[lang].ourEvents}
         </h2>
 
         {/* Filters */}
         <div className="mt-8 flex flex-wrap gap-2">
-          {filters.map((filter) => (
+          {texts[lang].filters.map((filter) => (
             <button
               key={filter}
               onClick={() => {
@@ -114,7 +135,7 @@ export function EventsSection() {
               onClick={() => setShowAll(!showAll)}
               className="rounded-full border border-border px-6 py-3 text-sm font-medium transition hover:bg-accent"
             >
-              {showAll ? "Tutup Event" : "Lihat Semua Event"}
+              {showAll ? texts[lang].close : texts[lang].showAll}
             </button>
           </div>
         )}

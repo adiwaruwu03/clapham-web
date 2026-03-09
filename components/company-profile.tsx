@@ -1,7 +1,13 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Download, Play } from "lucide-react"
 
-export function CompanyProfile() {
+interface CompanyProfileProps {
+  lang?: "id" | "en"
+}
+
+export function CompanyProfile({ lang = "id" }: CompanyProfileProps) {
   return (
     <section className="bg-foreground py-24 text-background">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -10,17 +16,19 @@ export function CompanyProfile() {
           {/* LEFT SIDE */}
           <div>
             <p className="text-sm font-medium uppercase tracking-widest text-background/50">
-              Company Profile
+              {lang === "id" ? "Company Profile" : "Company Profile"}
             </p>
 
             <h2 className="mt-3 font-serif text-3xl font-bold leading-tight md:text-4xl">
-              Lebih dari Sekadar Event: Kami Membangun Pengalaman
+              {lang === "id"
+                ? "Lebih dari Sekadar Event: Kami Membangun Pengalaman"
+                : "More Than Events: We Build Experiences"}
             </h2>
 
             <p className="mt-6 text-base leading-relaxed text-background/70">
-              Sejak 2016, Clapham Collective telah menjadi ekosistem yang 
-              menghubungkan ide, komunitas, dan dampak. Kami percaya setiap 
-              event adalah kesempatan untuk menciptakan perubahan nyata.
+              {lang === "id"
+                ? "Sejak 2016, Clapham Collective telah menjadi ekosistem yang menghubungkan ide, komunitas, dan dampak. Kami percaya setiap event adalah kesempatan untuk menciptakan perubahan nyata."
+                : "Since 2016, Clapham Collective has been an ecosystem connecting ideas, communities, and impact. We believe every event is an opportunity to create real change."}
             </p>
           </div>
 
@@ -30,7 +38,7 @@ export function CompanyProfile() {
             <iframe
               className="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-x-1/2 -translate-y-1/2"
               src="https://www.youtube.com/embed/SLSkMD3GjQs?autoplay=1&mute=1&controls=0&loop=1&playlist=SLSkMD3GjQs&modestbranding=1&rel=0&vq=hd1080"
-              title="Company Profile Video"
+              title={lang === "id" ? "Video Company Profile" : "Company Profile Video"}
               frameBorder="0"
               allow="autoplay; fullscreen"
               allowFullScreen

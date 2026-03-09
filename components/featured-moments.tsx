@@ -1,7 +1,13 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowDown, ArrowUpRight } from "lucide-react"
 import { eventsData } from "@/lib/events-data"
+
+interface FeaturedMomentsProps {
+  lang?: "id" | "en"
+}
 
 const featuredSlugs = [
   "above-and-beyond-open-house",
@@ -9,17 +15,17 @@ const featuredSlugs = [
   "clapham-conference-2025",
 ]
 
-const moments = eventsData.filter((e) => featuredSlugs.includes(e.slug))
+export function FeaturedMoments({ lang = "id" }: FeaturedMomentsProps) {
+  const moments = eventsData.filter((e) => featuredSlugs.includes(e.slug))
 
-export function FeaturedMoments() {
   return (
     <section className="bg-background py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
-          Featured Moments
+          {lang === "id" ? "Momen Terpilih" : "Featured Moments"}
         </p>
         <h2 className="mt-3 font-serif text-3xl font-bold text-foreground md:text-4xl text-balance">
-          Event 
+          {lang === "id" ? "Event Kami" : "Our Events"}
         </h2>
 
         <div className="mt-16 grid gap-8 md:grid-cols-3">
@@ -39,7 +45,7 @@ export function FeaturedMoments() {
                 <div className="absolute inset-0 flex items-end bg-gradient-to-t from-foreground/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   <div className="flex w-full items-center justify-between p-5">
                     <span className="text-sm font-medium text-background">
-                      Baca Selengkapnya
+                      {lang === "id" ? "Baca Selengkapnya" : "Read More"}
                     </span>
                     <ArrowUpRight className="h-4 w-4 text-background" />
                   </div>
@@ -60,7 +66,7 @@ export function FeaturedMoments() {
             href="#events"
             className="inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-muted-foreground"
           >
-            Lihat Semua Event
+            {lang === "id" ? "Lihat Semua Event" : "View All Events"}
             <ArrowDown className="h-4 w-4" />
           </a>
         </div>
