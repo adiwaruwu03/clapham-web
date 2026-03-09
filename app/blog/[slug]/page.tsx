@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation"
+import { notFound, redirect } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, Clock, User, Tag } from "lucide-react"
@@ -36,6 +36,11 @@ export default async function BlogDetailPage({
 
   if (!article) {
     notFound()
+  }
+
+  // 🔥 INI YANG MEMPERBAIKI MASALAH
+  if (article.externalUrl) {
+    redirect(article.externalUrl)
   }
 
   const relatedArticles = blogData.filter((a) => a.slug !== slug)
@@ -112,10 +117,7 @@ export default async function BlogDetailPage({
 
             <div className="mt-10 mt-4 text-base leading-relaxed text-muted-foreground text-justify">
               {article.content.map((paragraph, i) => (
-                <p
-                  key={i}
-                  className="text-base leading-relaxed text-muted-foreground"
-                >
+                <p key={i} className="text-base leading-relaxed text-muted-foreground">
                   {paragraph}
                 </p>
               ))}
@@ -125,17 +127,14 @@ export default async function BlogDetailPage({
           {/* Sidebar */}
           <aside className="lg:col-span-1">
             <div className="sticky top-24 space-y-8">
-              {/* Key Takeaways */}
+
               <div className="rounded-xl border border-border bg-card p-6">
                 <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
                   Poin Penting
                 </h3>
                 <ul className="mt-4 space-y-3">
                   {article.keyTakeaways.map((takeaway, i) => (
-                    <li
-                      key={i}
-                      className="flex items-start gap-3 text-sm text-muted-foreground"
-                    >
+                    <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
                       <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-foreground text-xs font-bold text-background">
                         {i + 1}
                       </span>
@@ -145,7 +144,6 @@ export default async function BlogDetailPage({
                 </ul>
               </div>
 
-              {/* Topics */}
               <div className="rounded-xl border border-border bg-card p-6">
                 <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
                   Topik Terkait
@@ -162,7 +160,6 @@ export default async function BlogDetailPage({
                 </div>
               </div>
 
-              {/* CTA */}
               <div className="rounded-xl bg-foreground p-6 text-background">
                 <h3 className="font-serif text-lg font-bold">
                   Konsultasi Gratis
@@ -179,12 +176,11 @@ export default async function BlogDetailPage({
                   <Link href="/#contact">Hubungi Kami</Link>
                 </Button>
               </div>
+
             </div>
           </aside>
         </div>
       </article>
-
-      
     </main>
   )
 }
