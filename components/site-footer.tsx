@@ -108,10 +108,18 @@ export function SiteFooter({ lang }: SiteFooterProps) {
         </div>
 
         <div className="mt-16 border-t border-background/10 pt-8">
-          <p className="text-center text-xs text-background/40">
-            &copy; {new Date().getFullYear()} Clapham Collective. All Rights Reserved.
-          </p>
-        </div>
+  <p className="text-center text-xs text-background/40">
+    &copy; {new Date().getFullYear()} Clapham Collective. All Rights{" "}
+    <a
+      href="https://www.linkedin.com/in/adi-putra-waruwu-554391288/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-background/70"
+    >
+      Reserved
+    </a>.
+  </p>
+</div>
       </div>
     </footer>
   )

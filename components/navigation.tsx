@@ -22,44 +22,53 @@ interface NavigationProps {
 export function Navigation({ lang, setLang }: NavigationProps) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState("")
+  const [activeSection, setActiveSection] = useState<string>("")
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
-      const sections = navLinks.map((link) =>
-        document.querySelector(link.href)
-      )
-      sections.forEach((section, index) => {
-        if (section) {
+
+      // Deteksi section aktif
+      let currentSection = ""
+      navLinks.forEach((link) => {
+        const section = document.querySelector(link.href)
+        if (section instanceof HTMLElement) {
           const rect = section.getBoundingClientRect()
           if (rect.top <= 120 && rect.bottom >= 120) {
-            setActiveSection(navLinks[index].href)
+            currentSection = link.href
           }
         }
       })
+      setActiveSection(currentSection)
     }
 
     window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    // Panggil sekali untuk inisialisasi
+    handleScroll()
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
   }, [])
 
   return (
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        scrolled ? "bg-background/95 backdrop-blur-md shadow-md" : "bg-transparent"
+        scrolled
+          ? "bg-white/95 backdrop-blur-md shadow-md"
+          : "bg-transparent"
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         {/* LOGO */}
         <Link href="#home" className="flex items-center">
           <Image
-            src="/clp-logo-nav.png"
+            src={scrolled ? "/logo-clapham-2.png" : "/logo-clapham-white.png"}
             alt="Clapham Collective"
             width={200}
             height={60}
             priority
-            className="h-10 w-auto"
+            className="h-8 w-auto"
           />
         </Link>
 
@@ -71,31 +80,47 @@ export function Navigation({ lang, setLang }: NavigationProps) {
               href={link.href}
               className={`relative text-sm font-medium transition-colors duration-300 ${
                 activeSection === link.href
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground"
+                  ? scrolled
+                    ? "text-black"
+                    : "text-white"
+                  : scrolled
+                  ? "text-gray-600 hover:text-black"
+                  : "text-white/80 hover:text-white"
               }`}
             >
               {lang === "id" ? link.labelId : link.labelEn}
-
-              {/* Animated underline */}
               <span
-                className={`absolute left-0 -bottom-1 h-[2px] w-full bg-foreground transition-transform duration-300 origin-left ${
-                  activeSection === link.href ? "scale-x-100" : "scale-x-0"
+                className={`absolute left-0 -bottom-1 h-[2px] w-full origin-left transition-transform duration-300 ${
+                  activeSection === link.href
+                    ? "scale-x-100 bg-current"
+                    : "scale-x-0 bg-current"
                 }`}
               />
             </a>
           ))}
 
-          {/* Toggle Bahasa */}
-          <div className="flex gap-2">
+          {/* Language Toggle Desktop */}
+          <div className="flex gap-2 ml-4">
             <button
-              className={`px-3 py-1 rounded ${lang === "id" ? "bg-blue-500 text-white" : "bg-gray-200"}`}
+              className={`px-3 py-1 rounded text-sm ${
+                lang === "id"
+                  ? "bg-blue-500 text-white"
+                  : scrolled
+                  ? "bg-gray-200"
+                  : "bg-white/20 text-white"
+              }`}
               onClick={() => setLang("id")}
             >
               ID
             </button>
             <button
-              className={`px-3 py-1 rounded ${lang === "en" ? "bg-blue-500 text-white" : "bg-gray-200"}`}
+              className={`px-3 py-1 rounded text-sm ${
+                lang === "en"
+                  ? "bg-blue-500 text-white"
+                  : scrolled
+                  ? "bg-gray-200"
+                  : "bg-white/20 text-white"
+              }`}
               onClick={() => setLang("en")}
             >
               EN
@@ -103,41 +128,47 @@ export function Navigation({ lang, setLang }: NavigationProps) {
           </div>
         </div>
 
-        {/* Mobile toggle */}
+        {/* Mobile Toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="text-foreground lg:hidden"
+          className={`lg:hidden ${
+            scrolled ? "text-black" : "text-white"
+          }`}
           aria-label="Toggle menu"
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </nav>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="border-b border-border bg-background/98 backdrop-blur-md lg:hidden">
+        <div className="border-b border-gray-200 bg-white lg:hidden">
           <div className="flex flex-col gap-2 px-6 py-4">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="rounded-lg px-4 py-3 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
+                className="rounded-lg px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-100"
               >
                 {lang === "id" ? link.labelId : link.labelEn}
               </a>
             ))}
 
-            {/* Toggle Bahasa Mobile */}
+            {/* Language Toggle Mobile */}
             <div className="flex gap-2 mt-2">
               <button
-                className={`px-3 py-1 rounded ${lang === "id" ? "bg-blue-500 text-white" : "bg-gray-200"}`}
+                className={`px-3 py-1 rounded ${
+                  lang === "id" ? "bg-blue-500 text-white" : "bg-gray-200"
+                }`}
                 onClick={() => setLang("id")}
               >
                 ID
               </button>
               <button
-                className={`px-3 py-1 rounded ${lang === "en" ? "bg-blue-500 text-white" : "bg-gray-200"}`}
+                className={`px-3 py-1 rounded ${
+                  lang === "en" ? "bg-blue-500 text-white" : "bg-gray-200"
+                }`}
                 onClick={() => setLang("en")}
               >
                 EN
