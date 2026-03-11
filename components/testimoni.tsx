@@ -64,7 +64,7 @@ export function Testimoni({ lang }: TestimoniProps) {
   const testimonials = testimonialsData[lang]
 
   return (
-    <section className="bg-background py-20">
+    <section className="bg-card py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
         {/* TITLE */}
