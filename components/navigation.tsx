@@ -28,7 +28,6 @@ export function Navigation({ lang, setLang }: NavigationProps) {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
 
-      // Deteksi section aktif
       let currentSection = ""
       navLinks.forEach((link) => {
         const section = document.querySelector(link.href)
@@ -43,7 +42,6 @@ export function Navigation({ lang, setLang }: NavigationProps) {
     }
 
     window.addEventListener("scroll", handleScroll)
-    // Panggil sekali untuk inisialisasi
     handleScroll()
 
     return () => {
@@ -60,6 +58,7 @@ export function Navigation({ lang, setLang }: NavigationProps) {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+        
         {/* LOGO */}
         <Link href="#home" className="flex items-center">
           <Image
@@ -99,32 +98,40 @@ export function Navigation({ lang, setLang }: NavigationProps) {
             </a>
           ))}
 
-          {/* Language Toggle Desktop */}
-          <div className="flex gap-2 ml-4">
-            <button
-              className={`px-3 py-1 rounded text-sm ${
-                lang === "id"
-                  ? "bg-blue-500 text-white"
-                  : scrolled
-                  ? "bg-gray-200"
-                  : "bg-white/20 text-white"
+          {/* 🔥 Language Toggle Desktop (FIXED PERFECT) */}
+          <div className="ml-4">
+            <div
+              className={`relative flex w-24 h-9 items-center rounded-full p-1 transition-colors duration-300 ${
+                scrolled ? "bg-gray-200" : "bg-white/20"
               }`}
-              onClick={() => setLang("id")}
             >
-              ID
-            </button>
-            <button
-              className={`px-3 py-1 rounded text-sm ${
-                lang === "en"
-                  ? "bg-blue-500 text-white"
-                  : scrolled
-                  ? "bg-gray-200"
-                  : "bg-white/20 text-white"
-              }`}
-              onClick={() => setLang("en")}
-            >
-              EN
-            </button>
+              {/* Slider */}
+              <div
+                className={`absolute top-1 left-1 h-7 w-11 rounded-full bg-white shadow transition-transform duration-300 ${
+                  lang === "en" ? "translate-x-12" : ""
+                }`}
+              />
+
+              {/* ID */}
+              <button
+                onClick={() => setLang("id")}
+                className={`z-10 flex-1 text-sm font-medium text-center ${
+                  scrolled ? "text-black" : "text-white"
+                }`}
+              >
+                ID
+              </button>
+
+              {/* EN */}
+              <button
+                onClick={() => setLang("en")}
+                className={`z-10 flex-1 text-sm font-medium text-center ${
+                  scrolled ? "text-black" : "text-white"
+                }`}
+              >
+                EN
+              </button>
+            </div>
           </div>
         </div>
 
@@ -155,24 +162,30 @@ export function Navigation({ lang, setLang }: NavigationProps) {
               </a>
             ))}
 
-            {/* Language Toggle Mobile */}
-            <div className="flex gap-2 mt-2">
-              <button
-                className={`px-3 py-1 rounded ${
-                  lang === "id" ? "bg-blue-500 text-white" : "bg-gray-200"
-                }`}
-                onClick={() => setLang("id")}
-              >
-                ID
-              </button>
-              <button
-                className={`px-3 py-1 rounded ${
-                  lang === "en" ? "bg-blue-500 text-white" : "bg-gray-200"
-                }`}
-                onClick={() => setLang("en")}
-              >
-                EN
-              </button>
+            {/* 🔥 Language Toggle Mobile (FIXED) */}
+            <div className="mt-2">
+              <div className="relative flex w-24 h-9 items-center rounded-full bg-gray-200 p-1">
+                
+                <div
+                  className={`absolute top-1 left-1 h-7 w-11 rounded-full bg-white shadow transition-transform duration-300 ${
+                    lang === "en" ? "translate-x-12" : ""
+                  }`}
+                />
+
+                <button
+                  onClick={() => setLang("id")}
+                  className="z-10 flex-1 text-sm font-medium text-center"
+                >
+                  ID
+                </button>
+
+                <button
+                  onClick={() => setLang("en")}
+                  className="z-10 flex-1 text-sm font-medium text-center"
+                >
+                  EN
+                </button>
+              </div>
             </div>
           </div>
         </div>
