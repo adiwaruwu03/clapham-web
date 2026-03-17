@@ -58,7 +58,6 @@ export function Navigation({ lang, setLang }: NavigationProps) {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        
         {/* LOGO */}
         <Link href="#home" className="flex items-center">
           <Image
@@ -98,26 +97,31 @@ export function Navigation({ lang, setLang }: NavigationProps) {
             </a>
           ))}
 
-          {/* 🔥 Language Toggle Desktop (FIXED PERFECT) */}
+          {/* 🔵 Language Toggle Desktop - DIPERBAIKI */}
           <div className="ml-4">
             <div
-              className={`relative flex w-24 h-9 items-center rounded-full p-1 transition-colors duration-300 ${
+              className={`relative flex w-[88px] h-9 items-center rounded-full p-1 ${
                 scrolled ? "bg-gray-200" : "bg-white/20"
               }`}
             >
-              {/* Slider */}
+              {/* Slider - dipastikan posisinya presisi */}
               <div
-                className={`absolute top-1 left-1 h-7 w-11 rounded-full bg-white shadow transition-transform duration-300 ${
-                  lang === "en" ? "translate-x-12" : ""
+                className={`absolute top-[3px] left-[3px] h-7 w-[41px] rounded-full bg-blue-500 shadow-md transition-transform duration-300 ${
+                  lang === "en" ? "translate-x-[41px]" : "translate-x-0"
                 }`}
               />
 
               {/* ID */}
               <button
                 onClick={() => setLang("id")}
-                className={`z-10 flex-1 text-sm font-medium text-center ${
-                  scrolled ? "text-black" : "text-white"
-                }`}
+                className="relative z-20 flex-1 text-sm font-semibold text-center"
+                style={{
+                  color: lang === "id" 
+                    ? "#ffffff" 
+                    : scrolled 
+                      ? "#4b5563" 
+                      : "#ffffffcc"
+                }}
               >
                 ID
               </button>
@@ -125,9 +129,14 @@ export function Navigation({ lang, setLang }: NavigationProps) {
               {/* EN */}
               <button
                 onClick={() => setLang("en")}
-                className={`z-10 flex-1 text-sm font-medium text-center ${
-                  scrolled ? "text-black" : "text-white"
-                }`}
+                className="relative z-20 flex-1 text-sm font-semibold text-center"
+                style={{
+                  color: lang === "en" 
+                    ? "#ffffff" 
+                    : scrolled 
+                      ? "#4b5563" 
+                      : "#ffffffcc"
+                }}
               >
                 EN
               </button>
@@ -141,7 +150,6 @@ export function Navigation({ lang, setLang }: NavigationProps) {
           className={`lg:hidden ${
             scrolled ? "text-black" : "text-white"
           }`}
-          aria-label="Toggle menu"
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -162,26 +170,34 @@ export function Navigation({ lang, setLang }: NavigationProps) {
               </a>
             ))}
 
-            {/* 🔥 Language Toggle Mobile (FIXED) */}
-            <div className="mt-2">
-              <div className="relative flex w-24 h-9 items-center rounded-full bg-gray-200 p-1">
-                
+            {/* 🔵 Language Toggle Mobile - DIPERBAIKI */}
+            <div className="mt-3">
+              <div className="relative flex w-[88px] h-9 items-center rounded-full bg-gray-200 p-1">
+                {/* Slider - dipastikan posisinya presisi */}
                 <div
-                  className={`absolute top-1 left-1 h-7 w-11 rounded-full bg-white shadow transition-transform duration-300 ${
-                    lang === "en" ? "translate-x-12" : ""
+                  className={`absolute top-[3px] left-[3px] h-7 w-[41px] rounded-full bg-blue-500 shadow-md transition-transform duration-300 ${
+                    lang === "en" ? "translate-x-[41px]" : "translate-x-0"
                   }`}
                 />
 
+                {/* ID */}
                 <button
                   onClick={() => setLang("id")}
-                  className="z-10 flex-1 text-sm font-medium text-center"
+                  className="relative z-20 flex-1 text-sm font-semibold text-center"
+                  style={{
+                    color: lang === "id" ? "#ffffff" : "#6b7280"
+                  }}
                 >
                   ID
                 </button>
 
+                {/* EN */}
                 <button
                   onClick={() => setLang("en")}
-                  className="z-10 flex-1 text-sm font-medium text-center"
+                  className="relative z-20 flex-1 text-sm font-semibold text-center"
+                  style={{
+                    color: lang === "en" ? "#ffffff" : "#6b7280"
+                  }}
                 >
                   EN
                 </button>
