@@ -48,55 +48,75 @@ const stepsData = {
   id: [
     {
       number: "01",
-      title: "Konsultasi Kebutuhan",
-      description: "Mengidentifikasi kebutuhan, tujuan, serta skala kegiatan.",
+      title: "Konsultasi Awal",
+      description: "Kami menerima kebutuhan awal Anda dan memahami gambaran umum acara yang ingin diselenggarakan.",
     },
     {
       number: "02",
-      title: "Perencanaan Konsep",
-      description: "Menyusun konsep kegiatan, alur, dan fasilitas yang diperlukan.",
+      title: "Konsultasi Kebutuhan",
+      description: "Diskusi lebih lanjut untuk menggali detail acara, tujuan, serta ekspektasi yang ingin dicapai.",
     },
     {
       number: "03",
-      title: "Koordinasi & Persiapan",
-      description: "Menyiapkan aspek teknis, jadwal, dan dukungan fasilitas.",
+      title: "Penyusunan Penawaran / Proposal",
+      description: "Kami menyiapkan proposal yang mencakup konsep, ruang lingkup layanan, serta estimasi biaya.",
     },
     {
       number: "04",
-      title: "Pelaksanaan Kegiatan",
-      description: "Memastikan kegiatan berjalan tertib, nyaman, dan sesuai rencana.",
+      title: "Konfirmasi Kerja Sama",
+      description: "Setelah disetujui, kerja sama difinalisasi melalui agreement dan pembayaran awal.",
     },
     {
       number: "05",
-      title: "Tindak Lanjut & Evaluasi",
-      description: "Memberikan dokumentasi dan evaluasi untuk kualitas layanan.",
+      title: "Perencanaan & Persiapan",
+      description: "Tim kami mulai menyiapkan seluruh kebutuhan acara secara terstruktur dan terkoordinasi.",
+    },
+    {
+      number: "06",
+      title: "Pelaksanaan Event",
+      description: "Acara dijalankan sesuai rencana dengan pengawasan penuh dari tim kami.",
+    },
+    {
+      number: "07",
+      title: "Dokumentasi & Evaluasi",
+      description: "Kami menyediakan dokumentasi serta melakukan evaluasi untuk peningkatan ke depannya.",
     },
   ],
   en: [
     {
       number: "01",
-      title: "Needs Consultation",
-      description: "Identify needs, objectives, and event scale.",
+      title: "Initial Consultation",
+      description: "We receive your initial needs and understand the general overview of the event to be held.",
     },
     {
       number: "02",
-      title: "Concept Planning",
-      description: "Design event concept, flow, and required facilities.",
+      title: "Needs Consultation",
+      description: "Further discussion to explore event details, objectives, and desired expectations.",
     },
     {
       number: "03",
-      title: "Coordination & Preparation",
-      description: "Prepare technical aspects, schedule, and support facilities.",
+      title: "Proposal Preparation",
+      description: "We prepare a proposal covering the concept, scope of services, and cost estimation.",
     },
     {
       number: "04",
-      title: "Event Execution",
-      description: "Ensure events run smoothly and as planned.",
+      title: "Collaboration Confirmation",
+      description: "Once approved, the collaboration is finalized through an agreement and initial payment.",
     },
     {
       number: "05",
-      title: "Follow-up & Evaluation",
-      description: "Provide documentation and evaluation for service quality.",
+      title: "Planning & Preparation",
+      description: "Our team begins preparing all event needs in a structured and coordinated manner.",
+    },
+    {
+      number: "06",
+      title: "Event Execution",
+      description: "The event is carried out according to plan with full supervision from our team.",
+    },
+    {
+      number: "07",
+      title: "Documentation & Evaluation",
+      description: "We provide documentation and conduct evaluations for future improvement.",
     },
   ],
 }
@@ -156,27 +176,24 @@ export function ServicesSection({ lang }: ServicesSectionProps) {
             {lang === "id" ? "Cara Kerja Kami" : "Our Process"}
           </h3>
 
-          {/* STEPS */}
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
-
+          {/* STEPS - RAPI SEPERTI CONTOH */}
+          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {steps.map((step) => (
-              <div key={step.number} className="text-center flex flex-col items-center">
-
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#2F6DB3]/10 text-[#2F6DB3] font-semibold">
+              <div key={step.number} className="flex flex-col">
+                {/* NUMBER di atas title seperti contoh */}
+                <span className="text-3xl font-bold text-[#2F6DB3]/30 mb-2">
                   {step.number}
-                </div>
-
-                <h4 className="mt-4 text-sm font-semibold text-foreground">
+                </span>
+                {/* TITLE tebal */}
+                <h4 className="text-base font-semibold text-foreground mb-2">
                   {step.title}
                 </h4>
-
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed max-w-[200px]">
+                {/* DESCRIPTION ringkas */}
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {step.description}
                 </p>
-
               </div>
             ))}
-
           </div>
 
         </div>
