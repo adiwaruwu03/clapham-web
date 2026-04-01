@@ -3,10 +3,25 @@ __v0_runtime_loader.js
 __v0_devtools.tsx
 __v0_jsx-dev-runtime.ts
 
-# Common ignores
+# Dependencies
 node_modules/
+
+# Build outputs
 .next/
+out/
+dist/
+build/
+coverage/
+*.tsbuildinfo
+
+# Environment files
+.env
+.env.local
+.env.migrate.local
+.env.*.local
 .env*.local
+
+# Common ignores
 .DS_Store
 
 public/vidio/

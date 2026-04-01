@@ -3,12 +3,14 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, Clock, User, Tag } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { blogData, getBlogBySlug } from "@/lib/blog-data"
+import {
+  getAllBlogSlugsFromSupabase,
+  getBlogBySlugFromSupabase,
+} from "@/lib/supabase-content"
 
-export function generateStaticParams() {
-  return blogData.map((article) => ({
-    slug: article.slug,
-  }))
+export async function generateStaticParams() {
+  const slugs = await getAllBlogSlugsFromSupabase()
+  return slugs.map((slug) => ({ slug }))
 }
 
 export async function generateMetadata({
@@ -17,12 +19,12 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const article = getBlogBySlug(slug)
+  const article = await getBlogBySlugFromSupabase(slug)
   if (!article) return { title: "Artikel Tidak Ditemukan" }
 
   return {
-    title: `${article.title} - Clapham Collective`,
-    description: article.excerpt,
+    title: `${article.title.id} - Clapham Collective`,
+    description: article.excerpt.id,
   }
 }
 
@@ -32,7 +34,7 @@ export default async function BlogDetailPage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const article = getBlogBySlug(slug)
+  const article = await getBlogBySlugFromSupabase(slug)
 
   if (!article) {
     notFound()
@@ -42,8 +44,6 @@ export default async function BlogDetailPage({
   if (article.externalUrl) {
     redirect(article.externalUrl)
   }
-
-  const relatedArticles = blogData.filter((a) => a.slug !== slug)
 
   return (
     <main className="min-h-screen bg-background">
@@ -70,7 +70,7 @@ export default async function BlogDetailPage({
       <div className="relative h-[45vh] min-h-[360px] w-full md:h-[55vh]">
         <Image
           src={article.image}
-          alt={article.title}
+          alt={article.title.id}
           fill
           className="object-cover"
           priority
@@ -79,10 +79,10 @@ export default async function BlogDetailPage({
         <div className="absolute inset-0 flex items-end">
           <div className="mx-auto w-full max-w-4xl px-6 pb-12 lg:px-8">
             <span className="inline-block rounded-full bg-background/90 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-foreground backdrop-blur-sm">
-              {article.category}
+              {article.category.id}
             </span>
             <h1 className="mt-4 font-serif text-3xl font-bold text-background md:text-4xl lg:text-5xl text-balance">
-              {article.title}
+              {article.title.id}
             </h1>
           </div>
         </div>
@@ -112,7 +112,7 @@ export default async function BlogDetailPage({
           {/* Main content */}
           <div className="lg:col-span-2">
             <p className="text-lg font-medium leading-relaxed text-foreground">
-              {article.excerpt}
+              {article.excerpt.id}
             </p>
 
             <div className="mt-10 mt-4 text-base leading-relaxed text-muted-foreground text-justify">

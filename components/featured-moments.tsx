@@ -1,9 +1,10 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowDown, ArrowUpRight } from "lucide-react"
-import { eventsData } from "@/lib/events-data"
+import type { EventData } from "@/lib/supabase-content"
 
 interface FeaturedMomentsProps {
   lang?: "id" | "en"
@@ -16,7 +17,29 @@ const featuredSlugs = [
 ]
 
 export function FeaturedMoments({ lang = "id" }: FeaturedMomentsProps) {
-  const moments = eventsData.filter((e) => featuredSlugs.includes(e.slug))
+  const [events, setEvents] = useState<EventData[]>([])
+
+  useEffect(() => {
+    let active = true
+
+    async function loadEvents() {
+      const response = await fetch("/api/events")
+      if (!response.ok) return
+
+      const data = (await response.json()) as EventData[]
+      if (active) {
+        setEvents(data)
+      }
+    }
+
+    loadEvents()
+
+    return () => {
+      active = false
+    }
+  }, [])
+
+  const moments = events.filter((event) => featuredSlugs.includes(event.slug))
 
   return (
     <section className="bg-background py-24">

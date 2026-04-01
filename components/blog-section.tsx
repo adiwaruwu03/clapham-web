@@ -1,16 +1,39 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, ArrowUpRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { blogData } from "@/lib/blog-data"
+import type { BlogArticle } from "@/lib/supabase-content"
 
 interface BlogSectionProps {
   lang?: "id" | "en"
 }
 
 export function BlogSection({ lang = "id" }: BlogSectionProps) {
+  const [articles, setArticles] = useState<BlogArticle[]>([])
+
+  useEffect(() => {
+    let active = true
+
+    async function loadBlogs() {
+      const response = await fetch("/api/blogs")
+      if (!response.ok) return
+
+      const data = (await response.json()) as BlogArticle[]
+      if (active) {
+        setArticles(data)
+      }
+    }
+
+    loadBlogs()
+
+    return () => {
+      active = false
+    }
+  }, [])
+
   return (
     <section id="blog" className="bg-background py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -38,7 +61,7 @@ export function BlogSection({ lang = "id" }: BlogSectionProps) {
 
         {/* BLOG GRID */}
         <div className="mt-16 grid gap-8 md:grid-cols-3">
-          {blogData.map((article) => (
+          {articles.map((article) => (
             <Link
               key={article.slug}
               href={`/blog/${article.slug}`}

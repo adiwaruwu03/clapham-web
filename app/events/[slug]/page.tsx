@@ -3,12 +3,14 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, Calendar, MapPin, Users, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { eventsData, getEventBySlug } from "@/lib/events-data"
+import {
+  getAllEventSlugsFromSupabase,
+  getEventBySlugFromSupabase,
+} from "@/lib/supabase-content"
 
-export function generateStaticParams() {
-  return eventsData.map((event) => ({
-    slug: event.slug,
-  }))
+export async function generateStaticParams() {
+  const slugs = await getAllEventSlugsFromSupabase()
+  return slugs.map((slug) => ({ slug }))
 }
 
 export async function generateMetadata({
@@ -17,7 +19,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const event = getEventBySlug(slug)
+  const event = await getEventBySlugFromSupabase(slug)
   if (!event) return { title: "Event Not Found" }
 
   return {
@@ -32,16 +34,11 @@ export default async function EventDetailPage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const event = getEventBySlug(slug)
+  const event = await getEventBySlugFromSupabase(slug)
 
   if (!event) {
     notFound()
   }
-
-  const currentIndex = eventsData.findIndex((e) => e.slug === slug)
-  const relatedEvents = eventsData
-    .filter((e) => e.slug !== slug)
-    .slice(0, 3)
 
   return (
     <main className="min-h-screen bg-background">

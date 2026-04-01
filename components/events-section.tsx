@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
-import { eventsData } from "@/lib/events-data"
+import type { EventData } from "@/lib/supabase-content"
 
 // Teks bilingual
 const texts = {
@@ -30,6 +30,7 @@ type EventsSectionProps = {
 }
 
 export function EventsSection({ lang = "id" }: EventsSectionProps) {
+  const [events, setEvents] = useState<EventData[]>([])
   const [active, setActive] = useState<string | null>(null) // initial null biar semua muncul
   const [showAll, setShowAll] = useState(false)
 
@@ -38,11 +39,31 @@ export function EventsSection({ lang = "id" }: EventsSectionProps) {
     setActive(texts[lang].filters[0])
   }, [lang])
 
+  useEffect(() => {
+    let activeRequest = true
+
+    async function loadEvents() {
+      const response = await fetch("/api/events")
+      if (!response.ok) return
+
+      const data = (await response.json()) as EventData[]
+      if (activeRequest) {
+        setEvents(data)
+      }
+    }
+
+    loadEvents()
+
+    return () => {
+      activeRequest = false
+    }
+  }, [])
+
   // Filter event: jika active = "Semua" atau null, tampilkan semua
   const filtered =
     !active || active === texts[lang].filters[0]
-      ? eventsData
-      : eventsData.filter((e) => e.type?.trim() === active.trim())
+      ? events
+      : events.filter((e) => e.type?.trim() === active.trim())
 
   const displayed = showAll ? filtered : filtered.slice(0, 9)
 
@@ -112,7 +133,7 @@ export function EventsSection({ lang = "id" }: EventsSectionProps) {
                     {event.name}
                   </h3>
                   <p className="mt-2 text-sm text-muted-foreground">
-                    {event.impact}
+                    {event.impact || event.description}
                   </p>
                 </div>
               </div>
