@@ -24,6 +24,12 @@ const texts = {
   }
 }
 
+const pinnedFirstRowSlugs = [
+  "above-and-beyond-open-house",
+  "clapham-conference-2025",
+  "above-and-beyond-seminar-100",
+]
+
 // TypeScript props
 type EventsSectionProps = {
   lang?: "id" | "en"
@@ -46,6 +52,17 @@ function moveEventToIndex(events: EventData[], slug: string, targetIndex: number
   nextEvents.splice(safeIndex, 0, selectedEvent)
 
   return nextEvents
+}
+
+function orderPinnedEventsFirst(events: EventData[]) {
+  const pinnedEvents = pinnedFirstRowSlugs
+    .map((slug) => events.find((event) => event.slug === slug))
+    .filter((event): event is EventData => Boolean(event))
+
+  const pinnedSlugs = new Set(pinnedEvents.map((event) => event.slug))
+  const remainingEvents = events.filter((event) => !pinnedSlugs.has(event.slug))
+
+  return [...pinnedEvents, ...remainingEvents]
 }
 
 export function EventsSection({ lang = "id" }: EventsSectionProps) {
@@ -99,7 +116,8 @@ export function EventsSection({ lang = "id" }: EventsSectionProps) {
         return moveEventToIndex(matchingEvents, newestMatchingEvent.slug, 0)
       })()
 
-  const displayed = showAll ? filtered : filtered.slice(0, 9)
+  const orderedEvents = isAllFilter ? orderPinnedEventsFirst(filtered) : filtered
+  const displayed = showAll ? orderedEvents : orderedEvents.slice(0, 9)
 
   return (
     <section id="events" className="bg-background py-24">
