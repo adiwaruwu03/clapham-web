@@ -29,6 +29,25 @@ type EventsSectionProps = {
   lang?: "id" | "en"
 }
 
+function getTimestamp(event: EventData) {
+  if (!event.createdAt) return 0
+
+  const parsed = Date.parse(event.createdAt)
+  return Number.isNaN(parsed) ? 0 : parsed
+}
+
+function moveEventToIndex(events: EventData[], slug: string, targetIndex: number) {
+  const currentIndex = events.findIndex((event) => event.slug === slug)
+  if (currentIndex === -1) return events
+
+  const nextEvents = [...events]
+  const [selectedEvent] = nextEvents.splice(currentIndex, 1)
+  const safeIndex = Math.max(0, Math.min(targetIndex, nextEvents.length))
+  nextEvents.splice(safeIndex, 0, selectedEvent)
+
+  return nextEvents
+}
+
 export function EventsSection({ lang = "id" }: EventsSectionProps) {
   const [events, setEvents] = useState<EventData[]>([])
   const [active, setActive] = useState<string | null>(null) // initial null biar semua muncul
@@ -60,10 +79,25 @@ export function EventsSection({ lang = "id" }: EventsSectionProps) {
   }, [])
 
   // Filter event: jika active = "Semua" atau null, tampilkan semua
-  const filtered =
-    !active || active === texts[lang].filters[0]
-      ? events
-      : events.filter((e) => e.type?.trim() === active.trim())
+  const newestEvent = [...events].sort((a, b) => getTimestamp(b) - getTimestamp(a))[0]
+  const isAllFilter = !active || active === texts[lang].filters[0]
+
+  const filtered = isAllFilter
+    ? newestEvent && getTimestamp(newestEvent) > 0
+      ? moveEventToIndex(events, newestEvent.slug, 3)
+      : events
+    : (() => {
+        const matchingEvents = events.filter((e) => e.type?.trim() === active.trim())
+        const newestMatchingEvent = [...matchingEvents].sort(
+          (a, b) => getTimestamp(b) - getTimestamp(a)
+        )[0]
+
+        if (!newestMatchingEvent || getTimestamp(newestMatchingEvent) === 0) {
+          return matchingEvents
+        }
+
+        return moveEventToIndex(matchingEvents, newestMatchingEvent.slug, 0)
+      })()
 
   const displayed = showAll ? filtered : filtered.slice(0, 9)
 

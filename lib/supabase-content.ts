@@ -21,6 +21,7 @@ type EventRow = {
   image_url: string
   name: string
   type: string
+  created_at?: string
   impact: string
   date_display: string
   location: string
@@ -57,6 +58,7 @@ export type EventData = {
   image: string
   name: string
   type: string
+  createdAt?: string
   impact: string
   date: string
   location: string
@@ -152,6 +154,7 @@ function mapEvent(row: EventRow): EventData {
     image: row.image_url,
     name: row.name,
     type: row.type,
+    createdAt: row.created_at,
     impact: row.impact,
     date: row.date_display,
     location: row.location,
@@ -168,7 +171,7 @@ const blogSelect =
   "slug,image_url,category_id,category_en,title_id,title_en,excerpt_id,excerpt_en,author,read_time,published_date_display,external_url,blog_content_blocks(sort_order,content),blog_key_takeaways(sort_order,content),blog_related_topics(topic)"
 
 const eventSelect =
-  "slug,image_url,name,type,impact,date_display,location,description,has_detail,event_content_blocks(sort_order,content),event_highlights(sort_order,content),event_gallery_images(sort_order,image_url),event_story_sections(sort_order,image_url,title,description)"
+  "slug,image_url,name,type,created_at,impact,date_display,location,description,has_detail,event_content_blocks(sort_order,content),event_highlights(sort_order,content),event_gallery_images(sort_order,image_url),event_story_sections(sort_order,image_url,title,description)"
 
 export async function getAllBlogsFromSupabase() {
   const rows = await supabaseRestFetch<BlogRow[]>(
