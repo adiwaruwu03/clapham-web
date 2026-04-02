@@ -6,6 +6,10 @@ import vm from "node:vm"
 const projectRoot = process.cwd()
 const publicDir = path.join(projectRoot, "public")
 
+function isRemoteUrl(value) {
+  return /^https?:\/\//i.test(value ?? "")
+}
+
 function readEnvFile(filePath, { overwrite = false } = {}) {
   try {
     const content = fsSync.readFileSync(filePath, "utf8")
@@ -222,6 +226,7 @@ async function main() {
     blogImagesUpdated: 0,
     eventImagesUpdated: 0,
     storyImagesUpdated: 0,
+    skippedRemoteUrls: 0,
   }
 
   async function getPublicUrl(localPath) {
@@ -234,6 +239,11 @@ async function main() {
 
   console.log(`Uploading and updating ${blogData.length} blog images...`)
   for (const article of blogData) {
+    if (isRemoteUrl(article.image)) {
+      stats.skippedRemoteUrls += 1
+      continue
+    }
+
     const publicUrl = await getPublicUrl(article.image)
     await patchRows("blogs", { slug: article.slug }, { image_url: publicUrl })
     stats.blogImagesUpdated += 1
@@ -241,6 +251,11 @@ async function main() {
 
   console.log(`Uploading and updating ${eventsData.length} event cover images...`)
   for (const event of eventsData) {
+    if (isRemoteUrl(event.image)) {
+      stats.skippedRemoteUrls += 1
+      continue
+    }
+
     const publicUrl = await getPublicUrl(event.image)
     await patchRows("events", { slug: event.slug }, { image_url: publicUrl })
     stats.eventImagesUpdated += 1
@@ -262,6 +277,11 @@ async function main() {
         )
       }
 
+      if (isRemoteUrl(section.image)) {
+        stats.skippedRemoteUrls += 1
+        continue
+      }
+
       const publicUrl = await getPublicUrl(section.image)
       await patchRows("event_story_sections", { id: remote.id }, { image_url: publicUrl })
       stats.storyImagesUpdated += 1
@@ -278,4 +298,3 @@ main().catch((error) => {
   console.error(error)
   process.exit(1)
 })
-

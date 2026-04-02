@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
+    "check:supabase-media": "node scripts/check-supabase-media.mjs",
     "migrate:supabase-media": "node scripts/migrate-supabase-media.mjs"
   },
   "dependencies": {

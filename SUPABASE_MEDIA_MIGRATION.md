@@ -36,8 +36,33 @@ Catatan:
 ## Menjalankan Script
 
 ```bash
+npm run check:supabase-media
 npm run migrate:supabase-media
 ```
+
+Arti masing-masing:
+
+- `npm run check:supabase-media`
+  untuk audit database dan melihat baris mana yang masih memakai path lokal seperti `/images/...`
+- `npm run migrate:supabase-media`
+  untuk upload file dari `public/` ke Supabase Storage lalu update URL di database
+
+## Kapan Aman Hapus File Lokal
+
+Jalankan:
+
+```bash
+npm run migrate:supabase-media
+npm run check:supabase-media
+```
+
+Kalau hasil `check:supabase-media` menunjukkan:
+
+- `Blogs with local image paths: 0`
+- `Events with local image paths: 0`
+- `Story sections with local image paths: 0`
+
+berarti seluruh media blog/event yang dicek sudah mengarah ke URL remote, bukan lagi ke path lokal `public/...`.
 
 ## Cara Kerja
 
@@ -47,6 +72,7 @@ npm run migrate:supabase-media
   - `/images/2.avif` -> `media/images/2.avif`
   - `/comunity/Geraldez.jpg` -> `media/comunity/Geraldez.jpg`
 - Setelah upload berhasil, database di-update ke public URL Supabase Storage
+- Jika ada path yang sudah berupa `http://` atau `https://`, script migrasi akan skip item tersebut
 
 ## Kalau Script Gagal Di Tengah Jalan
 
