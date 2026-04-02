@@ -74,6 +74,8 @@ export type EventData = {
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+const BLOG_REVALIDATE_SECONDS = 300
+const EVENT_REVALIDATE_SECONDS = 15
 
 function ensureEnv() {
   if (!supabaseUrl || !supabaseAnonKey) {
@@ -81,7 +83,12 @@ function ensureEnv() {
   }
 }
 
-async function supabaseRestFetch<T>(path: string) {
+type SupabaseFetchOptions = {
+  revalidate?: number
+  tags?: string[]
+}
+
+async function supabaseRestFetch<T>(path: string, options?: SupabaseFetchOptions) {
   ensureEnv()
 
   const response = await fetch(`${supabaseUrl}/rest/v1/${path}`, {
@@ -90,7 +97,10 @@ async function supabaseRestFetch<T>(path: string) {
       Authorization: `Bearer ${supabaseAnonKey!}`,
       Accept: "application/json",
     },
-    next: { revalidate: 60 },
+    next: {
+      revalidate: options?.revalidate ?? BLOG_REVALIDATE_SECONDS,
+      tags: options?.tags,
+    },
   })
 
   if (!response.ok) {
@@ -162,7 +172,8 @@ const eventSelect =
 
 export async function getAllBlogsFromSupabase() {
   const rows = await supabaseRestFetch<BlogRow[]>(
-    `blogs?select=${encodeURIComponent(blogSelect)}&order=published_date_display.desc`
+    `blogs?select=${encodeURIComponent(blogSelect)}&order=published_date_display.desc`,
+    { revalidate: BLOG_REVALIDATE_SECONDS, tags: ["blogs"] }
   )
 
   return rows.map(mapBlog)
@@ -170,20 +181,25 @@ export async function getAllBlogsFromSupabase() {
 
 export async function getBlogBySlugFromSupabase(slug: string) {
   const rows = await supabaseRestFetch<BlogRow[]>(
-    `blogs?select=${encodeURIComponent(blogSelect)}&slug=eq.${encodeURIComponent(slug)}&limit=1`
+    `blogs?select=${encodeURIComponent(blogSelect)}&slug=eq.${encodeURIComponent(slug)}&limit=1`,
+    { revalidate: BLOG_REVALIDATE_SECONDS, tags: ["blogs", `blog:${slug}`] }
   )
 
   return rows[0] ? mapBlog(rows[0]) : null
 }
 
 export async function getAllBlogSlugsFromSupabase() {
-  const rows = await supabaseRestFetch<Array<{ slug: string }>>("blogs?select=slug")
+  const rows = await supabaseRestFetch<Array<{ slug: string }>>("blogs?select=slug", {
+    revalidate: BLOG_REVALIDATE_SECONDS,
+    tags: ["blogs"],
+  })
   return rows.map((row) => row.slug)
 }
 
 export async function getAllEventsFromSupabase() {
   const rows = await supabaseRestFetch<EventRow[]>(
-    `events?select=${encodeURIComponent(eventSelect)}&order=name.asc`
+    `events?select=${encodeURIComponent(eventSelect)}&order=name.asc`,
+    { revalidate: EVENT_REVALIDATE_SECONDS, tags: ["events"] }
   )
 
   return rows.map(mapEvent)
@@ -191,13 +207,17 @@ export async function getAllEventsFromSupabase() {
 
 export async function getEventBySlugFromSupabase(slug: string) {
   const rows = await supabaseRestFetch<EventRow[]>(
-    `events?select=${encodeURIComponent(eventSelect)}&slug=eq.${encodeURIComponent(slug)}&limit=1`
+    `events?select=${encodeURIComponent(eventSelect)}&slug=eq.${encodeURIComponent(slug)}&limit=1`,
+    { revalidate: EVENT_REVALIDATE_SECONDS, tags: ["events", `event:${slug}`] }
   )
 
   return rows[0] ? mapEvent(rows[0]) : null
 }
 
 export async function getAllEventSlugsFromSupabase() {
-  const rows = await supabaseRestFetch<Array<{ slug: string }>>("events?select=slug")
+  const rows = await supabaseRestFetch<Array<{ slug: string }>>("events?select=slug", {
+    revalidate: EVENT_REVALIDATE_SECONDS,
+    tags: ["events"],
+  })
   return rows.map((row) => row.slug)
 }
