@@ -323,11 +323,11 @@ export function ServicesSection({ lang }: ServicesSectionProps) {
         </p>
 
         {/* SERVICES CARDS - 8 CARD SESUAI KATEGORI */}
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="mt-8 grid grid-cols-2 gap-4 md:mt-16 md:grid-cols-3 xl:grid-cols-4 md:gap-6">
           {services.map((service, idx) => (
             <div
               key={idx}
-              className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white p-5 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg"
+              className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white p-3 md:p-5 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg"
             >
               {/* Gradient Border */}
               <div className="absolute right-0 top-0 h-full w-[4px] bg-gradient-to-b from-[#2F6DB3] to-blue-400 transition-all duration-500 group-hover:w-full opacity-90" />
@@ -339,7 +339,7 @@ export function ServicesSection({ lang }: ServicesSectionProps) {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-base font-bold text-foreground mb-3 leading-tight">
+                <h3 className="text-[11px] font-bold text-foreground mb-1.5 leading-tight group-hover:text-white transition-colors duration-300 md:text-base md:mb-3">
                   {service.title}
                 </h3>
 
@@ -347,8 +347,8 @@ export function ServicesSection({ lang }: ServicesSectionProps) {
                 <ul className="space-y-1.5">
                   {service.items.map((item, itemIdx) => (
                     <li key={itemIdx} className="flex items-start gap-1.5">
-                      <span className="text-[#2F6DB3] text-xs group-hover:text-white/80 mt-0.5">•</span>
-                      <span className="text-xs text-muted-foreground group-hover:text-white transition-colors duration-300 leading-relaxed">
+                      <span className="text-[#2F6DB3] text-[10px] group-hover:text-white/80 mt-0.5 md:text-xs">•</span>
+                      <span className="text-[10px] text-muted-foreground group-hover:text-white transition-colors duration-300 leading-tight md:text-xs md:leading-relaxed">
                         {item}
                       </span>
                     </li>
@@ -371,11 +371,11 @@ export function ServicesSection({ lang }: ServicesSectionProps) {
           </h3>
 
           {/* STEPS - Menggunakan flexbox dengan justify center untuk simetri */}
-          <div className="mt-16 flex flex-wrap justify-center gap-5">
+          <div className="mt-8 flex flex-wrap justify-center gap-3 md:mt-16 md:gap-5">
             {steps.map((step) => (
               <div 
                 key={step.number} 
-                className="group relative p-4 rounded-xl bg-gradient-to-br from-gray-50 to-white border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-1 overflow-hidden w-full sm:w-[calc(50%-10px)] lg:w-[calc(25%-15px)] xl:w-[calc(25%-15px)]"
+                className="group relative p-3 rounded-xl bg-gradient-to-br from-gray-50 to-white border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-1 overflow-hidden w-[calc(50%-6px)] md:w-[calc(25%-15px)]"
               >
                 {/* Decorative background element */}
                 <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-[#2F6DB3]/10 to-transparent rounded-full -mr-8 -mt-8 group-hover:scale-150 transition-transform duration-500" />

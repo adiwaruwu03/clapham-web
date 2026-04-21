@@ -37,22 +37,22 @@ export function StrengthsSection({ lang }: StrengthsSectionProps) {
           {lang === "id" ? "Mengapa Memilih Kami" : "Why Choose Us"}
         </h2>
 
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid grid-cols-2 gap-4 md:mt-16 md:grid-cols-3 lg:grid-cols-4 md:gap-8">
           {strengths.map((item) => {
             const Icon = item.icon
             return (
-              <div key={item.title} className="group relative overflow-hidden rounded-xl border border-border bg-background p-8 transition-all duration-300 hover:-translate-y-2 hover:border-foreground/20 hover:shadow-xl">
+              <div key={item.title} className="group relative overflow-hidden rounded-xl border border-border bg-background p-4 transition-all duration-300 hover:-translate-y-2 hover:border-foreground/20 hover:shadow-xl md:p-8">
                 {/* Glow background */}
                 <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-gradient-to-br from-transparent via-secondary/20 to-transparent" />
 
                 <div className="relative">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary text-foreground transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
-                    <Icon className="h-5 w-5" />
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-secondary text-foreground transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 md:h-10 md:w-10">
+                    <Icon className="h-4 w-4 md:h-5 md:w-5" />
                   </div>
 
-                  <h3 className="mt-4 text-lg font-semibold text-foreground">{item.title}</h3>
+                  <h3 className="mt-3 text-sm font-semibold text-foreground md:mt-4 md:text-lg">{item.title}</h3>
 
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
+                  <p className="mt-2 text-[10px] leading-relaxed text-muted-foreground md:mt-3 md:text-sm">{item.description}</p>
                 </div>
               </div>
             )

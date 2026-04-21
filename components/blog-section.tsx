@@ -60,7 +60,7 @@ export function BlogSection({ lang = "id" }: BlogSectionProps) {
         </div>
 
         {/* BLOG GRID */}
-        <div className="mt-16 grid gap-8 md:grid-cols-3">
+        <div className="mt-8 grid grid-cols-2 gap-4 md:mt-16 md:grid-cols-3 md:gap-8">
           {articles.map((article) => (
             <Link
               key={article.slug}
@@ -79,36 +79,36 @@ export function BlogSection({ lang = "id" }: BlogSectionProps) {
                   />
 
                   <div className="absolute inset-0 flex items-end bg-gradient-to-t from-foreground/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    <div className="flex w-full items-center justify-between p-5">
-                      <span className="text-sm font-medium text-background">
+                    <div className="flex w-full items-center justify-between p-3 md:p-5">
+                      <span className="text-[10px] font-medium text-background md:text-sm">
                         {lang === "id" ? "Baca Artikel" : "Read Article"}
                       </span>
-                      <ArrowUpRight className="h-4 w-4 text-background" />
+                      <ArrowUpRight className="h-3 w-3 text-background md:h-4 md:w-4" />
                     </div>
                   </div>
                 </div>
 
                 {/* TEXT */}
-                <div className="mt-5">
-                  <div className="flex items-center gap-3">
+                <div className="mt-3 md:mt-5">
+                  <div className="flex items-center gap-2 md:gap-3">
 
-                    <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                    <span className="text-[9px] font-medium uppercase tracking-wider text-muted-foreground md:text-xs">
                       {article.category[lang]}
                     </span>
 
-                    <span className="text-xs text-border">|</span>
+                    <span className="text-[9px] text-border md:text-xs">|</span>
 
-                    <span className="text-xs text-muted-foreground">
+                    <span className="text-[9px] text-muted-foreground md:text-xs">
                       {article.date}
                     </span>
 
                   </div>
 
-                  <h3 className="mt-3 text-lg font-semibold leading-snug text-foreground group-hover:underline text-pretty">
+                  <h3 className="mt-2 text-sm font-semibold leading-snug text-foreground group-hover:underline text-pretty md:mt-3 md:text-lg">
                     {article.title[lang]}
                   </h3>
 
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  <p className="mt-1 line-clamp-2 text-[10px] leading-relaxed text-muted-foreground md:mt-2 md:text-sm">
                     {article.excerpt[lang]}
                   </p>
                 </div>

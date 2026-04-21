@@ -79,11 +79,11 @@ export function Testimoni({ lang }: TestimoniProps) {
         </div>
 
         {/* GRID */}
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid grid-cols-2 gap-4 md:mt-12 md:grid-cols-3 lg:grid-cols-4 md:gap-6">
           {testimonials.map((item, i) => (
             <div
               key={i}
-              className={`flex flex-col rounded-xl border border-border bg-card p-5 text-center h-full
+              className={`flex flex-col rounded-xl border border-border bg-card p-4 text-center h-full
                           shadow-sm transition-transform transform hover:scale-105 hover:shadow-xl
                           ${loaded ? `opacity-100 translate-y-0 transition-all duration-700 delay-[${i * 150}ms]` : "opacity-0 translate-y-5"}`}
             >
@@ -96,14 +96,14 @@ export function Testimoni({ lang }: TestimoniProps) {
               </div>
 
               {/* TEXT */}
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-grow">
+              <p className="text-[10px] text-muted-foreground leading-relaxed mb-3 flex-grow md:text-sm md:mb-4">
                 "{item.text}"
               </p>
 
               {/* AUTHOR */}
               <div>
-                <p className="text-sm font-semibold text-foreground">{item.name}</p>
-                <p className="text-xs text-muted-foreground">{item.company}</p>
+                <p className="text-[11px] font-semibold text-foreground md:text-sm">{item.name}</p>
+                <p className="text-[9px] text-muted-foreground md:text-xs">{item.company}</p>
               </div>
 
             </div>

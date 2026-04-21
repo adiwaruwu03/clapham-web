@@ -153,10 +153,10 @@ export function EventsSection({ lang = "id" }: EventsSectionProps) {
         </div>
 
         {/* Events Grid */}
-        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid grid-cols-2 gap-4 md:mt-12 md:grid-cols-3 md:gap-8">
           {displayed.map((event) => {
             const Card = (
-              <div className="group overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-lg">
+              <div className="group h-full overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-lg">
                 <div className="relative aspect-[3/2] overflow-hidden">
                   <Image
                     src={event.image}
@@ -167,8 +167,8 @@ export function EventsSection({ lang = "id" }: EventsSectionProps) {
                     }`}
                   />
 
-                  <div className="absolute top-4 left-4">
-                    <span className="rounded-full bg-background/90 px-3 py-1 text-xs font-medium text-foreground backdrop-blur-sm">
+                  <div className="absolute top-2 left-2 md:top-4 md:left-4">
+                    <span className="rounded-full bg-background/90 px-2 py-0.5 text-[9px] font-medium text-foreground backdrop-blur-sm md:px-3 md:py-1 md:text-xs">
                       {event.type}
                     </span>
                   </div>
@@ -180,11 +180,11 @@ export function EventsSection({ lang = "id" }: EventsSectionProps) {
                   )}
                 </div>
 
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-foreground group-hover:underline">
+                <div className="p-3 md:p-6">
+                  <h3 className="line-clamp-1 text-sm font-semibold text-foreground group-hover:underline md:text-lg">
                     {event.name}
                   </h3>
-                  <p className="mt-2 text-sm text-muted-foreground">
+                  <p className="mt-1 line-clamp-2 text-[10px] text-muted-foreground md:mt-2 md:text-sm">
                     {event.impact || event.description}
                   </p>
                 </div>
@@ -196,7 +196,7 @@ export function EventsSection({ lang = "id" }: EventsSectionProps) {
                 {Card}
               </Link>
             ) : (
-              <div key={event.slug}>{Card}</div>
+              <div key={event.slug} className="h-full">{Card}</div>
             )
           })}
         </div>
