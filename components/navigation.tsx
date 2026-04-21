@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback, memo } from "react"
 import { Home, Briefcase, Calendar, Info, FileText, Phone } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -21,52 +21,91 @@ interface NavigationProps {
 
 export function Navigation({ lang, setLang }: NavigationProps) {
   const [scrolled, setScrolled] = useState(false)
-  const [activeSection, setActiveSection] = useState<string>("")
+  const [activeSection, setActiveSection] = useState<string>("#home")
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
+    // 1. Logic to track which section is most visible
+    const visibleSections = new Map<string, number>()
 
-      let currentSection = ""
-      navLinks.forEach((link) => {
-        const section = document.querySelector(link.href)
-        if (section instanceof HTMLElement) {
-          const rect = section.getBoundingClientRect()
-          if (rect.top <= 120 && rect.bottom >= 120) {
-            currentSection = link.href
-          }
+    const observerOptions = {
+      root: null,
+      rootMargin: "-15% 0px -25% 0px", // Focus on the upper-middle part of the screen
+      threshold: [0, 0.1, 0.5, 1.0]
+    }
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          visibleSections.set(entry.target.id, entry.intersectionRatio)
+        } else {
+          visibleSections.delete(entry.target.id)
         }
       })
-      setActiveSection(currentSection)
+
+      // Find the most visible section
+      let mostVisible = activeSection.substring(1)
+      let maxRatio = 0
+      
+      visibleSections.forEach((ratio, id) => {
+        if (ratio > maxRatio) {
+          maxRatio = ratio
+          mostVisible = id
+        }
+      })
+      
+      const newActive = `#${mostVisible}`
+      setActiveSection(prev => prev !== newActive ? newActive : prev)
     }
 
-    window.addEventListener("scroll", handleScroll)
-    handleScroll()
+    const observer = new IntersectionObserver(observerCallback, observerOptions)
+    
+    // Track all sections
+    navLinks.forEach(link => {
+      const element = document.getElementById(link.href.substring(1))
+      if (element) observer.observe(element)
+    })
+
+    // 2. Separate scroll listener just for the header background
+    let ticking = false
+    const handleHeaderScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 40)
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+
+    window.addEventListener("scroll", handleHeaderScroll, { passive: true })
+    handleHeaderScroll()
 
     return () => {
-      window.removeEventListener("scroll", handleScroll)
+      observer.disconnect()
+      window.removeEventListener("scroll", handleHeaderScroll)
     }
-  }, [])
+  }, []) // Remove activeSection dependency to prevent re-creating observer on every section change
+
+  const isHeaderWhite = scrolled || (activeSection !== "#home")
 
   return (
     <>
       <header
-        className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-          scrolled || activeSection !== "#home" && activeSection !== ""
+        className={`fixed top-0 z-[100] w-full gpu-layer transition-all duration-300 ${
+          isHeaderWhite
             ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100"
-            : "bg-transparent lg:bg-transparent bg-white/10 backdrop-blur-sm lg:backdrop-blur-none"
+            : "bg-transparent lg:bg-transparent lg:backdrop-blur-none backdrop-blur-sm"
         }`}
       >
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 lg:py-4 lg:px-8">
-          {/* LOGO */}
-          <Link href="#home" className="flex items-center">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 h-16 lg:h-20 lg:px-8">
+          <Link href="#home" className="flex items-center transition-opacity hover:opacity-80">
             <Image
-              src={scrolled || (activeSection !== "#home" && activeSection !== "") ? "/logo-clapham-2.png" : "/logo-clapham-white.png"}
+              src={isHeaderWhite ? "/logo-clapham-2.png" : "/logo-clapham-white.png"}
               alt="Clapham Collective"
-              width={200}
-              height={60}
+              width={180}
+              height={50}
               priority
-              className="h-8 w-auto lg:h-9"
+              className="h-8 lg:h-9 w-auto object-contain"
             />
           </Link>
 
@@ -76,132 +115,93 @@ export function Navigation({ lang, setLang }: NavigationProps) {
               <a
                 key={link.href}
                 href={link.href}
-                className={`relative text-sm font-medium transition-colors duration-300 ${
+                className={`relative text-sm font-semibold transition-colors duration-200 ${
                   activeSection === link.href
-                    ? scrolled || activeSection !== "#home"
-                      ? "text-black"
-                      : "text-white"
-                    : scrolled || activeSection !== "#home"
-                    ? "text-gray-600 hover:text-black"
-                    : "text-white/80 hover:text-white"
+                    ? isHeaderWhite ? "text-black" : "text-white"
+                    : isHeaderWhite ? "text-gray-500 hover:text-black" : "text-white/70 hover:text-white"
                 }`}
               >
                 {lang === "id" ? link.labelId : link.labelEn}
-                <span
-                  className={`absolute left-0 -bottom-1 h-[2px] w-full origin-left transition-transform duration-300 ${
-                    activeSection === link.href
-                      ? "scale-x-100 bg-current"
-                      : "scale-x-0 bg-current"
-                  }`}
-                />
+                <span className={`absolute left-0 -bottom-1 h-0.5 w-full bg-blue-600 transition-transform duration-300 ${activeSection === link.href ? "scale-x-100" : "scale-x-0"}`} />
               </a>
             ))}
 
-            {/* Language Toggle Desktop */}
-            <div className="ml-4">
-              <div
-                className={`relative flex w-[88px] h-9 items-center rounded-full p-1 ${
-                  scrolled || activeSection !== "#home" ? "bg-gray-200" : "bg-white/20"
-                }`}
-              >
-                <div
-                  className={`absolute top-[3px] left-[3px] h-7 w-[41px] rounded-full bg-blue-500 shadow-md transition-transform duration-300 ${
-                    lang === "en" ? "translate-x-[41px]" : "translate-x-0"
-                  }`}
-                />
-                <button
-                  onClick={() => setLang("id")}
-                  className="relative z-20 flex-1 text-sm font-semibold text-center transition-colors"
-                  style={{
-                    color: lang === "id" 
-                      ? "#ffffff" 
-                      : scrolled || activeSection !== "#home"
-                        ? "#4b5563" 
-                        : "#ffffffcc"
-                  }}
-                >
-                  ID
-                </button>
-                <button
-                  onClick={() => setLang("en")}
-                  className="relative z-20 flex-1 text-sm font-semibold text-center transition-colors"
-                  style={{
-                    color: lang === "en" 
-                      ? "#ffffff" 
-                      : scrolled || activeSection !== "#home"
-                        ? "#4b5563" 
-                        : "#ffffffcc"
-                  }}
-                >
-                  EN
-                </button>
-              </div>
+            <div className="ml-4 flex items-center">
+               <LanguageToggle lang={lang} setLang={setLang} isHeaderWhite={isHeaderWhite} />
             </div>
           </div>
 
           {/* Mobile Language Toggle */}
-          <div className="flex items-center lg:hidden">
-            <div
-              className={`relative flex w-[76px] h-8 items-center rounded-full p-1 ${
-                scrolled || activeSection !== "#home" ? "bg-gray-200" : "bg-white/20"
-              }`}
-            >
-              <div
-                className={`absolute top-[3px] left-[3px] h-[26px] w-[34px] rounded-full bg-blue-500 shadow-md transition-transform duration-300 ${
-                  lang === "en" ? "translate-x-[36px]" : "translate-x-0"
-                }`}
-              />
-              <button
-                onClick={() => setLang("id")}
-                className="relative z-20 flex-1 text-xs font-semibold text-center transition-colors"
-                style={{
-                  color: lang === "id" ? "#ffffff" : scrolled || activeSection !== "#home" ? "#4b5563" : "#ffffffcc"
-                }}
-              >
-                ID
-              </button>
-              <button
-                onClick={() => setLang("en")}
-                className="relative z-20 flex-1 text-xs font-semibold text-center transition-colors"
-                style={{
-                  color: lang === "en" ? "#ffffff" : scrolled || activeSection !== "#home" ? "#4b5563" : "#ffffffcc"
-                }}
-              >
-                EN
-              </button>
-            </div>
+          <div className="lg:hidden">
+            <LanguageToggle lang={lang} setLang={setLang} isHeaderWhite={isHeaderWhite} mobile />
           </div>
         </nav>
       </header>
 
-      {/* Mobile Bottom Navigation */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-[0_-4px_10px_rgba(0,0,0,0.05)] lg:hidden pb-safe">
-        <div className="flex px-1 items-center justify-around overflow-x-auto no-scrollbar">
-          {navLinks.map((link) => {
-            const Icon = link.icon
-            const isActive = activeSection === link.href || (activeSection === "" && link.href === "#home")
-            
-            return (
-              <a
-                key={link.href}
-                href={link.href}
-                className={`flex flex-col items-center justify-center w-16 min-w-[60px] py-3 gap-1 relative ${
-                  isActive ? "text-blue-600" : "text-gray-500"
-                }`}
-              >
-                <Icon size={20} className={`transition-all duration-300 ${isActive ? "scale-110 mb-0.5" : ""}`} />
-                <span className={`text-[9px] font-medium transition-all duration-300 text-center uppercase tracking-wider ${isActive ? "opacity-100" : "opacity-70"}`}>
-                  {lang === "id" ? link.labelId : link.labelEn}
-                </span>
-                {isActive && (
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-[2px] rounded-t-full bg-blue-600" />
-                )}
-              </a>
-            )
-          })}
+      {/* Mobile Bottom Navigation - High Performance & Always Visible */}
+      <nav 
+        className="fixed bottom-0 left-0 right-0 z-[100] bg-white border-t border-gray-100 shadow-[0_-4px_20px_rgba(0,0,0,0.1)] lg:hidden gpu-layer"
+        style={{ 
+          paddingBottom: "env(safe-area-inset-bottom)",
+          height: "calc(64px + env(safe-area-inset-bottom))"
+        }}
+      >
+        <div className="flex items-center justify-around h-16 px-2 max-w-md mx-auto">
+          {navLinks.map((link) => (
+            <BottomNavItem 
+              key={link.href} 
+              link={link} 
+              lang={lang} 
+              isActive={activeSection === link.href} 
+            />
+          ))}
         </div>
-      </div>
-{/* Added empty styles for pb-safe logic if needed, we assume standard padding handles it */}
+      </nav>
     </>
   )
 }
+
+const BottomNavItem = memo(({ link, lang, isActive }: { link: typeof navLinks[0], lang: string, isActive: boolean }) => {
+  const Icon = link.icon
+  return (
+    <a
+      href={link.href}
+      className={`flex flex-col items-center justify-center flex-1 h-full transition-colors duration-300 relative ${
+        isActive ? "text-blue-600" : "text-gray-400"
+      }`}
+    >
+      <div className={`transition-transform duration-300 ease-out ${isActive ? "-translate-y-1 scale-110" : ""}`}>
+        <Icon size={20} strokeWidth={2} />
+      </div>
+      <span className={`text-[10px] font-bold mt-1 transition-all duration-300 ${isActive ? "opacity-100" : "opacity-60"}`}>
+        {lang === "id" ? link.labelId : link.labelEn}
+      </span>
+      {isActive && (
+        <div className="absolute top-0 w-8 h-0.5 bg-blue-600 rounded-b-full shadow-[0_1px_4px_rgba(37,99,235,0.3)]" />
+      )}
+    </a>
+  )
+})
+BottomNavItem.displayName = "BottomNavItem"
+
+const LanguageToggle = ({ lang, setLang, isHeaderWhite, mobile }: { lang: "id" | "en", setLang: (l: "id" | "en") => void, isHeaderWhite: boolean, mobile?: boolean }) => (
+  <div className={`relative flex items-center rounded-full p-1 transition-colors duration-300 ${
+    mobile ? "w-[76px] h-8" : "w-[88px] h-9"
+  } ${isHeaderWhite ? "bg-gray-100" : "bg-white/20"}`}>
+    <div className={`absolute top-1 left-1 bottom-1 rounded-full bg-blue-600 shadow-sm transition-transform duration-300 ease-out will-change-transform ${
+      mobile ? "w-[34px]" : "w-[40px]"
+    } ${lang === "en" ? (mobile ? "translate-x-[36px]" : "translate-x-[40px]") : "translate-x-0"}`} />
+    <button 
+      onClick={() => setLang("id")} 
+      className={`relative z-10 flex-1 text-center font-bold transition-colors duration-300 ${
+        mobile ? "text-[10px]" : "text-xs"
+      } ${lang === "id" ? "text-white" : isHeaderWhite ? "text-gray-500" : "text-white/70"}`}
+    >ID</button>
+    <button 
+      onClick={() => setLang("en")} 
+      className={`relative z-10 flex-1 text-center font-bold transition-colors duration-300 ${
+        mobile ? "text-[10px]" : "text-xs"
+      } ${lang === "en" ? "text-white" : isHeaderWhite ? "text-gray-500" : "text-white/70"}`}
+    >EN</button>
+  </div>
+)

@@ -168,12 +168,29 @@
 
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Offset for fixed header */
+    -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
+  }
+
   * {
     @apply border-border outline-ring/50;
   }
 
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* GPU Acceleration for smooth fixed elements */
+  .gpu-layer {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    will-change: transform, opacity;
   }
 }
 .reveal {

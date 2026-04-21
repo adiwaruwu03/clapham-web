@@ -66,7 +66,7 @@ export function ContactSection({ lang = "id" }: ContactSectionProps) {
 
           <form
             onSubmit={handleSubmit}
-            className="space-y-6 rounded-xl border border-border bg-background p-8"
+            className="space-y-6 rounded-xl border border-border bg-background p-5 sm:p-8"
           >
             <div className="grid gap-6 sm:grid-cols-2">
               <div className="space-y-2">
