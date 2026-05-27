@@ -24,7 +24,7 @@ export default function HomePage() {
   const [lang, setLang] = useState<"id" | "en">("id") // default bahasa Indonesia
 
   return (
-    <main className="pb-16 lg:pb-0 overflow-x-hidden">
+    <main className="pb-32 lg:pb-0 overflow-x-hidden">
       {/* Navbar sekarang pegang bahasa */}
       <Navigation lang={lang} setLang={setLang} />
 

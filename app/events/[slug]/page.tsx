@@ -3,6 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, Calendar, MapPin, Users, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { EventGallery } from "@/components/event-gallery"
 import {
   getAllEventSlugsFromSupabase,
   getEventBySlugFromSupabase,
@@ -121,24 +122,11 @@ export default async function EventDetailPage({
             {/* Gallery */}
             {event.gallery.length > 1 && (
               <div className="mt-16">
-                <h2 className="font-serif text-2xl font-bold text-foreground">
-                  Galeri
-                </h2>
-                <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                  {event.gallery.map((img, i) => (
-                    <div
-                      key={i}
-                      className="relative aspect-[3/2] overflow-hidden rounded-xl"
-                    >
-                      <Image
-                        src={img}
-                        alt={`${event.name} gallery ${i + 1}`}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  ))}
-                </div>
+                <EventGallery
+                  images={event.gallery}
+                  alt={event.name}
+                  heading="Galeri"
+                />
               </div>
             )}
           </div>

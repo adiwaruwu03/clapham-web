@@ -109,8 +109,8 @@ export function HeroSection({ lang = "id" }: HeroSectionProps) {
           </div>
         </div>
 
-        {/* Slide indicators */}
-        <div className="absolute bottom-6 left-4 flex items-center gap-4 sm:bottom-8 sm:left-6 lg:bottom-12 lg:left-8">
+        {/* Slide indicators - Moved up on mobile to avoid overlapping with bottom nav */}
+        <div className="absolute bottom-24 left-4 flex items-center gap-4 sm:bottom-8 sm:left-6 lg:bottom-12 lg:left-8">
           <div className="flex gap-2">
             {slides.map((_, i) => (
               <button
@@ -128,8 +128,8 @@ export function HeroSection({ lang = "id" }: HeroSectionProps) {
           </span>
         </div>
 
-        {/* Navigation */}
-        <div className="absolute right-4 bottom-6 flex gap-2 sm:right-6 sm:bottom-8 lg:right-8 lg:bottom-12">
+        {/* Navigation - Moved up on mobile */}
+        <div className="absolute right-4 bottom-24 flex gap-2 sm:right-6 sm:bottom-8 lg:right-8 lg:bottom-12">
           <button
             onClick={prev}
             className="flex h-10 w-10 items-center justify-center rounded-full border border-white/50 text-white/70 transition-colors hover:bg-white/10 hover:text-white"

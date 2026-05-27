@@ -138,15 +138,12 @@ export function Navigation({ lang, setLang }: NavigationProps) {
         </nav>
       </header>
 
-      {/* Mobile Bottom Navigation - High Performance & Always Visible */}
+      {/* Mobile Bottom Navigation - Modern Floating Pill Design */}
       <nav 
-        className="fixed bottom-0 left-0 right-0 z-[100] bg-white border-t border-gray-100 shadow-[0_-4px_20px_rgba(0,0,0,0.1)] lg:hidden gpu-layer"
-        style={{ 
-          paddingBottom: "env(safe-area-inset-bottom)",
-          height: "calc(64px + env(safe-area-inset-bottom))"
-        }}
+        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] w-[92%] max-w-md lg:hidden gpu-layer"
       >
-        <div className="flex items-center justify-around h-16 px-2 max-w-md mx-auto">
+        <div className="bg-white/80 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.12)] rounded-2xl h-16 px-2 flex items-center justify-around relative overflow-hidden">
+          {/* Active indicator background bubble - optional, but let's do it per item for simplicity or a sliding one */}
           {navLinks.map((link) => (
             <BottomNavItem 
               key={link.href} 
@@ -166,18 +163,28 @@ const BottomNavItem = memo(({ link, lang, isActive }: { link: typeof navLinks[0]
   return (
     <a
       href={link.href}
-      className={`flex flex-col items-center justify-center flex-1 h-full transition-colors duration-300 relative ${
-        isActive ? "text-blue-600" : "text-gray-400"
+      className={`flex flex-col items-center justify-center flex-1 h-full transition-all duration-300 relative rounded-xl tap-highlight-transparent ${
+        isActive ? "text-blue-600" : "text-gray-500 hover:text-blue-400"
       }`}
     >
-      <div className={`transition-transform duration-300 ease-out ${isActive ? "-translate-y-1 scale-110" : ""}`}>
-        <Icon size={20} strokeWidth={2} />
+      {/* Active Highlight Bubble with subtle glow */}
+      {isActive && (
+        <div className="absolute inset-x-1.5 inset-y-2.5 bg-blue-50/90 rounded-xl -z-10 animate-in fade-in zoom-in duration-500 shadow-[0_0_15px_rgba(37,99,235,0.1)]" />
+      )}
+      
+      <div className={`transition-all duration-300 ease-out ${isActive ? "-translate-y-1 scale-110" : "hover:scale-105"}`}>
+        <Icon size={isActive ? 22 : 20} strokeWidth={isActive ? 2.5 : 2} className="transition-all duration-300" />
       </div>
-      <span className={`text-[10px] font-bold mt-1 transition-all duration-300 ${isActive ? "opacity-100" : "opacity-60"}`}>
+      
+      <span className={`text-[10px] font-bold mt-1.5 transition-all duration-300 tracking-tight ${
+        isActive ? "opacity-100 transform translate-y-0" : "opacity-60 transform translate-y-0.5"
+      }`}>
         {lang === "id" ? link.labelId : link.labelEn}
       </span>
+      
+      {/* Tiny active dot at the very bottom */}
       {isActive && (
-        <div className="absolute top-0 w-8 h-0.5 bg-blue-600 rounded-b-full shadow-[0_1px_4px_rgba(37,99,235,0.3)]" />
+        <div className="absolute bottom-1 w-1 h-1 bg-blue-600 rounded-full animate-in fade-in slide-in-from-bottom-1 duration-500" />
       )}
     </a>
   )

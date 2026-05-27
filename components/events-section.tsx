@@ -1,10 +1,11 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, ZoomIn } from "lucide-react"
 import type { EventData } from "@/lib/supabase-content"
+import { PhotoLightbox } from "./photo-lightbox"
 
 // Teks bilingual
 const texts = {
@@ -69,6 +70,7 @@ export function EventsSection({ lang = "id" }: EventsSectionProps) {
   const [events, setEvents] = useState<EventData[]>([])
   const [active, setActive] = useState<string | null>(null) // initial null biar semua muncul
   const [showAll, setShowAll] = useState(false)
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
 
   // pastikan default active sesuai bahasa
   useEffect(() => {
@@ -119,6 +121,27 @@ export function EventsSection({ lang = "id" }: EventsSectionProps) {
   const orderedEvents = isAllFilter ? orderPinnedEventsFirst(filtered) : filtered
   const displayed = showAll ? orderedEvents : orderedEvents.slice(0, 9)
 
+  // Event tanpa halaman detail -> bisa di-popup. Kumpulkan untuk navigasi prev/next.
+  const popupEvents = useMemo(
+    () => displayed.filter((e) => !e.hasDetail),
+    [displayed]
+  )
+
+  const lightboxImages = useMemo(
+    () =>
+      popupEvents.map((e) => ({
+        src: e.image,
+        alt: e.name,
+        caption: e.name,
+      })),
+    [popupEvents]
+  )
+
+  const openPopupForEvent = (slug: string) => {
+    const idx = popupEvents.findIndex((e) => e.slug === slug)
+    if (idx !== -1) setLightboxIndex(idx)
+  }
+
   return (
     <section id="events" className="bg-background py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -162,9 +185,7 @@ export function EventsSection({ lang = "id" }: EventsSectionProps) {
                     src={event.image}
                     alt={event.name}
                     fill
-                    className={`object-cover transition-transform duration-500 ${
-                      event.hasDetail ? "group-hover:scale-105" : ""
-                    }`}
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
 
                   <div className="absolute top-2 left-2 md:top-4 md:left-4">
@@ -176,6 +197,12 @@ export function EventsSection({ lang = "id" }: EventsSectionProps) {
                   {event.hasDetail && (
                     <div className="absolute right-4 bottom-4 flex h-9 w-9 items-center justify-center rounded-full bg-background/90 opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100">
                       <ArrowUpRight className="h-4 w-4 text-foreground" />
+                    </div>
+                  )}
+
+                  {!event.hasDetail && (
+                    <div className="absolute right-4 bottom-4 flex h-9 w-9 items-center justify-center rounded-full bg-background/90 opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100">
+                      <ZoomIn className="h-4 w-4 text-foreground" />
                     </div>
                   )}
                 </div>
@@ -196,7 +223,15 @@ export function EventsSection({ lang = "id" }: EventsSectionProps) {
                 {Card}
               </Link>
             ) : (
-              <div key={event.slug} className="h-full">{Card}</div>
+              <button
+                key={event.slug}
+                type="button"
+                onClick={() => openPopupForEvent(event.slug)}
+                aria-label={`Buka foto ${event.name}`}
+                className="h-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 rounded-xl"
+              >
+                {Card}
+              </button>
             )
           })}
         </div>
@@ -213,6 +248,13 @@ export function EventsSection({ lang = "id" }: EventsSectionProps) {
           </div>
         )}
       </div>
+
+      <PhotoLightbox
+        images={lightboxImages}
+        openIndex={lightboxIndex}
+        onClose={() => setLightboxIndex(null)}
+        onIndexChange={setLightboxIndex}
+      />
     </section>
   )
 }
